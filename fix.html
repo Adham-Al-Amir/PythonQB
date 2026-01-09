@@ -1,0 +1,1431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python - Fix the Error</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --correct-color: #10b981;
+            --incorrect-color: #ef4444;
+            --warning-color: #f59e0b;
+            --light-bg: #f8fafc;
+            --dark-text: #1e293b;
+            --light-text: #64748b;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--dark-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-weight: 800;
+        }
+
+        h1 i {
+            color: var(--secondary-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Question Card Styling */
+        .question-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            animation: fadeIn 0.5s ease-out;
+            border: 1px solid #e2e8f0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f1f5f9;
+        }
+
+        .question-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+            line-height: 1.8;
+        }
+
+        .problem-statement {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .problem-statement i {
+            color: var(--warning-color);
+            margin-right: 10px;
+        }
+
+        /* Code Editor Styling */
+        .code-section {
+            margin: 30px 0;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+        }
+
+        .code-editor {
+            background-color: #0f172a;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .editor-header {
+            background-color: #1e293b;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        .editor-title {
+            color: #e2e8f0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .editor-title i {
+            color: var(--primary-color);
+        }
+
+        .reset-btn {
+            background-color: #475569;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .reset-btn:hover {
+            background-color: #64748b;
+        }
+
+        .code-area {
+            width: 100%;
+            min-height: 200px;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding: 20px;
+            border: none;
+            resize: vertical;
+            outline: none;
+            white-space: pre-wrap;
+            tab-size: 4;
+        }
+
+        .code-area:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: -2px;
+        }
+
+        .hint-box {
+            background-color: #fef3c7;
+            border-left: 4px solid var(--warning-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            display: none;
+        }
+
+        .hint-box i {
+            color: var(--warning-color);
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        .hint-content h4 {
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+
+        .hint-content p {
+            color: #92400e;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            color: var(--dark-text);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--correct-color), #34d399);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Feedback Section */
+        .feedback {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            font-weight: 600;
+            animation: slideIn 0.4s ease-out;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            display: none;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feedback.correct {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            color: #065f46;
+            border-left: 6px solid var(--correct-color);
+        }
+
+        .feedback.incorrect {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #991b1b;
+            border-left: 6px solid var(--incorrect-color);
+        }
+
+        .feedback i {
+            font-size: 1.8rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .feedback-content {
+            flex-grow: 1;
+        }
+
+        .feedback-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .solution-code {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        /* Solution Panel - HIDDEN BY DEFAULT */
+        .solution-panel {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+            border: 1px solid #e2e8f0;
+            display: none; /* Hidden by default */
+        }
+
+        .solution-panel.visible {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .solution-panel h2 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .solution-panel h2 i {
+            color: var(--secondary-color);
+        }
+
+        .correct-solution {
+            background-color: #f0f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--correct-color);
+        }
+
+        .correct-solution h3 {
+            color: var(--correct-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .correct-solution-code {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            margin-top: 15px;
+        }
+
+        .explanation {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px solid #f1f5f9;
+        }
+
+        .explanation h3 {
+            color: var(--dark-text);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .explanation p {
+            color: var(--light-text);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        /* Navigation Buttons */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 3px solid #f1f5f9;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            margin-top: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stats-panel h2 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stats-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .stats-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .stats-label {
+            color: var(--light-text);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stats-label i {
+            width: 24px;
+            color: var(--primary-color);
+        }
+
+        .stats-value {
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+        .correct-stat {
+            color: var(--correct-color);
+        }
+
+        .incorrect-stat {
+            color: var(--incorrect-color);
+        }
+
+        .progress-container {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 3px solid #f1f5f9;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background-color: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-panel {
+                position: static;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .question-card {
+                padding: 25px;
+            }
+            
+            .question-text {
+                font-size: 1.3rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .question-card {
+                padding: 20px;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .code-area {
+                font-size: 0.9rem;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-bug"></i> Python - Fix the Error</h1>
+            <p class="subtitle">Practice debugging Python code. Fix the errors in the code snippets below and check your solution.</p>
+        </header>
+
+        <main>
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Error Fix <span id="current-question">1</span> of <span id="total-questions">12</span></div>
+                </div>
+                
+                <div class="question-text" id="question-text">Loading error fixing challenges...</div>
+                
+                <div class="problem-statement">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="problem-description">The following code has an error. Find and fix it.</span>
+                </div>
+                
+                <div class="code-section">
+                    <div class="section-title">
+                        <i class="fas fa-code"></i>
+                        <span>Broken Code</span>
+                    </div>
+                    
+                    <div class="code-editor">
+                        <div class="editor-header">
+                            <div class="editor-title">
+                                <i class="fas fa-file-code"></i>
+                                <span>Fix this code:</span>
+                            </div>
+                            <button class="reset-btn" id="reset-btn">
+                                <i class="fas fa-redo"></i>
+                                Reset
+                            </button>
+                        </div>
+                        <textarea class="code-area" id="code-input" placeholder="Write your corrected code here..." spellcheck="false"></textarea>
+                    </div>
+                    
+                    <div class="hint-box" id="hint-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="hint-content">
+                            <h4>Hint</h4>
+                            <p id="hint-text">Look for syntax errors and logical mistakes in the code.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="show-hint-btn">
+                        <i class="fas fa-lightbulb"></i>
+                        Show Hint
+                    </button>
+                    <button class="btn btn-primary" id="check-btn">
+                        <i class="fas fa-check-circle"></i>
+                        Check Solution
+                    </button>
+                    <button class="btn btn-success" id="show-solution-btn">
+                        <i class="fas fa-eye"></i>
+                        Show Solution
+                    </button>
+                </div>
+                
+                <div class="feedback" id="feedback">
+                    <!-- Feedback will be shown here -->
+                </div>
+                
+                <div class="navigation">
+                    <button class="btn btn-secondary" id="prev-btn" disabled>
+                        <i class="fas fa-arrow-left"></i> Previous Error
+                    </button>
+                    <button class="btn btn-primary" id="next-btn">
+                        Next Error <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="stats-panel">
+                <h2><i class="fas fa-chart-line"></i> Your Progress</h2>
+                
+                <div class="stats-item">
+                    <span class="stats-label">
+                        <i class="fas fa-bug"></i>
+                        Errors Fixed
+                    </span>
+                    <span class="stats-value" id="fixed-count">0</span>
+                </div>
+                
+                <div class="stats-item">
+                    <span class="stats-label">
+                        <i class="fas fa-check-circle"></i>
+                        Correct Fixes
+                    </span>
+                    <span class="stats-value correct-stat" id="correct-count">0</span>
+                </div>
+                
+                <div class="stats-item">
+                    <span class="stats-label">
+                        <i class="fas fa-times-circle"></i>
+                        Attempts Needed
+                    </span>
+                    <span class="stats-value incorrect-stat" id="attempts-count">0</span>
+                </div>
+                
+                <div class="stats-item">
+                    <span class="stats-label">
+                        <i class="fas fa-star"></i>
+                        Success Rate
+                    </span>
+                    <span class="stats-value" id="success-rate">0%</span>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="solution-panel" id="solution-panel">
+            <h2><i class="fas fa-graduation-cap"></i> Solution Guide</h2>
+            
+            <div class="correct-solution">
+                <h3><i class="fas fa-check"></i> Correct Solution</h3>
+                <div class="correct-solution-code" id="solution-code">
+                    # Solution will appear here when you click "Show Solution"
+                </div>
+            </div>
+            
+            <div class="explanation">
+                <h3><i class="fas fa-info-circle"></i> Explanation</h3>
+                <p id="explanation-text">Click "Show Solution" to see the explanation here.</p>
+                <p id="error-type">Error Type: <span id="error-type-value">Unknown</span></p>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // All "Fix the Error" questions from the PDF
+        const errorFixQuestions = [
+            {
+                id: 1,
+                title: "Swap Numbers Error",
+                description: "The following code should swap two numbers, but it doesn't work correctly. Fix it.",
+                brokenCode: `a = 5
+b = 10
+a = b
+b = a
+print(a, b)`,
+                correctSolution: `a = 5
+b = 10
+# Method 1: Using temporary variable
+temp = a
+a = b
+b = temp
+# Method 2: Using simultaneous assignment
+# a, b = b, a
+print(a, b)`,
+                // Multiple acceptable solutions
+                acceptableSolutions: [
+                    `a = 5\nb = 10\ntemp = a\na = b\nb = temp\nprint(a, b)`,
+                    `a = 5\nb = 10\na, b = b, a\nprint(a, b)`,
+                    `a = 5\nb = 10\nt = a\na = b\nb = t\nprint(a, b)`,
+                    `a = 5\nb = 10\nc = a\na = b\nb = c\nprint(a, b)`
+                ],
+                hint: "The current code makes both variables equal to the same value. You need a temporary variable or use Python's tuple unpacking.",
+                explanation: "The original code fails because after 'a = b', both variables have the same value (10). Then 'b = a' doesn't change anything. You need a temporary variable to store the original value of 'a' before reassigning it.",
+                errorType: "Logical Error"
+            },
+            {
+                id: 2,
+                title: "Comparison Operator Error",
+                description: "Find and fix the error in the following code:",
+                brokenCode: `x = 10
+if x = 10:
+    print("x is 10")`,
+                correctSolution: `x = 10
+if x == 10:  # Use == for comparison
+    print("x is 10")`,
+                acceptableSolutions: [
+                    `x = 10\nif x == 10:\n    print("x is 10")`,
+                    `x = 10\nif x==10:\n    print("x is 10")`,
+                    `x = 10\nif (x == 10):\n    print("x is 10")`
+                ],
+                hint: "Look at the comparison in the if statement. What's the difference between = and == in Python?",
+                explanation: "In Python, '=' is the assignment operator, while '==' is the equality comparison operator. The if statement needs '==' to compare values.",
+                errorType: "Syntax Error"
+            },
+            {
+                id: 3,
+                title: "Type Conversion Error",
+                description: "Fix the error in the following code that compares user input:",
+                brokenCode: `age = input("Enter age: ")
+if age >= 18:
+    print("Adult")`,
+                correctSolution: `age = int(input("Enter age: "))
+if age >= 18:
+    print("Adult")`,
+                acceptableSolutions: [
+                    `age = int(input("Enter age: "))\nif age >= 18:\n    print("Adult")`,
+                    `age = input("Enter age: ")\nage = int(age)\nif age >= 18:\n    print("Adult")`,
+                    `a = int(input("Enter age: "))\nif a >= 18:\n    print("Adult")`
+                ],
+                hint: "The input() function returns a string. You need to convert it to an integer for numerical comparison.",
+                explanation: "The input() function always returns a string. When comparing 'age >= 18', Python cannot compare a string with an integer. You need to convert the string to an integer using int().",
+                errorType: "TypeError"
+            },
+            {
+                id: 4,
+                title: "Missing Colon in Function",
+                description: "Fix the syntax error in this function definition:",
+                brokenCode: `def greet(name)
+    print("Hello, " + name)
+
+greet("Alice")`,
+                correctSolution: `def greet(name):
+    print("Hello, " + name)
+
+greet("Alice")`,
+                acceptableSolutions: [
+                    `def greet(name):\n    print("Hello, " + name)\n\ngreet("Alice")`,
+                    `def greet(name):\n    print("Hello, "+name)\n\ngreet("Alice")`,
+                    `def greet(name):\n    print(\"Hello, \" + name)\n\ngreet(\"Alice\")`
+                ],
+                hint: "Function definitions in Python require a specific punctuation mark at the end of the first line.",
+                explanation: "In Python, function definitions must end with a colon (:) after the parameter list. This is a common syntax error for beginners.",
+                errorType: "Syntax Error"
+            },
+            {
+                id: 5,
+                title: "Incorrect Indentation",
+                description: "Fix the indentation error in this code:",
+                brokenCode: `x = 5
+if x > 3:
+print("x is greater than 3")`,
+                correctSolution: `x = 5
+if x > 3:
+    print("x is greater than 3")`,
+                acceptableSolutions: [
+                    `x = 5\nif x > 3:\n    print("x is greater than 3")`,
+                    `x = 5\nif x > 3:\n  print("x is greater than 3")`,
+                    `x = 5\nif x > 3:\n\tprint("x is greater than 3")`
+                ],
+                hint: "Python uses indentation to define code blocks. Check the indentation of the print statement.",
+                explanation: "In Python, indentation is not just for readability - it defines code blocks. The code inside the if statement must be indented (usually 4 spaces or a tab).",
+                errorType: "IndentationError"
+            },
+            {
+                id: 6,
+                title: "Undefined Variable",
+                description: "Fix the NameError in this function:",
+                brokenCode: `def calculate_area(radius):
+    area = 3.14 * radius * radius
+    print("Area is:", a)
+
+calculate_area(5)`,
+                correctSolution: `def calculate_area(radius):
+    area = 3.14 * radius * radius
+    print("Area is:", area)
+
+calculate_area(5)`,
+                acceptableSolutions: [
+                    `def calculate_area(radius):\n    area = 3.14 * radius * radius\n    print("Area is:", area)\n\ncalculate_area(5)`,
+                    `def calculate_area(r):\n    area = 3.14 * r * r\n    print("Area is:", area)\n\ncalculate_area(5)`,
+                    `def calculate_area(radius):\n    a = 3.14 * radius * radius\n    print("Area is:", a)\n\ncalculate_area(5)`
+                ],
+                hint: "Look at the variable name used in the print statement. Is it the same as the one that was calculated?",
+                explanation: "The code calculates 'area' but tries to print 'a', which is undefined. The variable names must match exactly (Python is case-sensitive).",
+                errorType: "NameError"
+            },
+            {
+                id: 7,
+                title: "Type Error with Input",
+                description: "Fix the TypeError when comparing string and integer:",
+                brokenCode: `age = input("Enter your age: ")
+if age > 18:
+    print("You're an adult")`,
+                correctSolution: `age = int(input("Enter your age: "))
+if age > 18:
+    print("You're an adult")`,
+                acceptableSolutions: [
+                    `age = int(input("Enter your age: "))\nif age > 18:\n    print("You're an adult")`,
+                    `a = int(input("Enter your age: "))\nif a > 18:\n    print("You're an adult")`,
+                    `age = input("Enter your age: ")\nage = int(age)\nif age > 18:\n    print("You're an adult")`
+                ],
+                hint: "Remember that input() returns a string. You need to convert it before numerical comparison.",
+                explanation: "This is similar to question 3 but with a different comparison. input() returns a string, which cannot be compared with an integer using '>'. Convert to int first.",
+                errorType: "TypeError"
+            },
+            {
+                id: 8,
+                title: "Index Out of Range",
+                description: "Fix the IndexError when accessing list elements:",
+                brokenCode: `fruits = ["apple", "banana", "cherry"]
+print(fruits[3])`,
+                correctSolution: `fruits = ["apple", "banana", "cherry"]
+print(fruits[2])  # Last valid index
+# Or use negative indexing:
+# print(fruits[-1])`,
+                acceptableSolutions: [
+                    `fruits = ["apple", "banana", "cherry"]\nprint(fruits[2])`,
+                    `fruits = ["apple", "banana", "cherry"]\nprint(fruits[-1])`,
+                    `fruits = ["apple", "banana", "cherry"]\nprint(fruits[len(fruits)-1])`
+                ],
+                hint: "Lists in Python are zero-indexed. What is the index of the last element in a 3-item list?",
+                explanation: "Python lists are zero-indexed, so valid indices for a 3-element list are 0, 1, and 2. Index 3 is out of range. Use index 2 or negative indexing (-1) for the last element.",
+                errorType: "IndexError"
+            },
+            {
+                id: 9,
+                title: "Infinite Loop",
+                description: "Fix the infinite loop by adding the missing increment:",
+                brokenCode: `i = 1
+while i <= 5:
+    print(i)`,
+                correctSolution: `i = 1
+while i <= 5:
+    print(i)
+    i += 1`,
+                acceptableSolutions: [
+                    `i = 1\nwhile i <= 5:\n    print(i)\n    i += 1`,
+                    `i = 1\nwhile i <= 5:\n    print(i)\n    i = i + 1`,
+                    `i = 1\nwhile i <= 5:\n    print(i)\n    i +=1`
+                ],
+                hint: "The loop condition never changes because 'i' is never incremented. How do you increase a variable's value in Python?",
+                explanation: "The variable 'i' never changes, so the condition 'i <= 5' is always true, creating an infinite loop. You need to increment 'i' inside the loop.",
+                errorType: "Logical Error"
+            },
+            {
+                id: 10,
+                title: "Wrong Comparison Operator",
+                description: "Fix the logical error with the comparison operator:",
+                brokenCode: `temperature = 25
+if temperature = 25:
+    print("Perfect temperature!")`,
+                correctSolution: `temperature = 25
+if temperature == 25:
+    print("Perfect temperature!")`,
+                acceptableSolutions: [
+                    `temperature = 25\nif temperature == 25:\n    print("Perfect temperature!")`,
+                    `t = 25\nif t == 25:\n    print("Perfect temperature!")`,
+                    `temp = 25\nif temp == 25:\n    print("Perfect temperature!")`
+                ],
+                hint: "This is similar to question 2. Remember the difference between assignment (=) and comparison (==).",
+                explanation: "Another common mistake: using '=' (assignment) instead of '==' (comparison) in conditional statements.",
+                errorType: "Syntax Error"
+            },
+            {
+                id: 11,
+                title: "Dictionary Key Error",
+                description: "Fix the KeyError when accessing a non-existent dictionary key:",
+                brokenCode: `student = {"name": "John", "age": 20}
+print(student["grade"])`,
+                correctSolution: `student = {"name": "John", "age": 20}
+print(student.get("grade", "Key not found"))`,
+                acceptableSolutions: [
+                    `student = {"name": "John", "age": 20}\nprint(student.get("grade", "Key not found"))`,
+                    `student = {"name": "John", "age": 20}\nprint(student.get("grade", "Not Found"))`,
+                    `student = {"name": "John", "age": 20}\nif "grade" in student:\n    print(student["grade"])\nelse:\n    print("Key not found")`
+                ],
+                hint: "The key 'grade' doesn't exist in the dictionary. Use the get() method to provide a default value.",
+                explanation: "Accessing a non-existent key with square brackets raises a KeyError. Use the get() method with a default value to handle missing keys gracefully.",
+                errorType: "KeyError"
+            },
+            {
+                id: 12,
+                title: "Division by Zero",
+                description: "Fix the ZeroDivisionError in this function:",
+                brokenCode: `def calculate_average(numbers):
+    total = sum(numbers)
+    average = total / len(numbers)
+    return average
+
+print(calculate_average([]))`,
+                correctSolution: `def calculate_average(numbers):
+    if len(numbers) == 0:
+        return 0
+    total = sum(numbers)
+    average = total / len(numbers)
+    return average
+
+print(calculate_average([]))`,
+                acceptableSolutions: [
+                    `def calculate_average(numbers):\n    if len(numbers) == 0:\n        return 0\n    total = sum(numbers)\n    average = total / len(numbers)\n    return average\n\nprint(calculate_average([]))`,
+                    `def calculate_average(numbers):\n    if not numbers:\n        return 0\n    total = sum(numbers)\n    average = total / len(numbers)\n    return average\n\nprint(calculate_average([]))`,
+                    `def calculate_average(numbers):\n    try:\n        total = sum(numbers)\n        average = total / len(numbers)\n        return average\n    except ZeroDivisionError:\n        return 0\n\nprint(calculate_average([]))`
+                ],
+                hint: "What happens when you divide by zero? Check if the list is empty before performing division.",
+                explanation: "Dividing by zero raises a ZeroDivisionError. When the list is empty, len(numbers) is 0. You need to check for this edge case and handle it appropriately.",
+                errorType: "ZeroDivisionError"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAttempts = {};
+        let correctFixes = 0;
+        let totalAttempts = 0;
+        let originalCode = "";
+        let solutionPanelVisible = false;
+
+        // DOM Elements
+        const questionTextEl = document.getElementById('question-text');
+        const problemDescriptionEl = document.getElementById('problem-description');
+        const codeInputEl = document.getElementById('code-input');
+        const hintTextEl = document.getElementById('hint-text');
+        const hintBoxEl = document.getElementById('hint-box');
+        const feedbackEl = document.getElementById('feedback');
+        const solutionCodeEl = document.getElementById('solution-code');
+        const explanationTextEl = document.getElementById('explanation-text');
+        const errorTypeValueEl = document.getElementById('error-type-value');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const checkBtn = document.getElementById('check-btn');
+        const showHintBtn = document.getElementById('show-hint-btn');
+        const showSolutionBtn = document.getElementById('show-solution-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const solutionPanel = document.getElementById('solution-panel');
+        
+        // Stats elements
+        const fixedCountEl = document.getElementById('fixed-count');
+        const correctCountEl = document.getElementById('correct-count');
+        const attemptsCountEl = document.getElementById('attempts-count');
+        const successRateEl = document.getElementById('success-rate');
+        const progressPercentEl = document.getElementById('progress-percent');
+        const progressFillEl = document.getElementById('progress-fill');
+
+        // Initialize the error fixing challenge
+        function initializeChallenge() {
+            // Initialize userAttempts object
+            errorFixQuestions.forEach((_, index) => {
+                userAttempts[index] = { attempts: 0, solved: false };
+            });
+            
+            // Set total questions
+            totalQuestionsEl.textContent = errorFixQuestions.length;
+            
+            // Load the first question
+            loadQuestion(currentQuestionIndex);
+            
+            // Update stats
+            updateStats();
+            
+            // Hide hint box initially
+            hintBoxEl.style.display = 'none';
+            
+            // Hide solution panel initially
+            solutionPanel.classList.remove('visible');
+            solutionPanelVisible = false;
+        }
+
+        // Load a question by index
+        function loadQuestion(index) {
+            if (index < 0 || index >= errorFixQuestions.length) return;
+            
+            currentQuestionIndex = index;
+            const question = errorFixQuestions[index];
+            
+            // Update question text
+            questionTextEl.textContent = question.title;
+            problemDescriptionEl.textContent = question.description;
+            
+            // Set the broken code
+            codeInputEl.value = question.brokenCode;
+            originalCode = question.brokenCode;
+            
+            // Update question number
+            currentQuestionEl.textContent = index + 1;
+            
+            // Update hint
+            hintTextEl.textContent = question.hint;
+            
+            // Update solution panel content (but keep it hidden)
+            solutionCodeEl.textContent = question.correctSolution;
+            explanationTextEl.textContent = question.explanation;
+            errorTypeValueEl.textContent = question.errorType;
+            
+            // Hide feedback
+            feedbackEl.style.display = 'none';
+            feedbackEl.className = 'feedback';
+            
+            // Hide hint box
+            hintBoxEl.style.display = 'none';
+            showHintBtn.innerHTML = '<i class="fas fa-lightbulb"></i> Show Hint';
+            
+            // Hide solution panel when loading new question
+            solutionPanel.classList.remove('visible');
+            solutionPanelVisible = false;
+            showSolutionBtn.innerHTML = '<i class="fas fa-eye"></i> Show Solution';
+            
+            // Update navigation buttons
+            prevBtn.disabled = index === 0;
+            nextBtn.textContent = index === errorFixQuestions.length - 1 ? 'Finish' : 'Next Error';
+            nextBtn.innerHTML = index === errorFixQuestions.length - 1 ? 
+                'Finish <i class="fas fa-flag-checkered"></i>' : 
+                'Next Error <i class="fas fa-arrow-right"></i>';
+            
+            // Update progress
+            updateProgress();
+            
+            // Focus on code input
+            codeInputEl.focus();
+            
+            // Auto-resize textarea
+            codeInputEl.style.height = 'auto';
+            codeInputEl.style.height = (codeInputEl.scrollHeight) + 'px';
+        }
+
+        // Advanced code comparison function
+        function compareCode(userCode, correctCode, acceptableSolutions = []) {
+            // Normalize code for comparison
+            const normalizeCode = (code) => {
+                return code
+                    .toLowerCase()
+                    .replace(/\r\n/g, '\n')           // Normalize line endings
+                    .replace(/[ \t]+/g, ' ')          // Normalize spaces
+                    .replace(/\s*=\s*/g, ' = ')       // Normalize assignment operators
+                    .replace(/\s*==\s*/g, ' == ')     // Normalize equality operators
+                    .replace(/\s*:\s*/g, ': ')        // Normalize colons
+                    .replace(/\s*,\s*/g, ', ')        // Normalize commas
+                    .replace(/\s*\(\s*/g, '(')        // Normalize opening parentheses
+                    .replace(/\s*\)\s*/g, ')')        // Normalize closing parentheses
+                    .replace(/\s*\[\s*/g, '[')        // Normalize opening brackets
+                    .replace(/\s*\]\s*/g, ']')        // Normalize closing brackets
+                    .replace(/\n\s*\n/g, '\n')        // Remove empty lines
+                    .replace(/#.*$/gm, '')            // Remove comments
+                    .trim();
+            };
+            
+            const normalizedUserCode = normalizeCode(userCode);
+            const normalizedCorrectCode = normalizeCode(correctCode);
+            
+            // Check against main solution
+            if (normalizedUserCode === normalizedCorrectCode) {
+                return true;
+            }
+            
+            // Check against acceptable solutions
+            for (let solution of acceptableSolutions) {
+                if (normalizedUserCode === normalizeCode(solution)) {
+                    return true;
+                }
+            }
+            
+            // Check for semantic equivalence (more advanced)
+            return checkSemanticEquivalence(userCode, correctCode);
+        }
+
+        // Check semantic equivalence (basic)
+        function checkSemanticEquivalence(userCode, correctCode) {
+            // Extract key elements from code
+            const extractKeyElements = (code) => {
+                const elements = {
+                    hasTempVar: /temp\s*=/.test(code) || /t\s*=/.test(code) || /c\s*=/.test(code),
+                    hasSwap: /a,\s*b\s*=\s*b,\s*a/.test(code),
+                    hasIntConversion: /int\s*\(\s*input/.test(code),
+                    hasColon: /def.*:|if.*:|while.*:|for.*:/.test(code),
+                    hasIndentation: /^\s+print/.test(code) || /^\s+\w/.test(code),
+                    hasGetMethod: /\.get\(/.test(code),
+                    hasZeroCheck: /len.*==\s*0/.test(code) || /not\s+\w+/.test(code),
+                    hasIncrement: /\+\=/.test(code) || /\=\s*\w+\s*\+/.test(code)
+                };
+                return elements;
+            };
+            
+            const userElements = extractKeyElements(userCode.toLowerCase());
+            const correctElements = extractKeyElements(correctCode.toLowerCase());
+            
+            // Compare key elements
+            for (let key in userElements) {
+                if (userElements[key] !== correctElements[key]) {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        // Check user's solution
+        function checkSolution() {
+            const question = errorFixQuestions[currentQuestionIndex];
+            const userCode = codeInputEl.value.trim();
+            
+            if (!userCode) {
+                showFeedback(false, "Please write some code before checking.");
+                return;
+            }
+            
+            // Update attempts
+            userAttempts[currentQuestionIndex].attempts++;
+            totalAttempts++;
+            
+            // Check if solution is correct using improved comparison
+            const isCorrect = compareCode(
+                userCode, 
+                question.correctSolution, 
+                question.acceptableSolutions || []
+            );
+            
+            if (isCorrect) {
+                if (!userAttempts[currentQuestionIndex].solved) {
+                    correctFixes++;
+                    userAttempts[currentQuestionIndex].solved = true;
+                }
+                
+                showFeedback(true, "Excellent! You fixed the error correctly. 🎉");
+            } else {
+                // Provide more specific feedback
+                let feedbackMessage = "Not quite right. ";
+                
+                // Check for common mistakes
+                if (question.id === 1 && !userCode.includes('temp') && !userCode.includes('a, b = b, a')) {
+                    feedbackMessage += "Hint: You need a temporary variable or use tuple unpacking (a, b = b, a).";
+                } else if (question.id === 2 && userCode.includes('= 10:')) {
+                    feedbackMessage += "Hint: Use '==' for comparison, not '='.";
+                } else if ((question.id === 3 || question.id === 7) && !userCode.includes('int(')) {
+                    feedbackMessage += "Hint: Remember to convert the input to an integer using int().";
+                } else if (question.id === 4 && !userCode.includes('):')) {
+                    feedbackMessage += "Hint: Don't forget the colon at the end of the function definition.";
+                } else {
+                    feedbackMessage += "Try again or check the hint for guidance.";
+                }
+                
+                showFeedback(false, feedbackMessage);
+            }
+            
+            // Update stats
+            updateStats();
+        }
+
+        // Show feedback
+        function showFeedback(isCorrect, message) {
+            feedbackEl.innerHTML = '';
+            feedbackEl.className = 'feedback';
+            
+            if (isCorrect) {
+                feedbackEl.classList.add('correct');
+                feedbackEl.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <div class="feedback-content">
+                        <div class="feedback-title">Correct! 🎉</div>
+                        <div>${message}</div>
+                        <div style="margin-top: 10px; font-size: 0.9rem;">Attempts: ${userAttempts[currentQuestionIndex].attempts}</div>
+                    </div>
+                `;
+            } else {
+                feedbackEl.classList.add('incorrect');
+                feedbackEl.innerHTML = `
+                    <i class="fas fa-times-circle"></i>
+                    <div class="feedback-content">
+                        <div class="feedback-title">Try Again</div>
+                        <div>${message}</div>
+                        <div style="margin-top: 10px; font-size: 0.9rem;">Attempts: ${userAttempts[currentQuestionIndex].attempts}</div>
+                    </div>
+                `;
+            }
+            
+            feedbackEl.style.display = 'flex';
+        }
+
+        // Show/hide hint
+        function toggleHint() {
+            if (hintBoxEl.style.display === 'none') {
+                hintBoxEl.style.display = 'flex';
+                showHintBtn.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Hint';
+            } else {
+                hintBoxEl.style.display = 'none';
+                showHintBtn.innerHTML = '<i class="fas fa-lightbulb"></i> Show Hint';
+            }
+        }
+
+        // Show/hide solution
+        function toggleSolution() {
+            if (!solutionPanelVisible) {
+                // Show solution panel
+                solutionPanel.classList.add('visible');
+                solutionPanelVisible = true;
+                showSolutionBtn.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Solution';
+                
+                // Mark as viewed (but not solved)
+                if (!userAttempts[currentQuestionIndex].solved) {
+                    userAttempts[currentQuestionIndex].attempts++;
+                    totalAttempts++;
+                    updateStats();
+                }
+            } else {
+                // Hide solution panel
+                solutionPanel.classList.remove('visible');
+                solutionPanelVisible = false;
+                showSolutionBtn.innerHTML = '<i class="fas fa-eye"></i> Show Solution';
+            }
+        }
+
+        // Reset code to original
+        function resetCode() {
+            codeInputEl.value = originalCode;
+            feedbackEl.style.display = 'none';
+            hintBoxEl.style.display = 'none';
+            showHintBtn.innerHTML = '<i class="fas fa-lightbulb"></i> Show Hint';
+            
+            // Auto-resize textarea
+            codeInputEl.style.height = 'auto';
+            codeInputEl.style.height = (codeInputEl.scrollHeight) + 'px';
+        }
+
+        // Update statistics display
+        function updateStats() {
+            const solvedCount = Object.values(userAttempts).filter(attempt => attempt.solved).length;
+            const totalQuestions = errorFixQuestions.length;
+            
+            fixedCountEl.textContent = solvedCount;
+            correctCountEl.textContent = correctFixes;
+            attemptsCountEl.textContent = totalAttempts;
+            
+            // Calculate success rate
+            const successRate = totalAttempts > 0 ? 
+                Math.round((correctFixes / totalAttempts) * 100) : 0;
+            successRateEl.textContent = `${successRate}%`;
+            
+            // Update progress
+            updateProgress();
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const solvedCount = Object.values(userAttempts).filter(attempt => attempt.solved).length;
+            const totalQuestions = errorFixQuestions.length;
+            const progressPercent = Math.round((solvedCount / totalQuestions) * 100);
+            
+            progressPercentEl.textContent = `${progressPercent}%`;
+            progressFillEl.style.width = `${progressPercent}%`;
+        }
+
+        // Navigation functions
+        function goToNextQuestion() {
+            if (currentQuestionIndex < errorFixQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                // If on last question, show completion message
+                const solvedCount = Object.values(userAttempts).filter(attempt => attempt.solved).length;
+                const successRate = totalAttempts > 0 ? 
+                    Math.round((correctFixes / totalAttempts) * 100) : 0;
+                
+                alert(`🎉 Challenge completed!\n\n✅ Fixed: ${solvedCount}/${errorFixQuestions.length}\n📊 Success Rate: ${successRate}%\n🎯 Total Attempts: ${totalAttempts}`);
+            }
+        }
+
+        function goToPrevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize challenge
+            initializeChallenge();
+            
+            // Button events
+            checkBtn.addEventListener('click', checkSolution);
+            showHintBtn.addEventListener('click', toggleHint);
+            showSolutionBtn.addEventListener('click', toggleSolution);
+            resetBtn.addEventListener('click', resetCode);
+            prevBtn.addEventListener('click', goToPrevQuestion);
+            nextBtn.addEventListener('click', goToNextQuestion);
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                // Ctrl+Enter to check solution
+                if (e.ctrlKey && e.key === 'Enter') {
+                    e.preventDefault();
+                    checkSolution();
+                }
+                
+                // Ctrl+H to show/hide hint
+                if (e.ctrlKey && e.key === 'h') {
+                    e.preventDefault();
+                    toggleHint();
+                }
+                
+                // Ctrl+S to show/hide solution
+                if (e.ctrlKey && e.key === 's') {
+                    e.preventDefault();
+                    toggleSolution();
+                }
+                
+              
+            });
+            
+            // Auto-resize textarea on input
+            codeInputEl.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        });
+    </script>
+</body>
+</html>

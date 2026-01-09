@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Question Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --correct-color: #10b981;
+            --incorrect-color: #ef4444;
+            --light-bg: #f8fafc;
+            --dark-text: #1e293b;
+            --light-text: #64748b;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--dark-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-weight: 800;
+        }
+
+        h1 i {
+            color: var(--secondary-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Question Card Styling */
+        .question-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            animation: fadeIn 0.5s ease-out;
+            border: 1px solid #e2e8f0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f1f5f9;
+        }
+
+        .question-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 35px;
+            color: var(--dark-text);
+            line-height: 1.8;
+        }
+
+        .code-snippet {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            overflow-x: auto;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option {
+            padding: 20px 25px;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.15rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #f8fafc;
+            transition: width 0.3s ease;
+            z-index: 0;
+        }
+
+        .option:hover::before {
+            width: 100%;
+        }
+
+        .option:hover {
+            border-color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: var(--primary-color);
+            background-color: #e0f2fe;
+            transform: translateX(5px);
+        }
+
+        .option.correct {
+            background-color: #d1fae5;
+            border-color: var(--correct-color);
+            color: #065f46;
+        }
+
+        .option.incorrect {
+            background-color: #fee2e2;
+            border-color: var(--incorrect-color);
+            color: #991b1b;
+        }
+
+        .option-letter {
+            font-weight: 800;
+            color: var(--primary-color);
+            background-color: #f1f5f9;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            flex-shrink: 0;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .option.correct .option-letter {
+            background-color: var(--correct-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .option.incorrect .option-letter {
+            background-color: var(--incorrect-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        .option-text {
+            z-index: 1;
+            flex-grow: 1;
+        }
+
+        .feedback {
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            font-weight: 600;
+            animation: slideIn 0.4s ease-out;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feedback.correct {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            color: #065f46;
+            border-left: 6px solid var(--correct-color);
+        }
+
+        .feedback.incorrect {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #991b1b;
+            border-left: 6px solid var(--incorrect-color);
+        }
+
+        .feedback i {
+            font-size: 1.8rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .feedback-content {
+            flex-grow: 1;
+        }
+
+        .explanation {
+            font-weight: 400;
+            margin-top: 10px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stats-panel h2 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stats-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .stats-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .stats-label {
+            color: var(--light-text);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stats-label i {
+            width: 24px;
+            color: var(--primary-color);
+        }
+
+        .stats-value {
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+        .correct-stat {
+            color: var(--correct-color);
+        }
+
+        .incorrect-stat {
+            color: var(--incorrect-color);
+        }
+
+        .progress-container {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 3px solid #f1f5f9;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background-color: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%
+            );
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Navigation Buttons */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 3px solid #f1f5f9;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            color: var(--dark-text);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Completion Message */
+        .completion-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .completion-content {
+            background: white;
+            padding: 50px;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .completion-content i {
+            font-size: 4rem;
+            color: var(--correct-color);
+            margin-bottom: 20px;
+        }
+
+        .completion-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .completion-content p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--light-text);
+        }
+
+        .score {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--correct-color);
+            margin: 20px 0;
+        }
+
+        .close-btn {
+            margin-top: 30px;
+            padding: 12px 40px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-panel {
+                position: static;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .question-card {
+                padding: 25px;
+            }
+            
+            .question-text {
+                font-size: 1.3rem;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .completion-content {
+                padding: 30px;
+            }
+            
+            .completion-content h2 {
+                font-size: 2rem;
+            }
+            
+            .score {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .question-card {
+                padding: 20px;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .option {
+                padding: 15px;
+            }
+            
+            .option-letter {
+                width: 36px;
+                height: 36px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="completion-modal" id="completion-modal">
+        <div class="completion-content">
+            <i class="fas fa-trophy"></i>
+            <h2>Quiz Completed!</h2>
+            <p>Your Final Score</p>
+            <div class="score" id="final-score">0/0</div>
+            <p>Accuracy: <span id="final-accuracy">0%</span></p>
+            <p>Time: <span id="quiz-time">00:00</span></p>
+            <button class="close-btn" id="close-modal">Continue</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1><i class="fab fa-python"></i> Python Question Bank</h1>
+            <p class="subtitle">Test your Python knowledge with 117 multiple-choice questions. Select an answer to see immediate feedback and track your progress in real-time.</p>
+        </header>
+
+        <main>
+            <div class="question-card">
+                <div class="question-header">
+                    <div class="question-number">Question <span id="current-question">1</span> of <span id="total-questions">117</span></div>
+                </div>
+                
+                <div class="question-text" id="question-text">Loading questions...</div>
+                
+                <div class="options-container" id="options-container">
+                    <!-- Options will be dynamically inserted here -->
+                </div>
+                
+                <div class="feedback" id="feedback" style="display: none;">
+                    <!-- Feedback will be shown here -->
+                </div>
+                
+                <div class="navigation">
+                    <button class="btn btn-secondary" id="prev-btn" disabled>
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-primary" id="next-btn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="stats-panel">
+            <h2><i class="fas fa-chart-line"></i> Your Progress</h2>
+            
+            <div class="stats-item">
+                <span class="stats-label">
+                    <i class="fas fa-question-circle"></i>
+                    Questions Answered
+                </span>
+                <span class="stats-value" id="answered-count">0</span>
+            </div>
+            
+            <div class="stats-item">
+                <span class="stats-label">
+                    <i class="fas fa-check-circle"></i>
+                    Correct Answers
+                </span>
+                <span class="stats-value correct-stat" id="correct-count">0</span>
+            </div>
+            
+            <div class="stats-item">
+                <span class="stats-label">
+                    <i class="fas fa-times-circle"></i>
+                    Incorrect Answers
+                </span>
+                <span class="stats-value incorrect-stat" id="incorrect-count">0</span>
+            </div>
+            
+            <div class="stats-item">
+                <span class="stats-label">
+                    <i class="fas fa-bullseye"></i>
+                    Accuracy
+                </span>
+                <span class="stats-value" id="accuracy">0%</span>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Progress</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // All 117 questions from both PDF files
+        const allQuestions = [
+            // ===== Questions 1-60 from First PDF =====
+            {
+                id: 1,
+                text: "What is the main advantage of Python being an interpreted language?",
+                options: [
+                    "It is faster than compiled languages",
+                    "It does not require compilation before execution",
+                    "It uses less memory",
+                    "It is statically typed"
+                ],
+                correctAnswer: "B",
+                explanation: "Python is an interpreted language, which means code is executed line by line without needing prior compilation."
+            },
+            {
+                id: 2,
+                text: "Which of the following is NOT a Python data type?",
+                options: ["List", "Tuple", "Array", "Dictionary"],
+                correctAnswer: "C",
+                explanation: "Python has lists, tuples, and dictionaries as built-in data types, but 'Array' is not a basic Python data type (though arrays exist in modules like array or numpy)."
+            },
+            {
+                id: 3,
+                text: "In Python, how do you start a single-line comment?",
+                options: ["//", "#", "/*", "!-"],
+                correctAnswer: "B",
+                explanation: "In Python, single-line comments start with the # symbol."
+            },
+            {
+                id: 4,
+                text: "Which operator is used for exponentiation in Python?",
+                options: ["^", "**", "//", "%"],
+                correctAnswer: "B",
+                explanation: "The ** operator is used for exponentiation in Python (e.g., 2**3 = 8)."
+            },
+            {
+                id: 5,
+                text: "Which of the following is a valid Python identifier?",
+                options: ["2variable", "_var", "for", "my-var"],
+                correctAnswer: "B",
+                explanation: "Identifiers cannot start with a number, cannot be a keyword, and cannot contain hyphens. _var is valid."
+            },
+            {
+                id: 6,
+                text: "What does the input() function return?",
+                options: ["Integer", "Float", "String", "Boolean"],
+                correctAnswer: "C",
+                explanation: "The input() function always returns a string."
+            },
+            {
+                id: 7,
+                text: "Which function is used to convert a string to an integer in Python?",
+                options: ["str()", "int()", "float()", "eval()"],
+                correctAnswer: "B",
+                explanation: "The int() function converts a string to an integer."
+            },
+            {
+                id: 8,
+                text: "What is the output of print(5 // 2)?",
+                options: ["2.5", "2", "3", "2.0"],
+                correctAnswer: "B",
+                explanation: "The // operator performs integer division (floor division). 5 // 2 = 2."
+            },
+            {
+                id: 9,
+                text: "Which keyword is used to define a function in Python?",
+                options: ["func", "def", "define", "function"],
+                correctAnswer: "B",
+                explanation: "The def keyword is used to define a function in Python."
+            },
+            {
+                id: 10,
+                text: "Which of the following is a mutable data type?",
+                options: ["Tuple", "String", "List", "Integer"],
+                correctAnswer: "C",
+                explanation: "Lists are mutable, while tuples and strings are immutable."
+            },
+            {
+                id: 11,
+                text: 'What is the result of "Hello" + "World"?',
+                options: ["HelloWorld", "Hello World", "Error", "Hello+World"],
+                correctAnswer: "A",
+                explanation: 'In Python, the + operator concatenates strings: "Hello" + "World" = "HelloWorld".'
+            },
+            {
+                id: 12,
+                text: "Which loop is used when the number of iterations is unknown?",
+                options: ["for loop", "while loop", "do-while loop", "nested loop"],
+                correctAnswer: "B",
+                explanation: "The while loop is used when the number of iterations is unknown and depends on a condition."
+            },
+            {
+                id: 13,
+                text: "What does the range(5) function generate?",
+                options: ["0, 1, 2, 3, 4", "1, 2, 3, 4, 5", "0, 1, 2, 3, 4, 5", "5, 4, 3, 2, 1"],
+                correctAnswer: "A",
+                explanation: "range(5) generates numbers from 0 to 4."
+            },
+            {
+                id: 14,
+                text: "Which statement is used to exit a loop prematurely?",
+                options: ["stop", "exit", "break", "continue"],
+                correctAnswer: "C",
+                explanation: "The break statement is used to exit a loop immediately."
+            },
+            {
+                id: 15,
+                text: "What is the purpose of the else clause in a while loop?",
+                options: [
+                    "It runs if the loop is infinite",
+                    "It runs if the loop condition is False",
+                    "It runs if the loop ends without a break",
+                    "It runs before the loop starts"
+                ],
+                correctAnswer: "C",
+                explanation: "The else clause in a while loop executes only if the loop terminates normally (without a break)."
+            },
+            {
+                id: 16,
+                text: "Which of the following is an infinite loop?",
+                options: [
+                    "while True:",
+                    "for i in range(10):",
+                    "while i < 10:",
+                    "for i in [1,2,3]:"
+                ],
+                correctAnswer: "A",
+                explanation: "while True: will run forever because the condition is always True."
+            },
+            {
+                id: 17,
+                text: "What does the pass statement do?",
+                options: [
+                    "Stops the program",
+                    "Does nothing, used as a placeholder",
+                    "Skips the current iteration",
+                    "Exits the function"
+                ],
+                correctAnswer: "B",
+                explanation: "The pass statement does nothing and is used as a placeholder."
+            },
+            {
+                id: 18,
+                text: "How do you define a default argument in a function?",
+                options: [
+                    "def func(a=5):",
+                    "def func(a:5):",
+                    "def func(a==5):",
+                    "def func(a:default=5):"
+                ],
+                correctAnswer: "A",
+                explanation: "The correct syntax for defining a default argument is def func(a=5):"
+            },
+            {
+                id: 19,
+                text: "What is the output of print(type([]))?",
+                options: [
+                    "<'class 'list'>",
+                    "<'class 'array'>",
+                    "<'class 'tuple'>",
+                    "<'class 'dict>"
+                ],
+                correctAnswer: "A",
+                explanation: "[] represents an empty list, so type([]) returns <class 'list'>"
+            },
+            {
+                id: 20,
+                text: "Which method is used to add an element to a list?",
+                options: ["insert()", "append()", "add()", "push()"],
+                correctAnswer: "B",
+                explanation: "The append() method adds an element to the end of a list."
+            },
+            {
+                id: 21,
+                text: "How do you access the last element of a list my_list?",
+                options: ["my_list[last]", "my_list[end]", "my_list[0]", "my_list[-1]"],
+                correctAnswer: "D",
+                explanation: "Negative indexing in Python starts from the end: -1 refers to the last element."
+            },
+            {
+                id: 22,
+                text: "Which data type does not allow duplicates?",
+                options: ["List", "Tuple", "Set", "Dictionary"],
+                correctAnswer: "C",
+                explanation: "Sets do not allow duplicate elements; all elements must be unique."
+            },
+            {
+                id: 23,
+                text: "What is the output of print(3 == 3.0)?",
+                options: ["True", "False", "Error", "None"],
+                correctAnswer: "A",
+                explanation: "Python performs implicit type conversion when comparing: 3 == 3.0 evaluates to True."
+            },
+            {
+                id: 24,
+                text: "Which operator is used for floor division?",
+                options: ["/", "%", "**", "//"],
+                correctAnswer: "D",
+                explanation: "The // operator is used for floor division (integer division)."
+            },
+            {
+                id: 25,
+                text: 'What does eval("2+3") return?',
+                options: ['"2+3"', "5", "Error", "None"],
+                correctAnswer: "B",
+                explanation: 'eval() evaluates the mathematical expression in the string: eval("2+3") = 5.'
+            },
+            {
+                id: 26,
+                text: "Which of the following is NOT a Python keyword?",
+                options: ["lambda", "yield", "print", "assert"],
+                correctAnswer: "C",
+                explanation: "print is a built-in function, not a keyword."
+            },
+            {
+                id: 27,
+                text: 'What is the result of bool("False")?',
+                options: ["True", "False", "Error", "None"],
+                correctAnswer: "A",
+                explanation: 'Any non-empty string evaluates to True when converted to boolean, even if it contains the word "False".'
+            },
+            {
+                id: 28,
+                text: 'What is the output of "abc" * 3?',
+                options: ["abcabcabc", "abc3", "Error", "abc abc abc"],
+                correctAnswer: "A",
+                explanation: 'The * operator repeats strings: "abc" * 3 = "abcabcabc".'
+            },
+            {
+                id: 29,
+                text: "How do you import the math module?",
+                options: ["include math", "using math", "require math", "import math"],
+                correctAnswer: "D",
+                explanation: "import math is the correct way to import the math module in Python."
+            },
+            {
+                id: 30,
+                text: "Which function returns the length of a list?",
+                options: ["size()", "len()", "length()", "count()"],
+                correctAnswer: "B",
+                explanation: "The len() function returns the number of items in a sequence."
+            },
+            {
+                id: 31,
+                text: "What is the output of print(10 > 9 and 9 < 8)?",
+                options: ["False", "True", "Error", "None"],
+                correctAnswer: "A",
+                explanation: "10 > 9 = True, 9 < 8 = False, True and False = False"
+            },
+            {
+                id: 32,
+                text: "Which data type is immutable?",
+                options: ["List", "Set", "Dictionary", "Tuple"],
+                correctAnswer: "D",
+                explanation: "Tuples are immutable after creation."
+            },
+            {
+                id: 33,
+                text: "How do you create an empty dictionary?",
+                options: ["{}", "[]", "()", "set()"],
+                correctAnswer: "A",
+                explanation: "{} creates an empty dictionary, [] creates an empty list, () creates an empty tuple."
+            },
+            {
+                id: 34,
+                text: "What does the continue statement do in a loop?",
+                options: [
+                    "Exits the loop",
+                    "Restarts the loop",
+                    "Pauses the loop",
+                    "Skips the current iteration"
+                ],
+                correctAnswer: "D",
+                explanation: "The continue statement skips the rest of the current iteration and moves to the next one."
+            },
+            {
+                id: 35,
+                text: "Which of the following is a valid way to swap two variables a and b?",
+                options: [
+                    "a = b; b = a",
+                    "a, b = b, a",
+                    "swap(a, b)",
+                    "a = b; b = temp"
+                ],
+                correctAnswer: "B",
+                explanation: "a, b = b, a is the most efficient way to swap values in Python."
+            },
+            {
+                id: 36,
+                text: "What is the result of print(2 ** 3)?",
+                options: ["6", "9", "5", "8"],
+                correctAnswer: "D",
+                explanation: "** is the exponentiation operator: 2 ** 3 = 8"
+            },
+            {
+                id: 37,
+                text: "Which method removes an element from a list by value?",
+                options: ["remove()", "pop()", "delete()", "discard()"],
+                correctAnswer: "A",
+                explanation: "The remove() method removes the first occurrence of a specified value from a list."
+            },
+            {
+                id: 38,
+                text: 'What is the output of print("Hello".upper())?',
+                options: ["HELLO", "hello", "Hello", "Error"],
+                correctAnswer: "A",
+                explanation: "The upper() method converts all characters to uppercase: 'Hello'.upper() = 'HELLO'"
+            },
+            {
+                id: 39,
+                text: "Which of the following is used for string slicing?",
+                options: ["{}", "[]", "()", "<>"],
+                correctAnswer: "B",
+                explanation: "Square brackets [] are used for indexing and slicing in Python."
+            },
+            {
+                id: 40,
+                text: 'What is the result of print("Python"[1:4])?',
+                options: ["Pyt", "thon", "ytho", "yth"],
+                correctAnswer: "D",
+                explanation: '"Python"[1:4] takes characters from index 1 to 3: "yth".'
+            },
+            {
+                id: 41,
+                text: "Which of the following is a built-in function in Python?",
+                options: ["printf()", "print()", "echo()", "output()"],
+                correctAnswer: "B",
+                explanation: "print() is a built-in function in Python for output."
+            },
+            {
+                id: 42,
+                text: "Which of the following is a correct if-elif-else structure?",
+                options: [
+                    "if → else → elif",
+                    "elif → if → else",
+                    "else → if → elif",
+                    "if → elif → else"
+                ],
+                correctAnswer: "D",
+                explanation: "The correct structure is: if, then elif (one or more), then else (optional)."
+            },
+            {
+                id: 43,
+                text: "What is the output of print(not True)?",
+                options: ["True", "False", "None", "Error"],
+                correctAnswer: "B",
+                explanation: "not True = False"
+            },
+            {
+                id: 44,
+                text: "Which data type uses key-value pairs?",
+                options: ["List", "Tuple", "Set", "Dictionary"],
+                correctAnswer: "D",
+                explanation: "Dictionaries store data as key-value pairs."
+            },
+            {
+                id: 45,
+                text: "What is the purpose of the global keyword?",
+                options: [
+                    "Declare a global variable inside a function",
+                    "Declare a local variable",
+                    "Import a module",
+                    "Define a constant"
+                ],
+                correctAnswer: "A",
+                explanation: "The global keyword is used to access a global variable from within a function."
+            },
+            {
+                id: 46,
+                text: "Which of the following is a valid complex number in Python?",
+                options: ["3 + 4i", "3 + 4j", "3 + 4k", "3i + 4"],
+                correctAnswer: "B",
+                explanation: "In Python, the letter j is used for the imaginary part: 3 + 4j"
+            },
+            {
+                id: 47,
+                text: "What is the result of print(10 % 3)?",
+                options: ["1", "3", "0", "10"],
+                correctAnswer: "A",
+                explanation: "% is the modulus operator: 10 % 3 = 1 (10 ÷ 3 = 3 with remainder 1)"
+            },
+            {
+                id: 48,
+                text: "Which loop is used to iterate over a sequence?",
+                options: ["while", "do-while", "repeat-until", "for"],
+                correctAnswer: "D",
+                explanation: "The for loop is used to iterate over elements of a sequence (list, string, etc.)."
+            },
+            {
+                id: 49,
+                text: "What is printed?",
+                code: `def modify(lst):
+    lst.append(4)
+my_list = [1, 2, 3]
+modify(my_list)
+print(my_list)`,
+                options: [
+                    "[1, 2, 3]",
+                    "[1, 2, 3, 4]",
+                    "[4]",
+                    "Error"
+                ],
+                correctAnswer: "B",
+                explanation: "Lists are passed by reference in Python, so modifications inside the function affect the original list."
+            },
+            {
+                id: 50,
+                text: "What is printed?",
+                code: `a = [1, 2, 3]
+b = a
+b[0] = 99
+print(a)`,
+                options: [
+                    "[99, 2, 3]",
+                    "[1, 2, 3]",
+                    "[99, 99, 99]",
+                    "Error"
+                ],
+                correctAnswer: "A",
+                explanation: "b = a makes b reference the same list as a, so changing b[0] also changes a[0]."
+            },
+            {
+                id: 51,
+                text: "What is printed?",
+                code: `x = 10
+def func():
+    x = 5
+    print(x)
+func()
+print(x)`,
+                options: ["5, 10", "10, 10", "5, 5", "Error"],
+                correctAnswer: "A",
+                explanation: "x inside func() is a local variable, while x outside is a global variable. So func() prints 5, then print(x) prints 10."
+            },
+            {
+                id: 52,
+                text: "What is printed?",
+                code: `s = "Python"
+print(s[1:4] + s[-1])`,
+                options: ["ytho", "ythn", "ython", "yhn"],
+                correctAnswer: "B",
+                explanation: 's[1:4] = "yth", s[-1] = "n", so the output is "ythn".'
+            },
+            {
+                id: 53,
+                text: "What is the result of this loop?",
+                code: `for i in range(3):
+    if i == 1:
+        continue
+    print(i, end=" ")`,
+                options: ["0 1 2", "1 2", "0 2", "0 1"],
+                correctAnswer: "C",
+                explanation: "When i == 1, continue skips the print statement, so only 0 and 2 are printed."
+            },
+            {
+                id: 54,
+                text: "What is printed?",
+                code: `def func(x, y, *args):
+    print(len(args))
+func(1, 2, 3, 4, 5)`,
+                options: ["2", "3", "5", "Error"],
+                correctAnswer: "B",
+                explanation: "*args collects extra positional arguments. Here args = (3, 4, 5), so len(args) = 3."
+            },
+            {
+                id: 55,
+                text: "What is printed?",
+                code: `print(2 * 3 + 4)`,
+                options: ["10", "14", "18", "Error"],
+                correctAnswer: "A",
+                explanation: "Multiplication has higher precedence: 2 * 3 = 6, then 6 + 4 = 10."
+            },
+            {
+                id: 56,
+                text: "What is printed?",
+                code: `x = "Hello"
+print(x[0] + x[-1])`,
+                options: ["Ho", "H", "He", "lo"],
+                correctAnswer: "A",
+                explanation: 'x[0] = "H", x[-1] = "o", so "H" + "o" = "Ho".'
+            },
+            {
+                id: 57,
+                text: "What is printed?",
+                code: `for i in range(2):
+    for j in range(2):
+        print(i, j)`,
+                options: [
+                    "0 0, 1 1",
+                    "0 0, 0 1, 1 0, 1 1",
+                    "0 1, 1 0",
+                    "0 0, 0 1"
+                ],
+                correctAnswer: "B",
+                explanation: "Nested loops: i takes values 0,1 and for each i, j takes values 0,1."
+            },
+            {
+                id: 58,
+                text: "What is the output of the following code?",
+                code: `x = 5
+y = 2
+print(x // y, x % y)`,
+                options: ["2.5 1", "2 0", "2 0.5", "2 1"],
+                correctAnswer: "D",
+                explanation: "5 // 2 = 2 (integer division), 5 % 2 = 1 (remainder)"
+            },
+            {
+                id: 59,
+                text: "What is the output of the following code?",
+                code: `my_list = [1, 2, 3, 4]
+my_list.append([5, 6])
+print(len(my_list))`,
+                options: ["6", "7", "5", "Error"],
+                correctAnswer: "C",
+                explanation: "append() adds the entire list [5, 6] as a single element, so length becomes 5."
+            },
+            {
+                id: 60,
+                text: "What does this code print?",
+                code: `def func(a, b=10):
+    return a + b
+print(func(5))`,
+                options: ["5", "15", "Error", "10"],
+                correctAnswer: "B",
+                explanation: "b has default value 10, so func(5) returns 5 + 10 = 15."
+            },
+
+            // ===== Questions 61-117 from Second PDF =====
+            {
+                id: 61,
+                text: "Python is an example of which type of language?",
+                options: [
+                    "Compiled language",
+                    "Interpreted language",
+                    "Assembly language",
+                    "Machine language"
+                ],
+                correctAnswer: "B",
+                explanation: "Python is an interpreted language, meaning it executes code line by line without prior compilation."
+            },
+            {
+                id: 62,
+                text: "Which of the following is NOT a valid Python identifier?",
+                options: ["myVariable", "_privateVariable", "2celsius", "calculate_average"],
+                correctAnswer: "C",
+                explanation: "Identifiers cannot start with a number. 2celsius is invalid."
+            },
+            {
+                id: 63,
+                text: "What is the output of: print(type(5.0))?",
+                options: [
+                    "<'class 'int'>",
+                    "<'class 'float'>",
+                    "<'class 'str'>",
+                    "<'class 'double'>"
+                ],
+                correctAnswer: "B",
+                explanation: "5.0 is a floating-point number, so type(5.0) returns <class 'float'>."
+            },
+            {
+                id: 64,
+                text: "Which operator is used for exponentiation in Python?",
+                options: ["^", "**", "//", "%"],
+                correctAnswer: "B",
+                explanation: "The ** operator is used for exponentiation in Python."
+            },
+            {
+                id: 65,
+                text: "What does the // operator do?",
+                options: ["Float division", "Integer division", "Modulus", "Exponentiation"],
+                correctAnswer: "B",
+                explanation: "The // operator performs integer division (floor division)."
+            },
+            {
+                id: 66,
+                text: "Which of the following is a Python keyword?",
+                options: ["variable", "function", "class", "integer"],
+                correctAnswer: "C",
+                explanation: "class is a Python keyword used to define classes."
+            },
+            {
+                id: 67,
+                text: "What will be the data type of the result: 5 + 2.0?",
+                options: ["int", "float", "str", "complex"],
+                correctAnswer: "B",
+                explanation: "When adding an int and a float, Python performs implicit conversion to float."
+            },
+            {
+                id: 68,
+                text: "Which function is used to get input from the user in Python?",
+                options: ["scanf()", "input()", "get()", "read()"],
+                correctAnswer: "B",
+                explanation: "The input() function is used to get user input in Python."
+            },
+            {
+                id: 69,
+                text: "What does garbage collection do in Python?",
+                options: [
+                    "Deletes variables",
+                    "Clears old values from memory automatically",
+                    "Removes syntax errors",
+                    "Optimizes code"
+                ],
+                correctAnswer: "B",
+                explanation: "Garbage collection automatically frees memory occupied by objects that are no longer in use."
+            },
+            {
+                id: 70,
+                text: "Which of the following is TRUE about Python identifiers?",
+                options: [
+                    "They are case-insensitive",
+                    "They can start with a number",
+                    "They are case-sensitive",
+                    "They must be in uppercase"
+                ],
+                correctAnswer: "C",
+                explanation: "Python identifiers are case-sensitive (myVar and myvar are different)."
+            },
+            {
+                id: 71,
+                text: "According to the lecture, what is a program?",
+                options: [
+                    "A physical machine",
+                    "A sequence of instructions telling the computer what to do",
+                    "A type of hardware",
+                    "An operating system"
+                ],
+                correctAnswer: "B",
+                explanation: "A program is a sequence of instructions that tells the computer what to do."
+            },
+            {
+                id: 72,
+                text: "Which of the following is NOT mentioned as a type of programming language in the lecture?",
+                options: [
+                    "Procedural languages",
+                    "Object-oriented languages",
+                    "Quantum languages",
+                    "Functional languages"
+                ],
+                correctAnswer: "C",
+                explanation: "Quantum languages are not typically mentioned as a basic type of programming language."
+            },
+            {
+                id: 73,
+                text: "What does a compiler do?",
+                options: [
+                    "Executes code line by line",
+                    "Translates high-level language to machine language",
+                    "Debug programs",
+                    "Manages memory"
+                ],
+                correctAnswer: "B",
+                explanation: "A compiler translates high-level code to machine code before execution."
+            },
+            {
+                id: 74,
+                text: "What is Python's approach to executing code?",
+                options: ["Compiled", "Interpreted", "Assembled", "Hybrid"],
+                correctAnswer: "B",
+                explanation: "Python uses an interpreter to execute code line by line."
+            },
+            {
+                id: 75,
+                text: "What is the output of print(5.9 + 4.2)?",
+                options: ["10.1", "10.100000000000001", "10", "10.11"],
+                correctAnswer: "B",
+                explanation: "Due to floating-point precision issues, 5.9 + 4.2 = 10.100000000000001"
+            },
+            {
+                id: 76,
+                text: "What does the input() function return by default?",
+                options: ["Integer", "Float", "String", "Boolean"],
+                correctAnswer: "C",
+                explanation: "input() always returns a string by default."
+            },
+            {
+                id: 77,
+                text: "Which function evaluates a string as Python code?",
+                options: ["input()", "eval()", "execute()", "run()"],
+                correctAnswer: "B",
+                explanation: "eval() evaluates a string as Python expression."
+            },
+            {
+                id: 78,
+                text: "What is the output of swapping using x = y; y = x when x=2 and y=3?",
+                options: ["x=3, y=2", "x=2, y=3", "x=3, y=3", "Error"],
+                correctAnswer: "C",
+                explanation: "Incorrect swap: x becomes 3, then y becomes x (which is now 3), so both become 3."
+            },
+            {
+                id: 79,
+                text: "What is the correct way to swap variables in one line?",
+                options: ["x = y = y = x", "x, y = y, x", "swap(x, y)", "x <-> y"],
+                correctAnswer: "B",
+                explanation: "x, y = y, x is the Pythonic way to swap variables."
+            },
+            {
+                id: 80,
+                text: "According to the lecture, identifiers must start with:",
+                options: [
+                    "A letter or underscore",
+                    "Any character",
+                    "A number",
+                    "An uppercase letter"
+                ],
+                correctAnswer: "A",
+                explanation: "Python identifiers must start with a letter (a-z, A-Z) or underscore (_)."
+            },
+            {
+                id: 81,
+                text: "Which data type is immutable in Python?",
+                options: ["List", "Dictionary", "Tuple", "Set"],
+                correctAnswer: "C",
+                explanation: "Tuples are immutable; once created, their elements cannot be changed."
+            },
+            {
+                id: 82,
+                text: "How do you create an empty list in Python?",
+                options: ["list = ()", "list = []", "list = {}", "list = \"\""],
+                correctAnswer: "B",
+                explanation: "[] creates an empty list."
+            },
+            {
+                id: 83,
+                text: 'What is the output of: print("5" + "7")?',
+                options: ["12", "57", "\"12\"", "Error"],
+                correctAnswer: "B",
+                explanation: 'String concatenation: "5" + "7" = "57"'
+            },
+            {
+                id: 84,
+                text: "Which collection type does NOT allow duplicate values?",
+                options: ["List", "Tuple", "Set", "Dictionary"],
+                correctAnswer: "C",
+                explanation: "Sets only store unique values; duplicates are automatically removed."
+            },
+            {
+                id: 85,
+                text: "What is the index of the last element in the list [1, 2, 3, 4, 5]?",
+                options: ["4", "5", "-1", "Both a and c"],
+                correctAnswer: "D",
+                explanation: "Both index 4 (positive indexing) and -1 (negative indexing) refer to the last element."
+            },
+            {
+                id: 86,
+                text: "What will int(7.9) return?",
+                options: ["8", "7", "7.9", "Error"],
+                correctAnswer: "B",
+                explanation: "int() truncates the decimal part, converting 7.9 to 7."
+            },
+            {
+                id: 87,
+                text: "Which brackets are used to create a dictionary?",
+                options: ["[]", "()", "{}", "⇔"],
+                correctAnswer: "C",
+                explanation: "Curly braces {} are used to create dictionaries."
+            },
+            {
+                id: 88,
+                text: "What is the output of: print(type(True))?",
+                options: [
+                    "<'class 'int'>",
+                    "<'class 'bool'>",
+                    "<'class 'str'>",
+                    "<'class 'boolean'>"
+                ],
+                correctAnswer: "B",
+                explanation: "True is a boolean value, so type(True) returns <class 'bool'>."
+            },
+            {
+                id: 89,
+                text: "How do you access the value associated with key 'name' in a dictionary d?",
+                options: ["d.name", "d['name']", "d(name)", "d->name"],
+                correctAnswer: "B",
+                explanation: "Dictionary values are accessed using square brackets: d['name']"
+            },
+            {
+                id: 90,
+                text: "What is negative indexing in Python?",
+                options: [
+                    "Invalid operation",
+                    "Counting from the right side of the sequence",
+                    "Using negative numbers as values",
+                    "Subtracting indices"
+                ],
+                correctAnswer: "B",
+                explanation: "Negative indexing starts from -1 for the last element, -2 for second last, etc."
+            },
+            {
+                id: 91,
+                text: "In the list [1, 2, 3, 4, 5], what is a[1:3]?",
+                options: ["[1, 2]", "[2, 3]", "[1, 2, 3]", "[2, 3, 4]"],
+                correctAnswer: "B",
+                explanation: "Slicing excludes the end index: a[1:3] gives elements at indices 1 and 2."
+            },
+            {
+                id: 92,
+                text: "In the tuple t = (1, 'a', 3.14) what is the output of print(t[1:])?",
+                options: ["(1, 'a')", "('a', 3.14)", "('a')", "3.14"],
+                correctAnswer: "B",
+                explanation: "t[1:] slices from index 1 to the end: ('a', 3.14)"
+            },
+            {
+                id: 93,
+                text: "Given the code: fruits = {'apple', 'banana', 'mango'}; fruits.add('orange'); print(fruits)",
+                options: [
+                    "{'apple', 'banana', 'mango'}",
+                    "{'apple', 'banana', 'mango', 'orange'}",
+                    "Error",
+                    "{'apple', 'banana', 'mango', 'orange'}"
+                ],
+                correctAnswer: "B",
+                explanation: "add() method adds an element to a set."
+            },
+            {
+                id: 94,
+                text: "Given the code: my_dict = {'a': 1, 'b': 2, 'c': 3}; my_dict.clear(); print(my_dict)",
+                options: ["{'a': 1, 'b': 2, 'c': 3}", "None", "{}", "Error"],
+                correctAnswer: "C",
+                explanation: "clear() removes all items from the dictionary, leaving it empty {}."
+            },
+            {
+                id: 95,
+                text: "What does negative indexing -1 refer to?",
+                options: ["First element", "Second element", "Last element", "Invalid"],
+                correctAnswer: "C",
+                explanation: "-1 refers to the last element in a sequence."
+            },
+            {
+                id: 96,
+                text: "What operator gives the union of two sets?",
+                options: ["&", "|", "-", "+"],
+                correctAnswer: "B",
+                explanation: "The | operator gives the union of two sets (all elements from both)."
+            },
+            {
+                id: 97,
+                text: "What operator gives the intersection of two sets?",
+                options: ["&", "|", "-", "*"],
+                correctAnswer: "A",
+                explanation: "The & operator gives the intersection (common elements) of two sets."
+            },
+            {
+                id: 98,
+                text: "How do you access a dictionary value with key 'name'?",
+                options: ["dict.name", "dict['name']", "dict(name)", "dict->name"],
+                correctAnswer: "B",
+                explanation: "Square bracket notation: dict['name']"
+            },
+            {
+                id: 99,
+                text: "What does dict.get('key', 'default') return if key doesn't exist?",
+                options: ["Error", "None", "'default'", "Empty string"],
+                correctAnswer: "C",
+                explanation: "get() returns the specified default value if the key doesn't exist."
+            },
+            {
+                id: 100,
+                text: "How do you delete a key-value pair from a dictionary?",
+                options: ["remove()", "delete()", "del dict[key]", "dict.remove(key)"],
+                correctAnswer: "C",
+                explanation: "del dict[key] removes the key-value pair from the dictionary."
+            },
+            {
+                id: 101,
+                text: "What is the real part of complex number 3 + 4j?",
+                options: ["4", "3", "3j", "4j"],
+                correctAnswer: "B",
+                explanation: "In complex numbers, the real part is 3 and the imaginary part is 4j."
+            },
+            {
+                id: 102,
+                text: "What is int(123.45)?",
+                options: ["124", "123", "123.45", "Error"],
+                correctAnswer: "B",
+                explanation: "int() truncates the decimal part: int(123.45) = 123"
+            },
+            {
+                id: 103,
+                text: "True or False: Python uses garbage collection",
+                options: ["True", "False"],
+                correctAnswer: "A",
+                explanation: "True. Python automatically handles memory management through garbage collection."
+            },
+            {
+                id: 104,
+                text: "True or False: Tuples can be modified after creation",
+                options: ["True", "False"],
+                correctAnswer: "B",
+                explanation: "False. Tuples are immutable and cannot be modified after creation."
+            },
+            {
+                id: 105,
+                text: "True or False: The input() function returns a string",
+                options: ["True", "False"],
+                correctAnswer: "A",
+                explanation: "True. input() always returns a string."
+            },
+            {
+                id: 106,
+                text: "True or False: Identifiers can start with numbers",
+                options: ["True", "False"],
+                correctAnswer: "B",
+                explanation: "False. Identifiers cannot start with numbers."
+            },
+            {
+                id: 107,
+                text: "True or False: x and X are the same variable in Python",
+                options: ["True", "False"],
+                correctAnswer: "B",
+                explanation: "False. Python is case-sensitive, so x and X are different variables."
+            },
+            {
+                id: 108,
+                text: "True or False: Sets allow duplicate values",
+                options: ["True", "False"],
+                correctAnswer: "B",
+                explanation: "False. Sets do not allow duplicate values."
+            },
+            {
+                id: 109,
+                text: "True or False: Division operator / always returns float",
+                options: ["True", "False"],
+                correctAnswer: "A",
+                explanation: "True. In Python 3, / always returns a float, even when dividing integers."
+            },
+            {
+                id: 110,
+                text: "True or False: eval() can evaluate expressions",
+                options: ["True", "False"],
+                correctAnswer: "A",
+                explanation: "True. eval() evaluates Python expressions passed as strings."
+            },
+            {
+                id: 111,
+                text: "True or False: Lists are immutable",
+                options: ["True", "False"],
+                correctAnswer: "B",
+                explanation: "False. Lists are mutable and can be modified after creation."
+            },
+            {
+                id: 112,
+                text: "True or False: Dictionary keys must be unique",
+                options: ["True", "False"],
+                correctAnswer: "A",
+                explanation: "True. Dictionary keys must be unique; duplicate keys are not allowed."
+            },
+
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = {};
+        let correctAnswersCount = 0;
+        let incorrectAnswersCount = 0;
+        let startTime = null;
+        let quizTimer = null;
+
+        // DOM Elements
+        const questionTextEl = document.getElementById('question-text');
+        const optionsContainerEl = document.getElementById('options-container');
+        const feedbackEl = document.getElementById('feedback');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const completionModal = document.getElementById('completion-modal');
+        const finalScoreEl = document.getElementById('final-score');
+        const finalAccuracyEl = document.getElementById('final-accuracy');
+        const quizTimeEl = document.getElementById('quiz-time');
+        const closeModalBtn = document.getElementById('close-modal');
+        
+        // Stats elements
+        const answeredCountEl = document.getElementById('answered-count');
+        const correctCountEl = document.getElementById('correct-count');
+        const incorrectCountEl = document.getElementById('incorrect-count');
+        const accuracyEl = document.getElementById('accuracy');
+        const progressPercentEl = document.getElementById('progress-percent');
+        const progressFillEl = document.getElementById('progress-fill');
+
+        // Initialize the quiz
+        function initializeQuiz() {
+            // Initialize userAnswers object
+            allQuestions.forEach((_, index) => {
+                userAnswers[index] = null;
+            });
+            
+            // Set total questions
+            totalQuestionsEl.textContent = allQuestions.length;
+            
+            // Start timer
+            startTime = new Date();
+            updateTimer();
+            quizTimer = setInterval(updateTimer, 1000);
+            
+            // Load the first question
+            loadQuestion(currentQuestionIndex);
+            
+            // Update stats
+            updateStats();
+        }
+
+        // Load a question by index
+        function loadQuestion(index) {
+            if (index < 0 || index >= allQuestions.length) return;
+            
+            currentQuestionIndex = index;
+            const question = allQuestions[index];
+            
+            // Update question text
+            if (question.code) {
+                questionTextEl.innerHTML = `
+                    ${question.text}
+                    <div class="code-snippet">${question.code}</div>
+                `;
+            } else {
+                questionTextEl.textContent = question.text;
+            }
+            
+            // Update question number
+            currentQuestionEl.textContent = index + 1;
+            
+            // Clear options container
+            optionsContainerEl.innerHTML = '';
+            
+            // Add options
+            const optionLetters = question.options.length <= 2 ? ['True', 'False'] : ['A', 'B', 'C', 'D'];
+            question.options.forEach((option, i) => {
+                const optionEl = document.createElement('div');
+                optionEl.className = 'option';
+                
+                // Check if this option was previously selected
+                const isSelected = userAnswers[index] === optionLetters[i];
+                
+                // Check if this is the correct answer and user has answered
+                const isAnswered = userAnswers[index] !== null;
+                const isCorrectAnswer = optionLetters[i] === question.correctAnswer;
+                const isUserCorrect = userAnswers[index] === question.correctAnswer;
+                
+                if (isAnswered) {
+                    if (isSelected && isCorrectAnswer) {
+                        optionEl.classList.add('correct');
+                    } else if (isSelected && !isCorrectAnswer) {
+                        optionEl.classList.add('incorrect');
+                    } else if (isCorrectAnswer) {
+                        optionEl.classList.add('correct');
+                    }
+                } else if (isSelected) {
+                    optionEl.classList.add('selected');
+                }
+                
+                optionEl.innerHTML = `
+                    <div class="option-letter">${optionLetters[i]}</div>
+                    <div class="option-text">${option}</div>
+                `;
+                
+                // Add click event if not already answered
+                if (!isAnswered) {
+                    optionEl.addEventListener('click', () => selectOption(optionLetters[i]));
+                }
+                
+                optionsContainerEl.appendChild(optionEl);
+            });
+            
+            // Update feedback if answered
+            if (userAnswers[index] !== null) {
+                const isCorrect = userAnswers[index] === question.correctAnswer;
+                showFeedback(isCorrect, question.explanation);
+            } else {
+                feedbackEl.style.display = 'none';
+            }
+            
+            // Update navigation buttons
+            prevBtn.disabled = index === 0;
+            nextBtn.textContent = index === allQuestions.length - 1 ? 'Finish Quiz' : 'Next';
+            nextBtn.innerHTML = index === allQuestions.length - 1 ? 
+                'Finish Quiz <i class="fas fa-flag-checkered"></i>' : 
+                'Next <i class="fas fa-arrow-right"></i>';
+            
+            // Update progress
+            updateProgress();
+        }
+
+        // Handle option selection
+        function selectOption(selectedOption) {
+            const question = allQuestions[currentQuestionIndex];
+            const isCorrect = selectedOption === question.correctAnswer;
+            
+            // Store user's answer
+            userAnswers[currentQuestionIndex] = selectedOption;
+            
+            // Update stats
+            if (isCorrect) {
+                correctAnswersCount++;
+            } else {
+                incorrectAnswersCount++;
+            }
+            
+            // Update UI
+            loadQuestion(currentQuestionIndex);
+            updateStats();
+        }
+
+        // Show feedback after answer selection
+        function showFeedback(isCorrect, explanation) {
+            feedbackEl.innerHTML = '';
+            feedbackEl.className = 'feedback';
+            
+            if (isCorrect) {
+                feedbackEl.classList.add('correct');
+                feedbackEl.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <div class="feedback-content">
+                        <div>Correct! Well done.</div>
+                        <div class="explanation">${explanation}</div>
+                    </div>
+                `;
+            } else {
+                feedbackEl.classList.add('incorrect');
+                const correctLetter = allQuestions[currentQuestionIndex].correctAnswer;
+                feedbackEl.innerHTML = `
+                    <i class="fas fa-times-circle"></i>
+                    <div class="feedback-content">
+                        <div>Incorrect. The correct answer is ${correctLetter}.</div>
+                        <div class="explanation">${explanation}</div>
+                    </div>
+                `;
+            }
+            
+            feedbackEl.style.display = 'flex';
+        }
+
+        // Update statistics display
+        function updateStats() {
+            const answeredCount = Object.values(userAnswers).filter(answer => answer !== null).length;
+            const totalQuestions = allQuestions.length;
+            
+            answeredCountEl.textContent = answeredCount;
+            correctCountEl.textContent = correctAnswersCount;
+            incorrectCountEl.textContent = incorrectAnswersCount;
+            
+            // Calculate accuracy
+            const accuracy = answeredCount > 0 ? 
+                Math.round((correctAnswersCount / answeredCount) * 100) : 0;
+            accuracyEl.textContent = `${accuracy}%`;
+            
+            // Update progress
+            updateProgress();
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const answeredCount = Object.values(userAnswers).filter(answer => answer !== null).length;
+            const totalQuestions = allQuestions.length;
+            const progressPercent = Math.round((answeredCount / totalQuestions) * 100);
+            
+            progressPercentEl.textContent = `${progressPercent}%`;
+            progressFillEl.style.width = `${progressPercent}%`;
+        }
+
+        // Update timer
+        function updateTimer() {
+            if (!startTime) return;
+            
+            const now = new Date();
+            const diff = Math.floor((now - startTime) / 1000); // difference in seconds
+            const minutes = Math.floor(diff / 60);
+            const seconds = diff % 60;
+            
+            quizTimeEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Show completion modal
+        function showCompletionModal() {
+            const answeredCount = Object.values(userAnswers).filter(answer => answer !== null).length;
+            const accuracy = answeredCount > 0 ? 
+                Math.round((correctAnswersCount / answeredCount) * 100) : 0;
+            
+            finalScoreEl.textContent = `${correctAnswersCount}/${allQuestions.length}`;
+            finalAccuracyEl.textContent = `${accuracy}%`;
+            
+            // Stop the timer
+            clearInterval(quizTimer);
+            
+            completionModal.style.display = 'flex';
+        }
+
+        // Navigation functions
+        function goToNextQuestion() {
+            if (currentQuestionIndex < allQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                // If on last question, show completion modal
+                showCompletionModal();
+            }
+        }
+
+        function goToPrevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize quiz
+            initializeQuiz();
+            
+            // Navigation button events
+            prevBtn.addEventListener('click', goToPrevQuestion);
+            nextBtn.addEventListener('click', goToNextQuestion);
+            
+            // Close modal
+            closeModalBtn.addEventListener('click', () => {
+                completionModal.style.display = 'none';
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                // Prevent default behavior for number keys
+                if ((e.key >= '1' && e.key <= '4') || 
+                    (e.key.toLowerCase() >= 'a' && e.key.toLowerCase() <= 'd') ||
+                    (e.key.toLowerCase() === 't' || e.key.toLowerCase() === 'f')) {
+                    e.preventDefault();
+                }
+                
+                if (e.key === 'ArrowLeft') {
+                    goToPrevQuestion();
+                } else if (e.key === 'ArrowRight' || e.key === 'Enter') {
+                    goToNextQuestion();
+                } else if (e.key >= '1' && e.key <= '4') {
+                    // Select option with number keys 1-4 (for A-D)
+                    const optionIndex = parseInt(e.key) - 1;
+                    const currentQuestion = allQuestions[currentQuestionIndex];
+                    const optionLetters = currentQuestion.options.length <= 2 ? ['True', 'False'] : ['A', 'B', 'C', 'D'];
+                    
+                    if (userAnswers[currentQuestionIndex] === null && optionIndex < optionLetters.length) {
+                        selectOption(optionLetters[optionIndex]);
+                    }
+                } else if (e.key.toLowerCase() >= 'a' && e.key.toLowerCase() <= 'd') {
+                    // Select option with letter keys A-D
+                    const optionLetter = e.key.toUpperCase();
+                    const currentQuestion = allQuestions[currentQuestionIndex];
+                    const optionLetters = currentQuestion.options.length <= 2 ? ['True', 'False'] : ['A', 'B', 'C', 'D'];
+                    
+                    if (userAnswers[currentQuestionIndex] === null && optionLetters.includes(optionLetter)) {
+                        selectOption(optionLetter);
+                    }
+                } else if (e.key.toLowerCase() === 't' || e.key.toLowerCase() === 'f') {
+                    // For True/False questions
+                    const currentQuestion = allQuestions[currentQuestionIndex];
+                    if (currentQuestion.options.length <= 2) {
+                        const optionLetter = e.key.toUpperCase() === 'T' ? 'True' : 'False';
+                        if (userAnswers[currentQuestionIndex] === null) {
+                            selectOption(optionLetter);
+                        }
+                    }
+                }
+            });
+            
+            // Close modal on outside click
+            completionModal.addEventListener('click', (e) => {
+                if (e.target === completionModal) {
+                    completionModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
