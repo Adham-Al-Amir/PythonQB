@@ -1020,7 +1020,62 @@ print(calculate_average([]))`,
                 hint: "What happens when you divide by zero? Check if the list is empty before performing division.",
                 explanation: "Dividing by zero raises a ZeroDivisionError. When the list is empty, len(numbers) is 0. You need to check for this edge case and handle it appropriately.",
                 errorType: "ZeroDivisionError"
-            }
+            },
+             {
+                id: 13,
+                title: "ValueError - Invalid Conversion",
+                description: "Fix the ValueError when converting invalid string to integer:",
+                brokenCode: `number = int("abc")
+print(number)`,
+                correctSolution: `try:
+    number = int("abc")
+    print(number)
+except ValueError:
+    print("Invalid number format")`,
+                acceptableSolutionsغ: [
+                    `try:\n    number = int("abc")\n    print(number)\nexcept ValueError:\n    print("Invalid number format")`,
+                    `try:\n    num = int("abc")\n    print(num)\nexcept ValueError:\n    print("Cannot convert to integer")`,
+                    `import sys\ntry:\n    n = int("abc")\n    print(n)\nexcept ValueError:\n    print("Invalid input", file=sys.stderr)`
+                ],
+                hint: "The string 'abc' cannot be converted to an integer. Use try-except to handle the ValueError.",
+                explanation: "int('abc') raises a ValueError because 'abc' is not a valid integer string. You need to handle this exception using try-except block.",
+                errorType: "ValueError"
+            },
+            {
+                id: 14,
+                title: "AttributeError - Wrong Method Name",
+                description: "Fix the AttributeError with incorrect string method:",
+                brokenCode: `text = "Hello World"
+print(text.toUpperCase())`,
+                correctSolution: `text = "Hello World"
+print(text.upper())`,
+                acceptableSolutions: [
+                    `text = "Hello World"\nprint(text.upper())`,
+                    `s = "Hello World"\nprint(s.upper())`,
+                    `t = "Hello World"\nprint(str.upper(t))`
+                ],
+                hint: "Check the correct method name for converting string to uppercase in Python.",
+                explanation: "Python strings use .upper() method, not .toUpperCase(). The correct method is text.upper().",
+                errorType: "AttributeError"
+            },
+            {
+                id: 15,
+                title: "TypeError - String Concatenation",
+                description: "Fix the TypeError when concatenating string with number:",
+                brokenCode: `age = 25
+print("I am " + age + " years old")`,
+                correctSolution: `age = 25
+print("I am " + str(age) + " years old")`,
+                acceptableSolutions: [
+                    `age = 25\nprint("I am " + str(age) + " years old")`,
+                    `age = 25\nprint(f"I am {age} years old")`,
+                    `age = 25\nprint("I am", age, "years old")`,
+                    `age = 25\nprint("I am {} years old".format(age))`
+                ],
+                hint: "You cannot concatenate strings with integers directly. Convert the integer to string first.",
+                explanation: "In Python, you cannot use + operator between string and integer. Convert the integer to string using str() or use f-strings.",
+                errorType: "TypeError"
+            },
         ];
 
         let currentQuestionIndex = 0;
@@ -1175,8 +1230,7 @@ print(calculate_average([]))`,
                 }
             }
             
-            // Check for semantic equivalence (more advanced)
-            return checkSemanticEquivalence(userCode, correctCode);
+            return false; // Removed semantic equivalence to avoid false positives
         }
 
         // Check semantic equivalence (basic)
@@ -1186,12 +1240,18 @@ print(calculate_average([]))`,
                 const elements = {
                     hasTempVar: /temp\s*=/.test(code) || /t\s*=/.test(code) || /c\s*=/.test(code),
                     hasSwap: /a,\s*b\s*=\s*b,\s*a/.test(code),
-                    hasIntConversion: /int\s*\(\s*input/.test(code),
+                    hasIntConversion: /int\s*\(/.test(code),
                     hasColon: /def.*:|if.*:|while.*:|for.*:/.test(code),
                     hasIndentation: /^\s+print/.test(code) || /^\s+\w/.test(code),
                     hasGetMethod: /\.get\(/.test(code),
-                    hasZeroCheck: /len.*==\s*0/.test(code) || /not\s+\w+/.test(code),
-                    hasIncrement: /\+\=/.test(code) || /\=\s*\w+\s*\+/.test(code)
+                    hasZeroCheck: /len.*==\s*0/.test(code) || /not\s+\w+/.test(code) || /if\s+len/.test(code),
+                    hasIncrement: /\+\=/.test(code) || /\=\s*\w+\s*\+/.test(code),
+                    hasTry: /try\s*:/.test(code),
+                    hasExcept: /except\s+/.test(code),
+                    hasStr: /str\s*\(/.test(code),
+                    hasUpper: /\.upper\s*\(/.test(code),
+                    hasFString: /f"/.test(code) || /f'/.test(code),
+                    hasFormat: /\.format\s*\(/.test(code)
                 };
                 return elements;
             };
