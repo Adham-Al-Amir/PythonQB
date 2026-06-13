@@ -688,952 +688,746 @@
         // All 117 questions from both PDF files
         const allQuestions = [
             // ===== Questions 1-60 from First PDF =====
-            {
-                id: 1,
-                text: "What is the main advantage of Python being an interpreted language?",
-                options: [
-                    "It is faster than compiled languages",
-                    "It does not require compilation before execution",
-                    "It uses less memory",
-                    "It is statically typed"
-                ],
-                correctAnswer: "B",
-                explanation: "Python is an interpreted language, which means code is executed line by line without needing prior compilation."
-            },
-            {
-                id: 2,
-                text: "Which of the following is NOT a Python data type?",
-                options: ["List", "Tuple", "Array", "Dictionary"],
-                correctAnswer: "C",
-                explanation: "Python has lists, tuples, and dictionaries as built-in data types, but 'Array' is not a basic Python data type (though arrays exist in modules like array or numpy)."
-            },
-            {
-                id: 3,
-                text: "In Python, how do you start a single-line comment?",
-                options: ["//", "#", "/*", "!-"],
-                correctAnswer: "B",
-                explanation: "In Python, single-line comments start with the # symbol."
-            },
-            {
-                id: 4,
-                text: "Which operator is used for exponentiation in Python?",
-                options: ["^", "**", "//", "%"],
-                correctAnswer: "B",
-                explanation: "The ** operator is used for exponentiation in Python (e.g., 2**3 = 8)."
-            },
-            {
-                id: 5,
-                text: "Which of the following is a valid Python identifier?",
-                options: ["2variable", "_var", "for", "my-var"],
-                correctAnswer: "B",
-                explanation: "Identifiers cannot start with a number, cannot be a keyword, and cannot contain hyphens. _var is valid."
-            },
-            {
-                id: 6,
-                text: "What does the input() function return?",
-                options: ["Integer", "Float", "String", "Boolean"],
-                correctAnswer: "C",
-                explanation: "The input() function always returns a string."
-            },
-            {
-                id: 7,
-                text: "Which function is used to convert a string to an integer in Python?",
-                options: ["str()", "int()", "float()", "eval()"],
-                correctAnswer: "B",
-                explanation: "The int() function converts a string to an integer."
-            },
-            {
-                id: 8,
-                text: "What is the output of print(5 // 2)?",
-                options: ["2.5", "2", "3", "2.0"],
-                correctAnswer: "B",
-                explanation: "The // operator performs integer division (floor division). 5 // 2 = 2."
-            },
-            {
-                id: 9,
-                text: "Which keyword is used to define a function in Python?",
-                options: ["func", "def", "define", "function"],
-                correctAnswer: "B",
-                explanation: "The def keyword is used to define a function in Python."
-            },
-            {
-                id: 10,
-                text: "Which of the following is a mutable data type?",
-                options: ["Tuple", "String", "List", "Integer"],
-                correctAnswer: "C",
-                explanation: "Lists are mutable, while tuples and strings are immutable."
-            },
-            {
-                id: 11,
-                text: 'What is the result of "Hello" + "World"?',
-                options: ["HelloWorld", "Hello World", "Error", "Hello+World"],
-                correctAnswer: "A",
-                explanation: 'In Python, the + operator concatenates strings: "Hello" + "World" = "HelloWorld".'
-            },
-            {
-                id: 12,
-                text: "Which loop is used when the number of iterations is unknown?",
-                options: ["for loop", "while loop", "do-while loop", "nested loop"],
-                correctAnswer: "B",
-                explanation: "The while loop is used when the number of iterations is unknown and depends on a condition."
-            },
-            {
-                id: 13,
-                text: "What does the range(5) function generate?",
-                options: ["0, 1, 2, 3, 4", "1, 2, 3, 4, 5", "0, 1, 2, 3, 4, 5", "5, 4, 3, 2, 1"],
-                correctAnswer: "A",
-                explanation: "range(5) generates numbers from 0 to 4."
-            },
-            {
-                id: 14,
-                text: "Which statement is used to exit a loop prematurely?",
-                options: ["stop", "exit", "break", "continue"],
-                correctAnswer: "C",
-                explanation: "The break statement is used to exit a loop immediately."
-            },
-            {
-                id: 15,
-                text: "What is the purpose of the else clause in a while loop?",
-                options: [
-                    "It runs if the loop is infinite",
-                    "It runs if the loop condition is False",
-                    "It runs if the loop ends without a break",
-                    "It runs before the loop starts"
-                ],
-                correctAnswer: "C",
-                explanation: "The else clause in a while loop executes only if the loop terminates normally (without a break)."
-            },
-            {
-                id: 16,
-                text: "Which of the following is an infinite loop?",
-                options: [
-                    "while True:",
-                    "for i in range(10):",
-                    "while i < 10:",
-                    "for i in [1,2,3]:"
-                ],
-                correctAnswer: "A",
-                explanation: "while True: will run forever because the condition is always True."
-            },
-            {
-                id: 17,
-                text: "What does the pass statement do?",
-                options: [
-                    "Stops the program",
-                    "Does nothing, used as a placeholder",
-                    "Skips the current iteration",
-                    "Exits the function"
-                ],
-                correctAnswer: "B",
-                explanation: "The pass statement does nothing and is used as a placeholder."
-            },
-            {
-                id: 18,
-                text: "How do you define a default argument in a function?",
-                options: [
-                    "def func(a=5):",
-                    "def func(a:5):",
-                    "def func(a==5):",
-                    "def func(a:default=5):"
-                ],
-                correctAnswer: "A",
-                explanation: "The correct syntax for defining a default argument is def func(a=5):"
-            },
-            {
-                id: 19,
-                text: "What is the output of print(type([]))?",
-                options: [
-                    "<'class 'list'>",
-                    "<'class 'array'>",
-                    "<'class 'tuple'>",
-                    "<'class 'dict>"
-                ],
-                correctAnswer: "A",
-                explanation: "[] represents an empty list, so type([]) returns <class 'list'>"
-            },
-            {
-                id: 20,
-                text: "Which method is used to add an element to a list?",
-                options: ["insert()", "append()", "add()", "push()"],
-                correctAnswer: "B",
-                explanation: "The append() method adds an element to the end of a list."
-            },
-            {
-                id: 21,
-                text: "How do you access the last element of a list my_list?",
-                options: ["my_list[last]", "my_list[end]", "my_list[0]", "my_list[-1]"],
-                correctAnswer: "D",
-                explanation: "Negative indexing in Python starts from the end: -1 refers to the last element."
-            },
-            {
-                id: 22,
-                text: "Which data type does not allow duplicates?",
-                options: ["List", "Tuple", "Set", "Dictionary"],
-                correctAnswer: "C",
-                explanation: "Sets do not allow duplicate elements; all elements must be unique."
-            },
-            {
-                id: 23,
-                text: "What is the output of print(3 == 3.0)?",
-                options: ["True", "False", "Error", "None"],
-                correctAnswer: "A",
-                explanation: "Python performs implicit type conversion when comparing: 3 == 3.0 evaluates to True."
-            },
-            {
-                id: 24,
-                text: "Which operator is used for floor division?",
-                options: ["/", "%", "**", "//"],
-                correctAnswer: "D",
-                explanation: "The // operator is used for floor division (integer division)."
-            },
-            {
-                id: 25,
-                text: 'What does eval("2+3") return?',
-                options: ['"2+3"', "5", "Error", "None"],
-                correctAnswer: "B",
-                explanation: 'eval() evaluates the mathematical expression in the string: eval("2+3") = 5.'
-            },
-            {
-                id: 26,
-                text: "Which of the following is NOT a Python keyword?",
-                options: ["lambda", "yield", "print", "assert"],
-                correctAnswer: "C",
-                explanation: "print is a built-in function, not a keyword."
-            },
-            {
-                id: 27,
-                text: 'What is the result of bool("False")?',
-                options: ["True", "False", "Error", "None"],
-                correctAnswer: "A",
-                explanation: 'Any non-empty string evaluates to True when converted to boolean, even if it contains the word "False".'
-            },
-            {
-                id: 28,
-                text: 'What is the output of "abc" * 3?',
-                options: ["abcabcabc", "abc3", "Error", "abc abc abc"],
-                correctAnswer: "A",
-                explanation: 'The * operator repeats strings: "abc" * 3 = "abcabcabc".'
-            },
-            {
-                id: 29,
-                text: "How do you import the math module?",
-                options: ["include math", "using math", "require math", "import math"],
-                correctAnswer: "D",
-                explanation: "import math is the correct way to import the math module in Python."
-            },
-            {
-                id: 30,
-                text: "Which function returns the length of a list?",
-                options: ["size()", "len()", "length()", "count()"],
-                correctAnswer: "B",
-                explanation: "The len() function returns the number of items in a sequence."
-            },
-            {
-                id: 31,
-                text: "What is the output of print(10 > 9 and 9 < 8)?",
-                options: ["False", "True", "Error", "None"],
-                correctAnswer: "A",
-                explanation: "10 > 9 = True, 9 < 8 = False, True and False = False"
-            },
-            {
-                id: 32,
-                text: "Which data type is immutable?",
-                options: ["List", "Set", "Dictionary", "Tuple"],
-                correctAnswer: "D",
-                explanation: "Tuples are immutable after creation."
-            },
-            {
-                id: 33,
-                text: "How do you create an empty dictionary?",
-                options: ["{}", "[]", "()", "set()"],
-                correctAnswer: "A",
-                explanation: "{} creates an empty dictionary, [] creates an empty list, () creates an empty tuple."
-            },
-            {
-                id: 34,
-                text: "What does the continue statement do in a loop?",
-                options: [
-                    "Exits the loop",
-                    "Restarts the loop",
-                    "Pauses the loop",
-                    "Skips the current iteration"
-                ],
-                correctAnswer: "D",
-                explanation: "The continue statement skips the rest of the current iteration and moves to the next one."
-            },
-            {
-                id: 35,
-                text: "Which of the following is a valid way to swap two variables a and b?",
-                options: [
-                    "a = b; b = a",
-                    "a, b = b, a",
-                    "swap(a, b)",
-                    "a = b; b = temp"
-                ],
-                correctAnswer: "B",
-                explanation: "a, b = b, a is the most efficient way to swap values in Python."
-            },
-            {
-                id: 36,
-                text: "What is the result of print(2 ** 3)?",
-                options: ["6", "9", "5", "8"],
-                correctAnswer: "D",
-                explanation: "** is the exponentiation operator: 2 ** 3 = 8"
-            },
-            {
-                id: 37,
-                text: "Which method removes an element from a list by value?",
-                options: ["remove()", "pop()", "delete()", "discard()"],
-                correctAnswer: "A",
-                explanation: "The remove() method removes the first occurrence of a specified value from a list."
-            },
-            {
-                id: 38,
-                text: 'What is the output of print("Hello".upper())?',
-                options: ["HELLO", "hello", "Hello", "Error"],
-                correctAnswer: "A",
-                explanation: "The upper() method converts all characters to uppercase: 'Hello'.upper() = 'HELLO'"
-            },
-            {
-                id: 39,
-                text: "Which of the following is used for string slicing?",
-                options: ["{}", "[]", "()", "<>"],
-                correctAnswer: "B",
-                explanation: "Square brackets [] are used for indexing and slicing in Python."
-            },
-            {
-                id: 40,
-                text: 'What is the result of print("Python"[1:4])?',
-                options: ["Pyt", "thon", "ytho", "yth"],
-                correctAnswer: "D",
-                explanation: '"Python"[1:4] takes characters from index 1 to 3: "yth".'
-            },
-            {
-                id: 41,
-                text: "Which of the following is a built-in function in Python?",
-                options: ["printf()", "print()", "echo()", "output()"],
-                correctAnswer: "B",
-                explanation: "print() is a built-in function in Python for output."
-            },
-            {
-                id: 42,
-                text: "Which of the following is a correct if-elif-else structure?",
-                options: [
-                    "if → else → elif",
-                    "elif → if → else",
-                    "else → if → elif",
-                    "if → elif → else"
-                ],
-                correctAnswer: "D",
-                explanation: "The correct structure is: if, then elif (one or more), then else (optional)."
-            },
-            {
-                id: 43,
-                text: "What is the output of print(not True)?",
-                options: ["True", "False", "None", "Error"],
-                correctAnswer: "B",
-                explanation: "not True = False"
-            },
-            {
-                id: 44,
-                text: "Which data type uses key-value pairs?",
-                options: ["List", "Tuple", "Set", "Dictionary"],
-                correctAnswer: "D",
-                explanation: "Dictionaries store data as key-value pairs."
-            },
-            {
-                id: 45,
-                text: "What is the purpose of the global keyword?",
-                options: [
-                    "Declare a global variable inside a function",
-                    "Declare a local variable",
-                    "Import a module",
-                    "Define a constant"
-                ],
-                correctAnswer: "A",
-                explanation: "The global keyword is used to access a global variable from within a function."
-            },
-            {
-                id: 46,
-                text: "Which of the following is a valid complex number in Python?",
-                options: ["3 + 4i", "3 + 4j", "3 + 4k", "3i + 4"],
-                correctAnswer: "B",
-                explanation: "In Python, the letter j is used for the imaginary part: 3 + 4j"
-            },
-            {
-                id: 47,
-                text: "What is the result of print(10 % 3)?",
-                options: ["1", "3", "0", "10"],
-                correctAnswer: "A",
-                explanation: "% is the modulus operator: 10 % 3 = 1 (10 ÷ 3 = 3 with remainder 1)"
-            },
-            {
-                id: 48,
-                text: "Which loop is used to iterate over a sequence?",
-                options: ["while", "do-while", "repeat-until", "for"],
-                correctAnswer: "D",
-                explanation: "The for loop is used to iterate over elements of a sequence (list, string, etc.)."
-            },
-            {
-                id: 49,
-                text: "What is printed?",
-                code: `def modify(lst):
-    lst.append(4)
-my_list = [1, 2, 3]
-modify(my_list)
-print(my_list)`,
-                options: [
-                    "[1, 2, 3]",
-                    "[1, 2, 3, 4]",
-                    "[4]",
-                    "Error"
-                ],
-                correctAnswer: "B",
-                explanation: "Lists are passed by reference in Python, so modifications inside the function affect the original list."
-            },
-            {
-                id: 50,
-                text: "What is printed?",
-                code: `a = [1, 2, 3]
-b = a
-b[0] = 99
-print(a)`,
-                options: [
-                    "[99, 2, 3]",
-                    "[1, 2, 3]",
-                    "[99, 99, 99]",
-                    "Error"
-                ],
-                correctAnswer: "A",
-                explanation: "b = a makes b reference the same list as a, so changing b[0] also changes a[0]."
-            },
-            {
-                id: 51,
-                text: "What is printed?",
-                code: `x = 10
-def func():
-    x = 5
-    print(x)
-func()
-print(x)`,
-                options: ["5, 10", "10, 10", "5, 5", "Error"],
-                correctAnswer: "A",
-                explanation: "x inside func() is a local variable, while x outside is a global variable. So func() prints 5, then print(x) prints 10."
-            },
-            {
-                id: 52,
-                text: "What is printed?",
-                code: `s = "Python"
-print(s[1:4] + s[-1])`,
-                options: ["ytho", "ythn", "ython", "yhn"],
-                correctAnswer: "B",
-                explanation: 's[1:4] = "yth", s[-1] = "n", so the output is "ythn".'
-            },
-            {
-                id: 53,
-                text: "What is the result of this loop?",
-                code: `for i in range(3):
-    if i == 1:
-        continue
-    print(i, end=" ")`,
-                options: ["0 1 2", "1 2", "0 2", "0 1"],
-                correctAnswer: "C",
-                explanation: "When i == 1, continue skips the print statement, so only 0 and 2 are printed."
-            },
-            {
-                id: 54,
-                text: "What is printed?",
-                code: `def func(x, y, *args):
-    print(len(args))
-func(1, 2, 3, 4, 5)`,
-                options: ["2", "3", "5", "Error"],
-                correctAnswer: "B",
-                explanation: "*args collects extra positional arguments. Here args = (3, 4, 5), so len(args) = 3."
-            },
-            {
-                id: 55,
-                text: "What is printed?",
-                code: `print(2 * 3 + 4)`,
-                options: ["10", "14", "18", "Error"],
-                correctAnswer: "A",
-                explanation: "Multiplication has higher precedence: 2 * 3 = 6, then 6 + 4 = 10."
-            },
-            {
-                id: 56,
-                text: "What is printed?",
-                code: `x = "Hello"
-print(x[0] + x[-1])`,
-                options: ["Ho", "H", "He", "lo"],
-                correctAnswer: "A",
-                explanation: 'x[0] = "H", x[-1] = "o", so "H" + "o" = "Ho".'
-            },
-            {
-                id: 57,
-                text: "What is printed?",
-                code: `for i in range(2):
-    for j in range(2):
-        print(i, j)`,
-                options: [
-                    "0 0, 1 1",
-                    "0 0, 0 1, 1 0, 1 1",
-                    "0 1, 1 0",
-                    "0 0, 0 1"
-                ],
-                correctAnswer: "B",
-                explanation: "Nested loops: i takes values 0,1 and for each i, j takes values 0,1."
-            },
-            {
-                id: 58,
-                text: "What is the output of the following code?",
-                code: `x = 5
-y = 2
-print(x // y, x % y)`,
-                options: ["2.5 1", "2 0", "2 0.5", "2 1"],
-                correctAnswer: "D",
-                explanation: "5 // 2 = 2 (integer division), 5 % 2 = 1 (remainder)"
-            },
-            {
-                id: 59,
-                text: "What is the output of the following code?",
-                code: `my_list = [1, 2, 3, 4]
-my_list.append([5, 6])
-print(len(my_list))`,
-                options: ["6", "7", "5", "Error"],
-                correctAnswer: "C",
-                explanation: "append() adds the entire list [5, 6] as a single element, so length becomes 5."
-            },
-            {
-                id: 60,
-                text: "What does this code print?",
-                code: `def func(a, b=10):
-    return a + b
-print(func(5))`,
-                options: ["5", "15", "Error", "10"],
-                correctAnswer: "B",
-                explanation: "b has default value 10, so func(5) returns 5 + 10 = 15."
-            },
+           {
+        id: 1,
+        text: "Where can you create a new document?",
+        options: ["Home Tab", "Insert Tab", "File Tab (Backstage View)", "Review Tab"],
+        correctAnswer: "C",
+        explanation: "New documents are created from the File tab (Backstage View)."
+    },
+    {
+        id: 2,
+        text: "Which option is used to save a document with a different name?",
+        options: ["Save", "Save As", "Open", "Close"],
+        correctAnswer: "B",
+        explanation: "Save As creates a new copy of the document with a different name."
+    },
+    {
+        id: 3,
+        text: "The Ribbon contains:",
+        options: ["Only text", "Tabs and groups of commands", "Images only", "Files"],
+        correctAnswer: "B",
+        explanation: "The Ribbon contains tabs and groups of commands."
+    },
+    {
+        id: 4,
+        text: "What is the function of Print Preview?",
+        options: ["Edit document", "View document before printing", "Save file", "Delete text"],
+        correctAnswer: "B",
+        explanation: "Print Preview lets you see how the document will look when printed."
+    },
+    {
+        id: 5,
+        text: "Contextual tabs appear when:",
+        options: ["Opening a file", "Selecting specific objects like pictures", "Saving a file", "Closing the program"],
+        correctAnswer: "B",
+        explanation: "Contextual tabs appear when you select specific objects like pictures or tables."
+    },
+    {
+        id: 6,
+        text: "Quick Access Toolbar is used for:",
+        options: ["Printing only", "Frequently used commands", "Formatting text only", "Saving files only"],
+        correctAnswer: "B",
+        explanation: "The Quick Access Toolbar provides quick access to frequently used commands."
+    },
+    {
+        id: 7,
+        text: "Margins are:",
+        options: ["Text styles", "Blank spaces around the page", "Font size", "Paragraph alignment"],
+        correctAnswer: "B",
+        explanation: "Margins are the blank spaces around the edges of the page."
+    },
+    {
+        id: 8,
+        text: "Which tab is used for text formatting?",
+        options: ["Insert", "Home", "Review", "View"],
+        correctAnswer: "B",
+        explanation: "The Home tab contains text formatting options."
+    },
+    {
+        id: 9,
+        text: "Copy means:",
+        options: ["Move text", "Delete text", "Duplicate text", "Save text"],
+        correctAnswer: "C",
+        explanation: "Copy creates a duplicate of the selected text without removing the original."
+    },
+    {
+        id: 10,
+        text: "Find tool is used to:",
+        options: ["Save document", "Search for words", "Print document", "Format text"],
+        correctAnswer: "B",
+        explanation: "The Find tool searches for specific words or phrases in the document."
+    },
+    {
+        id: 11,
+        text: "Which of the following actions will NOT open the Backstage View in Microsoft Word?",
+        options: ["Clicking File tab", "Pressing Ctrl + S", "Pressing Ctrl + P", "Pressing Ctrl + O"],
+        correctAnswer: "B",
+        explanation: "Ctrl+S saves the document and does not open Backstage View."
+    },
+    {
+        id: 12,
+        text: "Which statement about 'Save' and 'Save As' is CORRECT?",
+        options: [
+            "Both always ask for file name",
+            "Save As overwrites the file",
+            "Save updates existing file, Save As creates a new copy",
+            "Save cannot be used twice"
+        ],
+        correctAnswer: "C",
+        explanation: "Save updates the existing file, while Save As creates a new copy."
+    },
+    {
+        id: 13,
+        text: "What happens if you click 'Cut' and then close the document WITHOUT pasting?",
+        options: [
+            "Text returns automatically",
+            "Text is permanently lost",
+            "Text stays in clipboard temporarily",
+            "Text is saved in file"
+        ],
+        correctAnswer: "C",
+        explanation: "Cut text stays in the clipboard temporarily, even after closing the document."
+    },
+    {
+        id: 14,
+        text: "Which of the following will show additional options for a group?",
+        options: ["Right-click", "Double-click tab", "Dialog Box Launcher", "Status Bar"],
+        correctAnswer: "C",
+        explanation: "The Dialog Box Launcher (small arrow) shows additional options for a group."
+    },
+    {
+        id: 15,
+        text: "When do Contextual Tabs disappear?",
+        options: ["When saving file", "When closing Word", "When deselecting the object", "When printing"],
+        correctAnswer: "C",
+        explanation: "Contextual tabs disappear when you deselect the object they relate to."
+    },
+    {
+        id: 16,
+        text: "If you apply formatting without selecting text first, what happens?",
+        options: [
+            "Formatting applies to whole document",
+            "Nothing happens",
+            "It applies to the current cursor position",
+            "Word crashes"
+        ],
+        correctAnswer: "C",
+        explanation: "Formatting applies to text typed at the current cursor position."
+    },
+    {
+        id: 17,
+        text: "Which statement about Quick Access Toolbar is FALSE?",
+        options: [
+            "It can be customized",
+            "It is located at top left",
+            "It contains all commands by default",
+            "It provides quick access"
+        ],
+        correctAnswer: "C",
+        explanation: "The Quick Access Toolbar does NOT contain all commands by default; it can be customized."
+    },
+    {
+        id: 18,
+        text: "What is the result of using 'Find' without clicking any result?",
+        options: ["Deletes text", "Highlights matches only", "Moves cursor automatically", "Replaces text"],
+        correctAnswer: "B",
+        explanation: "Find highlights matches in the document without moving the cursor automatically."
+    },
+    {
+        id: 19,
+        text: "Which is TRUE about margins?",
+        options: [
+            "They affect only printing",
+            "They are visible text",
+            "They are spaces around page",
+            "They cannot be changed"
+        ],
+        correctAnswer: "C",
+        explanation: "Margins are the blank spaces around the page that can be changed."
+    },
+    {
+        id: 20,
+        text: "What is the main difference between 'Find' and 'Go To'?",
+        options: [
+            "No difference",
+            "Find searches text, Go To jumps location",
+            "Go To deletes text",
+            "Find formats text"
+        ],
+        correctAnswer: "B",
+        explanation: "Find searches for text, while Go To jumps to a specific location (page, line, etc.)."
+    },
+    {
+        id: 21,
+        text: "After copying text, which action will REMOVE it from the clipboard?",
+        options: ["Paste", "Copy another text", "Save file", "Print document"],
+        correctAnswer: "B",
+        explanation: "Copying new text replaces the previous content on the clipboard."
+    },
+    {
+        id: 22,
+        text: "A table is made of:",
+        options: ["Pages and sections", "Rows and columns", "Images and text", "Fonts and styles"],
+        correctAnswer: "B",
+        explanation: "A table consists of rows and columns."
+    },
+    {
+        id: 23,
+        text: "Cells are:",
+        options: ["Entire tables", "Intersections of rows and columns", "Only rows", "Only columns"],
+        correctAnswer: "B",
+        explanation: "Cells are the intersections of rows and columns in a table."
+    },
+    {
+        id: 24,
+        text: "What is the maximum table size using the quick grid?",
+        options: ["5×5", "8×10", "10×8", "Unlimited"],
+        correctAnswer: "C",
+        explanation: "The quick grid allows up to 10 columns and 8 rows (10×8)."
+    },
+    {
+        id: 25,
+        text: "Which tab is used to insert a table?",
+        options: ["Home", "Insert", "Layout", "Review"],
+        correctAnswer: "B",
+        explanation: "Tables are inserted from the Insert tab."
+    },
+    {
+        id: 26,
+        text: "Table Tools appear when:",
+        options: ["Opening file", "Clicking a table", "Saving document", "Printing"],
+        correctAnswer: "B",
+        explanation: "Table Tools appear when you click inside or select a table."
+    },
+    {
+        id: 27,
+        text: "Which operation combines cells?",
+        options: ["Split Cells", "Merge Cells", "Insert Cells", "Delete Cells"],
+        correctAnswer: "B",
+        explanation: "Merge Cells combines multiple cells into one."
+    },
+    {
+        id: 28,
+        text: "To divide a cell into multiple parts, use:",
+        options: ["Merge", "Split Cells", "Insert", "Delete"],
+        correctAnswer: "B",
+        explanation: "Split Cells divides a single cell into multiple cells."
+    },
+    {
+        id: 29,
+        text: "Pictures are inserted from:",
+        options: ["Review tab", "Insert tab", "Home tab", "Layout tab"],
+        correctAnswer: "B",
+        explanation: "Pictures are inserted using the Insert tab."
+    },
+    {
+        id: 30,
+        text: "Picture Tools appear when:",
+        options: ["Saving file", "Selecting picture", "Printing", "Typing text"],
+        correctAnswer: "B",
+        explanation: "Picture Tools appear when you select a picture in the document."
+    },
+    {
+        id: 31,
+        text: "Mail Merge is used to:",
+        options: [
+            "Delete data",
+            "Format text",
+            "Send letters to multiple recipients",
+            "Insert tables"
+        ],
+        correctAnswer: "C",
+        explanation: "Mail Merge creates personalized letters for multiple recipients."
+    },
+    {
+        id: 32,
+        text: "What happens if you insert a table using the grid and exceed 10×8?",
+        options: [
+            "Table expands automatically",
+            "Word crashes",
+            "You cannot create it using that method",
+            "It creates multiple tables"
+        ],
+        correctAnswer: "C",
+        explanation: "The quick grid only supports up to 10×8. Use 'Insert Table' dialog for larger tables."
+    },
+    {
+        id: 33,
+        text: "Which of the following actions will NOT show Table Tools?",
+        options: [
+            "Clicking inside a table",
+            "Selecting a table",
+            "Clicking outside the table",
+            "Editing table"
+        ],
+        correctAnswer: "C",
+        explanation: "Table Tools only appear when the table is selected or clicked inside."
+    },
+    {
+        id: 34,
+        text: "When resizing a picture using a side handle, what happens?",
+        options: [
+            "Image rotates",
+            "Both dimensions change",
+            "Only one dimension changes",
+            "Image deletes"
+        ],
+        correctAnswer: "C",
+        explanation: "Side handles resize only one dimension (width only)."
+    },
+    {
+        id: 35,
+        text: "What happens if 'Lock Aspect Ratio' is ON?",
+        options: [
+            "Image cannot resize",
+            "Only height changes",
+            "Width and height change proportionally",
+            "Image rotates automatically"
+        ],
+        correctAnswer: "C",
+        explanation: "Lock Aspect Ratio maintains the image's proportions when resizing."
+    },
+    {
+        id: 36,
+        text: "Why can't you drag a picture freely sometimes?",
+        options: [
+            "File is corrupted",
+            "Picture is locked",
+            "Text wrapping is 'In Line with Text'",
+            "Word error"
+        ],
+        correctAnswer: "C",
+        explanation: "Change text wrapping to any option other than 'In Line with Text' to move pictures freely."
+    },
+    {
+        id: 37,
+        text: "Which step is required BEFORE running Mail Merge?",
+        options: [
+            "Print document",
+            "Save file",
+            "Link mailing list",
+            "Delete fields"
+        ],
+        correctAnswer: "C",
+        explanation: "You must link a data source (mailing list) before running Mail Merge."
+    },
+    {
+        id: 38,
+        text: "What do << >> symbols represent in Mail Merge?",
+        options: ["Errors", "Images", "Merge Fields placeholders", "Hidden text"],
+        correctAnswer: "C",
+        explanation: "<< >> symbols represent merge field placeholders in Mail Merge."
+    },
+    {
+        id: 39,
+        text: "Which action will REMOVE previous clipboard content?",
+        options: ["Paste", "Save", "Copy new content", "Print"],
+        correctAnswer: "C",
+        explanation: "Copying new content replaces the previous content on the clipboard."
+    },
+             { id: 40, text: "Save and Save As have the same function.", correctAnswer: "False", explanation: "Save updates existing file, Save As creates a new copy." },
+    { id: 41, text: "The Ribbon is divided into tabs and groups.", correctAnswer: "True", explanation: "The Ribbon contains tabs, and each tab has groups of commands." },
+    { id: 42, text: "Contextual tabs always appear.", correctAnswer: "False", explanation: "Contextual tabs appear only when specific objects are selected." },
+    { id: 43, text: "Margins are the text style.", correctAnswer: "False", explanation: "Margins are blank spaces around the page, not text style." },
+    { id: 44, text: "Copy deletes the original text.", correctAnswer: "False", explanation: "Copy duplicates text without deleting the original." },
+    { id: 45, text: "Paste inserts copied or cut text.", correctAnswer: "True", explanation: "Paste inserts the content from the clipboard." },
+    { id: 46, text: "Find tool is used for searching words.", correctAnswer: "True", explanation: "Find searches for specific words in the document." },
+    { id: 47, text: "Go To moves to a specific location in the document.", correctAnswer: "True", explanation: "Go To jumps to a specific page, line, or section." },
+    { id: 48, text: "Quick Access Toolbar cannot be customized.", correctAnswer: "False", explanation: "The Quick Access Toolbar can be customized." },
+    { id: 49, text: "Printing requires selecting a printer.", correctAnswer: "True", explanation: "You must select a printer before printing." },
+    { id: 50, text: "A table can contain only text.", correctAnswer: "False", explanation: "Tables can contain text, images, and other objects." },
+    { id: 51, text: "You can merge and split cells.", correctAnswer: "True", explanation: "Both Merge and Split operations are available for table cells." },
+    { id: 52, text: "Table Tools always appear.", correctAnswer: "False", explanation: "Table Tools appear only when a table is selected." },
+    { id: 53, text: "Pictures can be resized using corner handles.", correctAnswer: "True", explanation: "Corner handles resize pictures proportionally." },
+    { id: 54, text: "Dragging side handles keeps proportions.", correctAnswer: "False", explanation: "Side handles resize only one dimension, changing proportions." },
+    { id: 55, text: "Mail Merge uses only one file.", correctAnswer: "False", explanation: "Mail Merge uses a main document and a data source file." },
+    { id: 56, text: "You can insert pictures from online sources.", correctAnswer: "True", explanation: "Online pictures can be inserted from the Insert tab." },
+    { id: 57, text: "Text wrapping affects picture movement.", correctAnswer: "True", explanation: "Text wrapping determines how pictures move relative to text." },
+    { id: 58, text: "You can delete entire tables.", correctAnswer: "True", explanation: "Tables can be deleted using Delete or Backspace keys." },
+    { id: 59, text: "Merge fields show real data before running merge.", correctAnswer: "False", explanation: "Merge fields show placeholders until Preview Results is clicked." }
 
-            // ===== Questions 61-117 from Second PDF =====
-            {
-                id: 61,
-                text: "Python is an example of which type of language?",
-                options: [
-                    "Compiled language",
-                    "Interpreted language",
-                    "Assembly language",
-                    "Machine language"
-                ],
-                correctAnswer: "B",
-                explanation: "Python is an interpreted language, meaning it executes code line by line without prior compilation."
-            },
-            {
-                id: 62,
-                text: "Which of the following is NOT a valid Python identifier?",
-                options: ["myVariable", "_privateVariable", "2celsius", "calculate_average"],
-                correctAnswer: "C",
-                explanation: "Identifiers cannot start with a number. 2celsius is invalid."
-            },
-            {
-                id: 63,
-                text: "What is the output of: print(type(5.0))?",
-                options: [
-                    "<'class 'int'>",
-                    "<'class 'float'>",
-                    "<'class 'str'>",
-                    "<'class 'double'>"
-                ],
-                correctAnswer: "B",
-                explanation: "5.0 is a floating-point number, so type(5.0) returns <class 'float'>."
-            },
-            {
-                id: 64,
-                text: "Which operator is used for exponentiation in Python?",
-                options: ["^", "**", "//", "%"],
-                correctAnswer: "B",
-                explanation: "The ** operator is used for exponentiation in Python."
-            },
-            {
-                id: 65,
-                text: "What does the // operator do?",
-                options: ["Float division", "Integer division", "Modulus", "Exponentiation"],
-                correctAnswer: "B",
-                explanation: "The // operator performs integer division (floor division)."
-            },
-            {
-                id: 66,
-                text: "Which of the following is a Python keyword?",
-                options: ["variable", "function", "class", "integer"],
-                correctAnswer: "C",
-                explanation: "class is a Python keyword used to define classes."
-            },
-            {
-                id: 67,
-                text: "What will be the data type of the result: 5 + 2.0?",
-                options: ["int", "float", "str", "complex"],
-                correctAnswer: "B",
-                explanation: "When adding an int and a float, Python performs implicit conversion to float."
-            },
-            {
-                id: 68,
-                text: "Which function is used to get input from the user in Python?",
-                options: ["scanf()", "input()", "get()", "read()"],
-                correctAnswer: "B",
-                explanation: "The input() function is used to get user input in Python."
-            },
-            {
-                id: 69,
-                text: "What does garbage collection do in Python?",
-                options: [
-                    "Deletes variables",
-                    "Clears old values from memory automatically",
-                    "Removes syntax errors",
-                    "Optimizes code"
-                ],
-                correctAnswer: "B",
-                explanation: "Garbage collection automatically frees memory occupied by objects that are no longer in use."
-            },
-            {
-                id: 70,
-                text: "Which of the following is TRUE about Python identifiers?",
-                options: [
-                    "They are case-insensitive",
-                    "They can start with a number",
-                    "They are case-sensitive",
-                    "They must be in uppercase"
-                ],
-                correctAnswer: "C",
-                explanation: "Python identifiers are case-sensitive (myVar and myvar are different)."
-            },
-            {
-                id: 71,
-                text: "According to the lecture, what is a program?",
-                options: [
-                    "A physical machine",
-                    "A sequence of instructions telling the computer what to do",
-                    "A type of hardware",
-                    "An operating system"
-                ],
-                correctAnswer: "B",
-                explanation: "A program is a sequence of instructions that tells the computer what to do."
-            },
-            {
-                id: 72,
-                text: "Which of the following is NOT mentioned as a type of programming language in the lecture?",
-                options: [
-                    "Procedural languages",
-                    "Object-oriented languages",
-                    "Quantum languages",
-                    "Functional languages"
-                ],
-                correctAnswer: "C",
-                explanation: "Quantum languages are not typically mentioned as a basic type of programming language."
-            },
-            {
-                id: 73,
-                text: "What does a compiler do?",
-                options: [
-                    "Executes code line by line",
-                    "Translates high-level language to machine language",
-                    "Debug programs",
-                    "Manages memory"
-                ],
-                correctAnswer: "B",
-                explanation: "A compiler translates high-level code to machine code before execution."
-            },
-            {
-                id: 74,
-                text: "What is Python's approach to executing code?",
-                options: ["Compiled", "Interpreted", "Assembled", "Hybrid"],
-                correctAnswer: "B",
-                explanation: "Python uses an interpreter to execute code line by line."
-            },
-            {
-                id: 75,
-                text: "What is the output of print(5.9 + 4.2)?",
-                options: ["10.1", "10.100000000000001", "10", "10.11"],
-                correctAnswer: "B",
-                explanation: "Due to floating-point precision issues, 5.9 + 4.2 = 10.100000000000001"
-            },
-            {
-                id: 76,
-                text: "What does the input() function return by default?",
-                options: ["Integer", "Float", "String", "Boolean"],
-                correctAnswer: "C",
-                explanation: "input() always returns a string by default."
-            },
-            {
-                id: 77,
-                text: "Which function evaluates a string as Python code?",
-                options: ["input()", "eval()", "execute()", "run()"],
-                correctAnswer: "B",
-                explanation: "eval() evaluates a string as Python expression."
-            },
-            {
-                id: 78,
-                text: "What is the output of swapping using x = y; y = x when x=2 and y=3?",
-                options: ["x=3, y=2", "x=2, y=3", "x=3, y=3", "Error"],
-                correctAnswer: "C",
-                explanation: "Incorrect swap: x becomes 3, then y becomes x (which is now 3), so both become 3."
-            },
-            {
-                id: 79,
-                text: "What is the correct way to swap variables in one line?",
-                options: ["x = y = y = x", "x, y = y, x", "swap(x, y)", "x <-> y"],
-                correctAnswer: "B",
-                explanation: "x, y = y, x is the Pythonic way to swap variables."
-            },
-            {
-                id: 80,
-                text: "According to the lecture, identifiers must start with:",
-                options: [
-                    "A letter or underscore",
-                    "Any character",
-                    "A number",
-                    "An uppercase letter"
-                ],
-                correctAnswer: "A",
-                explanation: "Python identifiers must start with a letter (a-z, A-Z) or underscore (_)."
-            },
-            {
-                id: 81,
-                text: "Which data type is immutable in Python?",
-                options: ["List", "Dictionary", "Tuple", "Set"],
-                correctAnswer: "C",
-                explanation: "Tuples are immutable; once created, their elements cannot be changed."
-            },
-            {
-                id: 82,
-                text: "How do you create an empty list in Python?",
-                options: ["list = ()", "list = []", "list = {}", "list = \"\""],
-                correctAnswer: "B",
-                explanation: "[] creates an empty list."
-            },
-            {
-                id: 83,
-                text: 'What is the output of: print("5" + "7")?',
-                options: ["12", "57", "\"12\"", "Error"],
-                correctAnswer: "B",
-                explanation: 'String concatenation: "5" + "7" = "57"'
-            },
-            {
-                id: 84,
-                text: "Which collection type does NOT allow duplicate values?",
-                options: ["List", "Tuple", "Set", "Dictionary"],
-                correctAnswer: "C",
-                explanation: "Sets only store unique values; duplicates are automatically removed."
-            },
-            {
-                id: 85,
-                text: "What is the index of the last element in the list [1, 2, 3, 4, 5]?",
-                options: ["4", "5", "-1", "Both a and c"],
-                correctAnswer: "D",
-                explanation: "Both index 4 (positive indexing) and -1 (negative indexing) refer to the last element."
-            },
-            {
-                id: 86,
-                text: "What will int(7.9) return?",
-                options: ["8", "7", "7.9", "Error"],
-                correctAnswer: "B",
-                explanation: "int() truncates the decimal part, converting 7.9 to 7."
-            },
-            {
-                id: 87,
-                text: "Which brackets are used to create a dictionary?",
-                options: ["[]", "()", "{}", "⇔"],
-                correctAnswer: "C",
-                explanation: "Curly braces {} are used to create dictionaries."
-            },
-            {
-                id: 88,
-                text: "What is the output of: print(type(True))?",
-                options: [
-                    "<'class 'int'>",
-                    "<'class 'bool'>",
-                    "<'class 'str'>",
-                    "<'class 'boolean'>"
-                ],
-                correctAnswer: "B",
-                explanation: "True is a boolean value, so type(True) returns <class 'bool'>."
-            },
-            {
-                id: 89,
-                text: "How do you access the value associated with key 'name' in a dictionary d?",
-                options: ["d.name", "d['name']", "d(name)", "d->name"],
-                correctAnswer: "B",
-                explanation: "Dictionary values are accessed using square brackets: d['name']"
-            },
-            {
-                id: 90,
-                text: "What is negative indexing in Python?",
-                options: [
-                    "Invalid operation",
-                    "Counting from the right side of the sequence",
-                    "Using negative numbers as values",
-                    "Subtracting indices"
-                ],
-                correctAnswer: "B",
-                explanation: "Negative indexing starts from -1 for the last element, -2 for second last, etc."
-            },
-            {
-                id: 91,
-                text: "In the list [1, 2, 3, 4, 5], what is a[1:3]?",
-                options: ["[1, 2]", "[2, 3]", "[1, 2, 3]", "[2, 3, 4]"],
-                correctAnswer: "B",
-                explanation: "Slicing excludes the end index: a[1:3] gives elements at indices 1 and 2."
-            },
-            {
-                id: 92,
-                text: "In the tuple t = (1, 'a', 3.14) what is the output of print(t[1:])?",
-                options: ["(1, 'a')", "('a', 3.14)", "('a')", "3.14"],
-                correctAnswer: "B",
-                explanation: "t[1:] slices from index 1 to the end: ('a', 3.14)"
-            },
-            {
-                id: 93,
-                text: "Given the code: fruits = {'apple', 'banana', 'mango'}; fruits.add('orange'); print(fruits)",
-                options: [
-                    "{'apple', 'banana', 'mango'}",
-                    "{'apple', 'banana', 'mango', 'orange'}",
-                    "Error",
-                    "{'apple', 'banana', 'mango', 'orange'}"
-                ],
-                correctAnswer: "B",
-                explanation: "add() method adds an element to a set."
-            },
-            {
-                id: 94,
-                text: "Given the code: my_dict = {'a': 1, 'b': 2, 'c': 3}; my_dict.clear(); print(my_dict)",
-                options: ["{'a': 1, 'b': 2, 'c': 3}", "None", "{}", "Error"],
-                correctAnswer: "C",
-                explanation: "clear() removes all items from the dictionary, leaving it empty {}."
-            },
-            {
-                id: 95,
-                text: "What does negative indexing -1 refer to?",
-                options: ["First element", "Second element", "Last element", "Invalid"],
-                correctAnswer: "C",
-                explanation: "-1 refers to the last element in a sequence."
-            },
-            {
-                id: 96,
-                text: "What operator gives the union of two sets?",
-                options: ["&", "|", "-", "+"],
-                correctAnswer: "B",
-                explanation: "The | operator gives the union of two sets (all elements from both)."
-            },
-            {
-                id: 97,
-                text: "What operator gives the intersection of two sets?",
-                options: ["&", "|", "-", "*"],
-                correctAnswer: "A",
-                explanation: "The & operator gives the intersection (common elements) of two sets."
-            },
-            {
-                id: 98,
-                text: "How do you access a dictionary value with key 'name'?",
-                options: ["dict.name", "dict['name']", "dict(name)", "dict->name"],
-                correctAnswer: "B",
-                explanation: "Square bracket notation: dict['name']"
-            },
-            {
-                id: 99,
-                text: "What does dict.get('key', 'default') return if key doesn't exist?",
-                options: ["Error", "None", "'default'", "Empty string"],
-                correctAnswer: "C",
-                explanation: "get() returns the specified default value if the key doesn't exist."
-            },
-            {
-                id: 100,
-                text: "How do you delete a key-value pair from a dictionary?",
-                options: ["remove()", "delete()", "del dict[key]", "dict.remove(key)"],
-                correctAnswer: "C",
-                explanation: "del dict[key] removes the key-value pair from the dictionary."
-            },
-            {
-                id: 101,
-                text: "What is the real part of complex number 3 + 4j?",
-                options: ["4", "3", "3j", "4j"],
-                correctAnswer: "B",
-                explanation: "In complex numbers, the real part is 3 and the imaginary part is 4j."
-            },
-            {
-                id: 102,
-                text: "What is int(123.45)?",
-                options: ["124", "123", "123.45", "Error"],
-                correctAnswer: "B",
-                explanation: "int() truncates the decimal part: int(123.45) = 123"
-            },
-            {
-                id: 103,
-                text: "True or False: Python uses garbage collection",
-                options: ["True", "False"],
-                correctAnswer: "True",
-                explanation: "True. Python automatically handles memory management through garbage collection."
-            },
-            {
-                id: 104,
-                text: "True or False: Tuples can be modified after creation",
-                options: ["True", "False"],
-                correctAnswer: "False",
-                explanation: "False. Tuples are immutable and cannot be modified after creation."
-            },
-            {
-                id: 105,
-                text: "True or False: The input() function returns a string",
-                options: ["True", "False"],
-                correctAnswer: "True",
-                explanation: "True. input() always returns a string."
-            },
-            {
-                id: 106,
-                text: "True or False: Identifiers can start with numbers",
-                options: ["True", "False"],
-                correctAnswer: "False",
-                explanation: "False. Identifiers cannot start with numbers."
-            },
-            {
-                id: 107,
-                text: "True or False: x and X are the same variable in Python",
-                options: ["True", "False"],
-                correctAnswer: "False",
-                explanation: "False. Python is case-sensitive, so x and X are different variables."
-            },
-            {
-                id: 108,
-                text: "True or False: Sets allow duplicate values",
-                options: ["True", "False"],
-                correctAnswer: "False",
-                explanation: "False. Sets do not allow duplicate values."
-            },
-            {
-                id: 109,
-                text: "True or False: Division operator / always returns float",
-                options: ["True", "False"],
-                correctAnswer: "True",
-                explanation: "True. In Python 3, / always returns a float, even when dividing integers."
-            },
-            {
-                id: 110,
-                text: "True or False: eval() can evaluate expressions",
-                options: ["True", "False"],
-                correctAnswer: "True",
-                explanation: "True. eval() evaluates Python expressions passed as strings."
-            },
-            {
-                id: 111,
-                text: "True or False: Lists are immutable",
-                options: ["True", "False"],
-                correctAnswer: "False",
-                explanation: "False. Lists are mutable and can be modified after creation."
-            },
-            {
-                id: 112,
-                text: "True or False: Dictionary keys must be unique",
-                options: ["True", "False"],
-                correctAnswer: "True",
-                explanation: "True. Dictionary keys must be unique; duplicate keys are not allowed."
-            },
-
+,
+     {
+        id: 61,
+        text: "Microsoft Excel was first released in which year?",
+        options: ["1983", "1985", "1990", "1995"],
+        correctAnswer: "B",
+        explanation: "Microsoft Excel was first released in 1985 for Macintosh."
+    },
+    {
+        id: 62,
+        text: "Which keyboard shortcut is used to Copy in Excel?",
+        options: ["Ctrl+X", "Ctrl+V", "Ctrl+C", "Ctrl+Z"],
+        correctAnswer: "C",
+        explanation: "Ctrl+C is the standard shortcut for Copy in Excel."
+    },
+    {
+        id: 63,
+        text: "Which keyboard shortcut is used to Cut in Excel?",
+        options: ["Ctrl+C", "Ctrl+X", "Ctrl+V", "Ctrl+P"],
+        correctAnswer: "B",
+        explanation: "Ctrl+X is the standard shortcut for Cut in Excel."
+    },
+    {
+        id: 64,
+        text: "Which keyboard shortcut is used to Paste in Excel?",
+        options: ["Ctrl+C", "Ctrl+X", "Ctrl+Z", "Ctrl+V"],
+        correctAnswer: "D",
+        explanation: "Ctrl+V is the standard shortcut for Paste in Excel."
+    },
+    {
+        id: 65,
+        text: "The Format Painter tool is found in which group of the Home tab?",
+        options: ["Font", "Alignment", "Clipboard", "Styles"],
+        correctAnswer: "C",
+        explanation: "Format Painter is in the Clipboard group of the Home tab."
+    },
+    {
+        id: 66,
+        text: "Which group in the Home tab allows you to change text to Bold, Italic, or Underline?",
+        options: ["Alignment", "Font", "Clipboard", "Number"],
+        correctAnswer: "B",
+        explanation: "The Font group contains Bold, Italic, and Underline options."
+    },
+    {
+        id: 67,
+        text: "Wrap Text is a feature found in which Home tab group?",
+        options: ["Font", "Number", "Alignment", "Styles"],
+        correctAnswer: "C",
+        explanation: "Wrap Text is found in the Alignment group of the Home tab."
+    },
+    {
+        id: 68,
+        text: "Which Home tab group lets you change number formats like Currency or Percentage?",
+        options: ["Styles", "Number", "Font", "Cells"],
+        correctAnswer: "B",
+        explanation: "The Number group contains number formatting options."
+    },
+    {
+        id: 69,
+        text: "What does the AutoSum button quickly do?",
+        options: ["Sorts data", "Adds up a column or row of numbers", "Opens a chart", "Filters data"],
+        correctAnswer: "B",
+        explanation: "AutoSum automatically adds up a column or row of numbers."
+    },
+    {
+        id: 70,
+        text: "The 'Save As' option in the File tab allows you to:",
+        options: ["Close the workbook", "Print the workbook", "Save with a new name, location, or format", "Share via email"],
+        correctAnswer: "C",
+        explanation: "Save As saves the workbook with a new name, location, or format."
+    },
+    {
+        id: 71,
+        text: "Which tab is also called the 'Backstage View'?",
+        options: ["Home", "Insert", "View", "File"],
+        correctAnswer: "D",
+        explanation: "The File tab is also known as Backstage View."
+    },
+    {
+        id: 72,
+        text: "Conditional Formatting is found in which group of the Home tab?",
+        options: ["Number", "Styles", "Font", "Editing"],
+        correctAnswer: "B",
+        explanation: "Conditional Formatting is in the Styles group of the Home tab."
+    },
+    {
+        id: 73,
+        text: "Which Excel tab is used to add Pictures, Shapes, and Charts?",
+        options: ["Home", "Page Layout", "Insert", "Formulas"],
+        correctAnswer: "C",
+        explanation: "The Insert tab contains Pictures, Shapes, and Charts."
+    },
+    {
+        id: 74,
+        text: "What does 'Merge & Center' do?",
+        options: ["Splits a cell into two", "Combines multiple cells into one and centers the text", "Adds borders around cells", "Changes the font color"],
+        correctAnswer: "B",
+        explanation: "Merge & Center combines cells and centers the text."
+    },
+    {
+        id: 75,
+        text: "Which view shows how a worksheet will look when printed?",
+        options: ["Normal View", "Page Layout View", "Page Break Preview", "Reading View"],
+        correctAnswer: "B",
+        explanation: "Page Layout View shows how the worksheet will look when printed."
+    },
+    {
+        id: 76,
+        text: "The 'Spelling' checking tool is found in which Excel tab?",
+        options: ["Home", "View", "Data", "Review"],
+        correctAnswer: "D",
+        explanation: "Spelling is found in the Review tab."
+    },
+    {
+        id: 77,
+        text: "'Freeze Panes' is found in which Excel tab?",
+        options: ["Home", "Insert", "View", "Data"],
+        correctAnswer: "C",
+        explanation: "Freeze Panes is found in the View tab."
+    },
+    {
+        id: 78,
+        text: "To quickly open the Insert Function dialog, which shortcut key is used?",
+        options: ["F1", "Shift+F3", "Ctrl+F", "Alt+F4"],
+        correctAnswer: "B",
+        explanation: "Shift+F3 opens the Insert Function dialog."
+    },
+    {
+        id: 79,
+        text: "Which platform does Excel NOT support?",
+        options: ["Windows", "macOS", "Android", "Linux"],
+        correctAnswer: "D",
+        explanation: "Excel does not have a native Linux version."
+    },
+    {
+        id: 80,
+        text: "Flash Fill shortcut key is:",
+        options: ["Ctrl+D", "Ctrl+E", "Ctrl+F", "Ctrl+G"],
+        correctAnswer: "B",
+        explanation: "Ctrl+E is the shortcut for Flash Fill."
+    },
+    {
+        id: 81,
+        text: "Which group in the Insert tab contains the PivotTable tool?",
+        options: ["Charts", "Illustrations", "Tables", "Filters"],
+        correctAnswer: "C",
+        explanation: "PivotTable is in the Tables group of the Insert tab."
+    },
+    {
+        id: 82,
+        text: "A Slicer is used to:",
+        options: ["Cut cells into pieces", "Visually filter data in a Table or PivotTable", "Sort data alphabetically", "Apply conditional formatting"],
+        correctAnswer: "B",
+        explanation: "Slicers provide visual filtering for Tables and PivotTables."
+    },
+    {
+        id: 83,
+        text: "Which Insert tab feature allows you to filter PivotTables by dates interactively?",
+        options: ["Slicer", "Hyperlink", "Timeline", "SmartArt"],
+        correctAnswer: "C",
+        explanation: "Timeline allows interactive date filtering in PivotTables."
+    },
+    {
+        id: 84,
+        text: "The 'Text to Columns' feature is found in which tab?",
+        options: ["Home", "Insert", "Formulas", "Data"],
+        correctAnswer: "D",
+        explanation: "Text to Columns is in the Data tab."
+    },
+    {
+        id: 85,
+        text: "Which Page Layout group controls margins, orientation, and paper size?",
+        options: ["Scale to Fit", "Sheet Options", "Themes", "Page Setup"],
+        correctAnswer: "D",
+        explanation: "Page Setup group controls margins, orientation, and paper size."
+    },
+    {
+        id: 86,
+        text: "'Remove Duplicates' is found in which Data tab group?",
+        options: ["Sort & Filter", "Forecast", "Data Tools", "Queries & Connections"],
+        correctAnswer: "C",
+        explanation: "Remove Duplicates is in the Data Tools group."
+    },
+    {
+        id: 87,
+        text: "SmartArt is found in which Insert tab group?",
+        options: ["Charts", "Text", "Tables", "Illustrations"],
+        correctAnswer: "D",
+        explanation: "SmartArt is in the Illustrations group."
+    },
+    {
+        id: 88,
+        text: "Which Formulas tab feature allows you to quickly calculate Sum, Average, Max, or Min?",
+        options: ["Name Manager", "AutoSum", "Insert Function", "Watch Window"],
+        correctAnswer: "B",
+        explanation: "AutoSum provides quick calculations like Sum, Average, Max, Min."
+    },
+    {
+        id: 89,
+        text: "'Protect Sheet' is in which tab?",
+        options: ["Home", "Data", "Review", "View"],
+        correctAnswer: "C",
+        explanation: "Protect Sheet is in the Review tab."
+    },
+    {
+        id: 90,
+        text: "The 'Goal Seek' tool is part of which feature group?",
+        options: ["Data Tools", "Outline", "What-If Analysis", "Queries & Connections"],
+        correctAnswer: "C",
+        explanation: "Goal Seek is part of What-If Analysis."
+    },
+    {
+        id: 91,
+        text: "Which group of the Page Layout tab lets you show or hide gridlines?",
+        options: ["Page Setup", "Scale to Fit", "Sheet Options", "Themes"],
+        correctAnswer: "C",
+        explanation: "Sheet Options group shows/hides gridlines."
+    },
+    {
+        id: 92,
+        text: "A Hyperlink in Excel can link to all of the following EXCEPT:",
+        options: ["A website", "Another cell in the workbook", "A file on your computer", "A 3D model"],
+        correctAnswer: "D",
+        explanation: "Excel hyperlinks cannot link to 3D models."
+    },
+    {
+        id: 93,
+        text: "Which Data tab feature imports data from external sources like databases or web?",
+        options: ["Connections", "Flash Fill", "Get Data", "Subtotal"],
+        correctAnswer: "C",
+        explanation: "Get Data imports from external sources."
+    },
+    {
+        id: 94,
+        text: "Which tool in the View tab divides the sheet into separate scrollable sections?",
+        options: ["New Window", "Freeze Panes", "Arrange All", "Split"],
+        correctAnswer: "D",
+        explanation: "Split divides the sheet into scrollable sections."
+    },
+    {
+        id: 95,
+        text: "'Print Titles' in Page Layout allows you to:",
+        options: ["Add a watermark", "Change font for printing", "Repeat rows/columns like headers on every printed page", "Set the print area"],
+        correctAnswer: "C",
+        explanation: "Print Titles repeats rows/columns as headers on every printed page."
+    },
+    {
+        id: 96,
+        text: "'Consolidate' in the Data tab is used to:",
+        options: ["Remove duplicate rows", "Combine data from multiple ranges into one summary", "Validate data entry", "Sort data"],
+        correctAnswer: "B",
+        explanation: "Consolidate combines data from multiple ranges."
+    },
+    {
+        id: 97,
+        text: "Which tab contains the 'Accessibility Checker'?",
+        options: ["Home", "View", "Review", "Data"],
+        correctAnswer: "C",
+        explanation: "Accessibility Checker is in the Review tab."
+    },
+    {
+        id: 98,
+        text: "In Data Validation, which option restricts a cell to allow only values from a list?",
+        options: ["Custom", "List", "Whole Number", "Text Length"],
+        correctAnswer: "B",
+        explanation: "List validation creates dropdown lists from specified values."
+    },
+    {
+        id: 99,
+        text: "When using 'Scale to Fit' in Page Layout, setting Width to '1 page' means:",
+        options: ["Content is zoomed to 100%", "The sheet is compressed to fit into one page wide", "One column is printed per page", "The sheet has one-inch margins"],
+        correctAnswer: "B",
+        explanation: "Scale to Fit compresses the sheet to fit on one page wide."
+    },
+    {
+        id: 100,
+        text: "What is the primary difference between a Comment and a Note in Excel's Review tab?",
+        options: ["Notes support replies while Comments do not", "Comments support threaded replies while Notes are simpler legacy annotations", "Both are identical features", "Comments are visible on print while Notes are hidden"],
+        correctAnswer: "B",
+        explanation: "Comments support threaded replies; Notes are legacy annotations."
+    },
+    {
+        id: 101,
+        text: "Which function category in the Formulas tab would you use to look up a value in a table and return a result from another column?",
+        options: ["Math & Trig", "Text", "Lookup & Reference", "Statistical"],
+        correctAnswer: "C",
+        explanation: "Lookup & Reference functions like VLOOKUP search and return values."
+    },
+    {
+        id: 102,
+        text: "What does 'Inspect Workbook' in the File → Info section do?",
+        options: ["Checks for spelling errors", "Checks for hidden properties, personal information, or metadata", "Validates all formulas in the workbook", "Compares two workbooks"],
+        correctAnswer: "B",
+        explanation: "Inspect Workbook finds hidden properties and personal information."
+    },
+    {
+        id: 103,
+        text: "In the Data tab, the 'Outline' group's 'Subtotal' feature automatically:",
+        options: ["Creates a PivotTable", "Inserts subtotals for grouped data sections", "Applies conditional formatting to grouped rows", "Sorts data by group"],
+        correctAnswer: "B",
+        explanation: "Subtotal inserts subtotals for grouped data sections."
+    },
+    {
+        id: 104,
+        text: "A 'Combo Chart' in Excel combines:",
+        options: ["A table and a chart", "Two different chart types such as bar and line", "A PivotTable and a PivotChart", "Sparklines and a main chart"],
+        correctAnswer: "B",
+        explanation: "Combo charts combine two different chart types like bar and line."
+    },
+    {
+        id: 105,
+        text: "Which Power Query feature in the Data tab allows you to reconnect to recently used external data sources?",
+        options: ["Existing Connections", "Refresh All", "Recent Sources", "Queries & Connections panel"],
+        correctAnswer: "C",
+        explanation: "Recent Sources shows recently used external data connections."
+    },
+    {
+        id: 106,
+        text: "'Forecast Sheet' in the Data tab creates:",
+        options: ["A budget template", "A chart predicting future trends based on historical data", "A copy of the current sheet", "An auto-generated formula summary"],
+        correctAnswer: "B",
+        explanation: "Forecast Sheet predicts future trends from historical data."
+    },
+    {
+        id: 107,
+        text: "In the View tab, 'Page Break Preview' allows you to:",
+        options: ["Set the default zoom level", "Add headers and footers", "View and drag page break lines to adjust where pages split for printing", "Freeze rows and columns"],
+        correctAnswer: "C",
+        explanation: "Page Break Preview lets you adjust page break lines."
+    },
+    {
+        id: 108,
+        text: "Which of the following is NOT a workbook view available in the View tab?",
+        options: ["Normal View", "Page Layout View", "Reading View", "Page Break Preview"],
+        correctAnswer: "C",
+        explanation: "Reading View is not a standard Excel workbook view."
+    },
+    {
+        id: 109,
+        text: "The 'Name Manager' in the Formulas tab is used to:",
+        options: ["Rename worksheets", "Create and manage named ranges or constants used in formulas", "Rename columns and rows", "Save custom formula templates"],
+        correctAnswer: "B",
+        explanation: "Name Manager creates and manages named ranges and constants."
+    },
+    {
+        id: 110,
+        text: "When you export a workbook as PDF/XPS in the File tab, you use which option?",
+        options: ["Share", "Save As", "Export", "Print"],
+        correctAnswer: "C",
+        explanation: "Export option creates PDF/XPS files."
+    },
+     { id: 111, text: "Microsoft Excel is part of the Microsoft 365 suite.", correctAnswer: "True", explanation: "Excel is included in Microsoft 365 subscription." },
+    { id: 112, text: "Excel is only available on the Windows operating system.", correctAnswer: "False", explanation: "Excel is available on Windows, macOS, iOS, and Android." },
+    { id: 113, text: "The Clipboard group in the Home tab includes the Format Painter tool.", correctAnswer: "True", explanation: "Format Painter is in the Clipboard group." },
+    { id: 114, text: "Ctrl+Z is the shortcut for Copy in Excel.", correctAnswer: "False", explanation: "Ctrl+Z is Undo; Ctrl+C is Copy." },
+    { id: 115, text: "The Alignment group in the Home tab includes the Wrap Text feature.", correctAnswer: "True", explanation: "Wrap Text is in the Alignment group." },
+    { id: 116, text: "The 'Number' group in the Home tab can display values as percentages or currency.", correctAnswer: "True", explanation: "Number group formats values as percentages, currency, etc." },
+    { id: 117, text: "Conditional Formatting is found in the Font group of the Home tab.", correctAnswer: "False", explanation: "Conditional Formatting is in the Styles group." },
+    { id: 118, text: "The File tab is also known as the Backstage View.", correctAnswer: "True", explanation: "File tab opens Backstage View." },
+    { id: 119, text: "'Save As' allows you to save the workbook in CSV or PDF format.", correctAnswer: "True", explanation: "Save As supports CSV, PDF, and other formats." },
+    { id: 120, text: "The Insert tab is used to add PivotTables and Charts to a worksheet.", correctAnswer: "True", explanation: "Insert tab contains PivotTable and Charts." },
+    { id: 121, text: "A Slicer can be used to filter data in both Tables and PivotTables.", correctAnswer: "True", explanation: "Slicers work with both Tables and PivotTables." },
+    { id: 122, text: "Timeline filters work with any cell range, not just PivotTables.", correctAnswer: "False", explanation: "Timeline filters work specifically with PivotTables." },
+    { id: 123, text: "SmartArt is found in the Illustrations group of the Insert tab.", correctAnswer: "True", explanation: "SmartArt is in the Illustrations group." },
+    { id: 124, text: "The Page Layout tab controls margins and paper orientation.", correctAnswer: "True", explanation: "Page Layout tab controls page setup options." },
+    { id: 125, text: "Gridlines can be shown or hidden using the Sheet Options group in the Page Layout tab.", correctAnswer: "True", explanation: "Sheet Options controls gridlines visibility." },
+    { id: 126, text: "AutoSum is only available in the Home tab.", correctAnswer: "False", explanation: "AutoSum is also available in the Formulas tab." },
+    { id: 127, text: "The 'Data Validation' feature allows you to create dropdown lists in cells.", correctAnswer: "True", explanation: "Data Validation can create dropdown lists." },
+    { id: 128, text: "Flash Fill (Ctrl+E) requires the user to manually define the fill pattern before it works.", correctAnswer: "False", explanation: "Flash Fill automatically detects patterns." },
+    { id: 129, text: "'Protect Workbook' prevents structural changes like adding or deleting sheets.", correctAnswer: "True", explanation: "Protect Workbook prevents structural changes." },
+    { id: 130, text: "The Formulas tab has a 'Name Manager' to manage named ranges.", correctAnswer: "True", explanation: "Name Manager is in the Formulas tab." },
+    { id: 131, text: "The 'Forecast Sheet' feature in the Data tab can predict future trends from historical data.", correctAnswer: "True", explanation: "Forecast Sheet creates predictive charts." },
+    { id: 132, text: "The Review tab's 'Comments' feature supports threaded replies for team collaboration.", correctAnswer: "True", explanation: "Comments support threaded conversations." },
+    { id: 133, text: "'Page Break Preview' allows you to drag and move page break lines.", correctAnswer: "True", explanation: "Page breaks are adjustable in Page Break Preview." },
+    { id: 134, text: "The View tab's 'Freeze Panes' feature freezes the entire worksheet so it cannot be edited.", correctAnswer: "False", explanation: "Freeze Panes keeps rows/columns visible while scrolling." },
+    { id: 135, text: "'Print Titles' in the Page Layout tab repeats headers on every printed page.", correctAnswer: "True", explanation: "Print Titles repeats specified rows/columns on each printed page." },
+    { id: 136, text: "The 'Subtotal' feature in the Data tab requires data to be grouped first.", correctAnswer: "True", explanation: "Subtotal works on sorted/grouped data." },
+    { id: 137, text: "A Combo Chart allows you to combine a bar chart and a line chart together.", correctAnswer: "True", explanation: "Combo charts combine different chart types." },
+    { id: 138, text: "The 'Inspect Workbook' option is found in the File tab under Info.", correctAnswer: "True", explanation: "Inspect Workbook is in File → Info." },
+    { id: 139, text: "'Scale to Fit' in the Page Layout tab can compress the worksheet to fit on one printed page.", correctAnswer: "True", explanation: "Scale to Fit adjusts content to fit on printed pages." },
+    { id: 140, text: "The Data tab's 'Get Data' feature can import data from JSON and XML files.", correctAnswer: "True", explanation: "Get Data imports from JSON, XML, and other sources." }
         ];
 
         let currentQuestionIndex = 0;
