@@ -688,746 +688,706 @@
         // All 117 questions from both PDF files
         const allQuestions = [
             // ===== Questions 1-60 from First PDF =====
-           {
+            {
         id: 1,
-        text: "Where can you create a new document?",
-        options: ["Home Tab", "Insert Tab", "File Tab (Backstage View)", "Review Tab"],
-        correctAnswer: "C",
-        explanation: "New documents are created from the File tab (Backstage View)."
+        text: "What is the primary goal of information system protection?",
+        options: ["Ensuring data integrity", "Maintaining system availability", "Protecting confidentiality", "All of the above"],
+        correctAnswer: "D",
+        explanation: "The three primary goals of information security are confidentiality, integrity, and availability (CIA triad)."
     },
     {
         id: 2,
-        text: "Which option is used to save a document with a different name?",
-        options: ["Save", "Save As", "Open", "Close"],
-        correctAnswer: "B",
-        explanation: "Save As creates a new copy of the document with a different name."
+        text: "Which of the following is NOT a type of security threat?",
+        options: ["Malware", "Phishing", "Encryption", "Social engineering"],
+        correctAnswer: "C",
+        explanation: "Encryption is a security measure, not a threat. Malware, phishing, and social engineering are security threats."
     },
     {
         id: 3,
-        text: "The Ribbon contains:",
-        options: ["Only text", "Tabs and groups of commands", "Images only", "Files"],
+        text: "Which type of attack involves sending excessive traffic to a network?",
+        options: ["Phishing", "DDoS", "Man-in-the-middle", "SQL injection"],
         correctAnswer: "B",
-        explanation: "The Ribbon contains tabs and groups of commands."
+        explanation: "DDoS (Distributed Denial of Service) attacks flood a network with excessive traffic to disrupt services."
     },
     {
         id: 4,
-        text: "What is the function of Print Preview?",
-        options: ["Edit document", "View document before printing", "Save file", "Delete text"],
+        text: "What is the purpose of using a firewall in a network?",
+        options: ["To monitor outgoing traffic", "To block unauthorized access", "To enhance network speed", "To provide encryption"],
         correctAnswer: "B",
-        explanation: "Print Preview lets you see how the document will look when printed."
+        explanation: "Firewalls block unauthorized access while allowing authorized communications."
     },
     {
         id: 5,
-        text: "Contextual tabs appear when:",
-        options: ["Opening a file", "Selecting specific objects like pictures", "Saving a file", "Closing the program"],
-        correctAnswer: "B",
-        explanation: "Contextual tabs appear when you select specific objects like pictures or tables."
+        text: "Which method is used to secure WLANs?",
+        options: ["WEP", "WPA2", "SSID hiding", "All of the above"],
+        correctAnswer: "D",
+        explanation: "WEP, WPA2, and SSID hiding are all methods used to secure wireless networks."
     },
     {
         id: 6,
-        text: "Quick Access Toolbar is used for:",
-        options: ["Printing only", "Frequently used commands", "Formatting text only", "Saving files only"],
-        correctAnswer: "B",
-        explanation: "The Quick Access Toolbar provides quick access to frequently used commands."
+        text: "Which dimension is NOT used for classifying cryptographic systems?",
+        options: ["Symmetry", "Key length", "Algorithm type", "Protocol usage"],
+        correctAnswer: "D",
+        explanation: "Protocol usage is not a primary dimension for classifying cryptographic systems."
     },
     {
         id: 7,
-        text: "Margins are:",
-        options: ["Text styles", "Blank spaces around the page", "Font size", "Paragraph alignment"],
-        correctAnswer: "B",
-        explanation: "Margins are the blank spaces around the edges of the page."
+        text: "Which of the following is an example of a network-based IDS?",
+        options: ["Snort", "Tripwire", "Wireshark", "Norton Antivirus"],
+        correctAnswer: "A",
+        explanation: "Snort is a popular open-source network-based intrusion detection system."
     },
     {
         id: 8,
-        text: "Which tab is used for text formatting?",
-        options: ["Insert", "Home", "Review", "View"],
+        text: "What is the first step in the security management process?",
+        options: ["Risk assessment", "Asset identification", "Threat analysis", "Security planning"],
         correctAnswer: "B",
-        explanation: "The Home tab contains text formatting options."
+        explanation: "Asset identification is the first step - you must know what you need to protect."
     },
     {
         id: 9,
-        text: "Copy means:",
-        options: ["Move text", "Delete text", "Duplicate text", "Save text"],
-        correctAnswer: "C",
-        explanation: "Copy creates a duplicate of the selected text without removing the original."
+        text: "Which type of firewall filters traffic based on predefined rules?",
+        options: ["Packet-filtering firewall", "Proxy firewall", "Stateful inspection firewall", "Application firewall"],
+        correctAnswer: "A",
+        explanation: "Packet-filtering firewalls examine packets and filter based on predefined rules."
     },
     {
         id: 10,
-        text: "Find tool is used to:",
-        options: ["Save document", "Search for words", "Print document", "Format text"],
-        correctAnswer: "B",
-        explanation: "The Find tool searches for specific words or phrases in the document."
+        text: "What is a honeypot?",
+        options: ["A type of malware", "A security tool", "A decoy system", "An encryption algorithm"],
+        correctAnswer: "C",
+        explanation: "A honeypot is a decoy system designed to attract and trap attackers."
     },
     {
         id: 11,
-        text: "Which of the following actions will NOT open the Backstage View in Microsoft Word?",
-        options: ["Clicking File tab", "Pressing Ctrl + S", "Pressing Ctrl + P", "Pressing Ctrl + O"],
-        correctAnswer: "B",
-        explanation: "Ctrl+S saves the document and does not open Backstage View."
+        text: "Which of the following is NOT a type of VPN?",
+        options: ["Remote access VPN", "Site-to-site VPN", "LAN VPN", "Mobile VPN"],
+        correctAnswer: "C",
+        explanation: "LAN VPN is not a standard VPN type. Common types include remote access, site-to-site, and mobile VPNs."
     },
     {
         id: 12,
-        text: "Which statement about 'Save' and 'Save As' is CORRECT?",
-        options: [
-            "Both always ask for file name",
-            "Save As overwrites the file",
-            "Save updates existing file, Save As creates a new copy",
-            "Save cannot be used twice"
-        ],
-        correctAnswer: "C",
-        explanation: "Save updates the existing file, while Save As creates a new copy."
+        text: "What does the CIA triad stand for in cybersecurity?",
+        options: ["Confidentiality, Integrity, Availability", "Control, Integrity, Access", "Confidentiality, Integration, Authentication", "Control, Integration, Availability"],
+        correctAnswer: "A",
+        explanation: "CIA stands for Confidentiality, Integrity, and Availability - the three core principles of information security."
     },
     {
         id: 13,
-        text: "What happens if you click 'Cut' and then close the document WITHOUT pasting?",
-        options: [
-            "Text returns automatically",
-            "Text is permanently lost",
-            "Text stays in clipboard temporarily",
-            "Text is saved in file"
-        ],
+        text: "Which of the following is an example of an anomaly-based IDS?",
+        options: ["Snort", "OSSEC", "Bro (Zeek)", "Kismet"],
         correctAnswer: "C",
-        explanation: "Cut text stays in the clipboard temporarily, even after closing the document."
+        explanation: "Bro (now Zeek) is an example of an anomaly-based intrusion detection system."
     },
     {
         id: 14,
-        text: "Which of the following will show additional options for a group?",
-        options: ["Right-click", "Double-click tab", "Dialog Box Launcher", "Status Bar"],
-        correctAnswer: "C",
-        explanation: "The Dialog Box Launcher (small arrow) shows additional options for a group."
+        text: "What is the primary difference between software and hardware firewalls?",
+        options: ["Installation process", "Cost", "Performance and throughput", "All of the above"],
+        correctAnswer: "D",
+        explanation: "Software and hardware firewalls differ in installation, cost, performance, and throughput."
     },
     {
         id: 15,
-        text: "When do Contextual Tabs disappear?",
-        options: ["When saving file", "When closing Word", "When deselecting the object", "When printing"],
-        correctAnswer: "C",
-        explanation: "Contextual tabs disappear when you deselect the object they relate to."
+        text: "Which type of attack involves intercepting and altering communication between two parties?",
+        options: ["Phishing", "Man-in-the-middle", "Ransomware", "Trojan"],
+        correctAnswer: "B",
+        explanation: "Man-in-the-middle (MITM) attacks intercept and potentially alter communications between two parties."
     },
     {
         id: 16,
-        text: "If you apply formatting without selecting text first, what happens?",
-        options: [
-            "Formatting applies to whole document",
-            "Nothing happens",
-            "It applies to the current cursor position",
-            "Word crashes"
-        ],
-        correctAnswer: "C",
-        explanation: "Formatting applies to text typed at the current cursor position."
+        text: "Which tool is used for intrusion prevention?",
+        options: ["Snort", "Suricata", "Nagios", "Nmap"],
+        correctAnswer: "B",
+        explanation: "Suricata is an intrusion prevention system (IPS) that can detect and block threats."
     },
     {
         id: 17,
-        text: "Which statement about Quick Access Toolbar is FALSE?",
-        options: [
-            "It can be customized",
-            "It is located at top left",
-            "It contains all commands by default",
-            "It provides quick access"
-        ],
-        correctAnswer: "C",
-        explanation: "The Quick Access Toolbar does NOT contain all commands by default; it can be customized."
+        text: "What is the main advantage of using WPA2 over WEP?",
+        options: ["Easier to configure", "Stronger encryption", "Faster connection speeds", "More widely supported"],
+        correctAnswer: "B",
+        explanation: "WPA2 provides much stronger encryption than WEP, which is now considered insecure."
     },
     {
         id: 18,
-        text: "What is the result of using 'Find' without clicking any result?",
-        options: ["Deletes text", "Highlights matches only", "Moves cursor automatically", "Replaces text"],
-        correctAnswer: "B",
-        explanation: "Find highlights matches in the document without moving the cursor automatically."
+        text: "Which component is NOT part of an intrusion detection system (IDS)?",
+        options: ["Sensor", "Analyzer", "Responder", "Firewall"],
+        correctAnswer: "D",
+        explanation: "A firewall is a separate security device, not a component of an IDS."
     },
     {
         id: 19,
-        text: "Which is TRUE about margins?",
-        options: [
-            "They affect only printing",
-            "They are visible text",
-            "They are spaces around page",
-            "They cannot be changed"
-        ],
-        correctAnswer: "C",
-        explanation: "Margins are the blank spaces around the page that can be changed."
+        text: "What is the purpose of a signature-based IDS?",
+        options: ["To detect unknown attacks", "To identify patterns of known threats", "To block traffic", "To encrypt data"],
+        correctAnswer: "B",
+        explanation: "Signature-based IDS detects known threats by matching patterns against a database of signatures."
     },
     {
         id: 20,
-        text: "What is the main difference between 'Find' and 'Go To'?",
-        options: [
-            "No difference",
-            "Find searches text, Go To jumps location",
-            "Go To deletes text",
-            "Find formats text"
-        ],
-        correctAnswer: "B",
-        explanation: "Find searches for text, while Go To jumps to a specific location (page, line, etc.)."
+        text: "Which of the following is a cryptographic algorithm used for securing connections?",
+        options: ["AES", "RSA", "SHA-256", "All of the above"],
+        correctAnswer: "D",
+        explanation: "AES, RSA, and SHA-256 are all cryptographic algorithms used for security."
     },
     {
         id: 21,
-        text: "After copying text, which action will REMOVE it from the clipboard?",
-        options: ["Paste", "Copy another text", "Save file", "Print document"],
-        correctAnswer: "B",
-        explanation: "Copying new text replaces the previous content on the clipboard."
+        text: "What is a common method for securing WLANs?",
+        options: ["Using strong passwords", "Disabling SSID broadcast", "Enabling WPA3 encryption", "All of the above"],
+        correctAnswer: "D",
+        explanation: "Strong passwords, hiding SSID, and WPA3 encryption are all WLAN security methods."
     },
     {
         id: 22,
-        text: "A table is made of:",
-        options: ["Pages and sections", "Rows and columns", "Images and text", "Fonts and styles"],
+        text: "Which type of firewall can filter traffic at the application layer?",
+        options: ["Packet-filtering firewall", "Proxy firewall", "Stateful inspection firewall", "Next-generation firewall"],
         correctAnswer: "B",
-        explanation: "A table consists of rows and columns."
+        explanation: "Proxy firewalls operate at the application layer and can filter application-specific traffic."
     },
     {
         id: 23,
-        text: "Cells are:",
-        options: ["Entire tables", "Intersections of rows and columns", "Only rows", "Only columns"],
+        text: "What is the main function of an intrusion detection system?",
+        options: ["Prevent unauthorized access", "Detect malicious activities", "Encrypt data", "Block traffic"],
         correctAnswer: "B",
-        explanation: "Cells are the intersections of rows and columns in a table."
+        explanation: "IDS monitors network traffic and detects suspicious or malicious activities."
     },
     {
         id: 24,
-        text: "What is the maximum table size using the quick grid?",
-        options: ["5×5", "8×10", "10×8", "Unlimited"],
-        correctAnswer: "C",
-        explanation: "The quick grid allows up to 10 columns and 8 rows (10×8)."
+        text: "Which risk assessment approach combines both quantitative and qualitative methods?",
+        options: ["Baseline approach", "Combined approach", "Informal approach", "Detailed approach"],
+        correctAnswer: "B",
+        explanation: "The combined approach uses both quantitative (numerical) and qualitative (expert judgment) methods."
     },
     {
         id: 25,
-        text: "Which tab is used to insert a table?",
-        options: ["Home", "Insert", "Layout", "Review"],
-        correctAnswer: "B",
-        explanation: "Tables are inserted from the Insert tab."
+        text: "What is the main purpose of cryptography in cybersecurity?",
+        options: ["To ensure data integrity", "To protect data confidentiality", "To authenticate users", "All of the above"],
+        correctAnswer: "D",
+        explanation: "Cryptography provides confidentiality, integrity, and authentication."
     },
     {
         id: 26,
-        text: "Table Tools appear when:",
-        options: ["Opening file", "Clicking a table", "Saving document", "Printing"],
-        correctAnswer: "B",
-        explanation: "Table Tools appear when you click inside or select a table."
+        text: "Which of the following is a type of malware?",
+        options: ["Virus", "Worm", "Trojan", "All of the above"],
+        correctAnswer: "D",
+        explanation: "Viruses, worms, and trojans are all types of malware."
     },
     {
         id: 27,
-        text: "Which operation combines cells?",
-        options: ["Split Cells", "Merge Cells", "Insert Cells", "Delete Cells"],
-        correctAnswer: "B",
-        explanation: "Merge Cells combines multiple cells into one."
+        text: "What is a common method used in phishing attacks?",
+        options: ["Sending deceptive emails", "Cracking passwords", "Exploiting software vulnerabilities", "Intercepting network traffic"],
+        correctAnswer: "A",
+        explanation: "Phishing attacks typically use deceptive emails to trick users into revealing sensitive information."
     },
     {
         id: 28,
-        text: "To divide a cell into multiple parts, use:",
-        options: ["Merge", "Split Cells", "Insert", "Delete"],
-        correctAnswer: "B",
-        explanation: "Split Cells divides a single cell into multiple cells."
+        text: "Which firewall type is best for protecting the whole network perimeter?",
+        options: ["Packet-filtering firewall", "Proxy firewall", "Stateful inspection firewall", "Next-generation firewall"],
+        correctAnswer: "D",
+        explanation: "Next-generation firewalls provide comprehensive perimeter protection with advanced features."
     },
     {
         id: 29,
-        text: "Pictures are inserted from:",
-        options: ["Review tab", "Insert tab", "Home tab", "Layout tab"],
+        text: "Which of the following is NOT a method of securing WLANs?",
+        options: ["MAC address filtering", "Using WEP", "WPA3 encryption", "Disabling SSID broadcast"],
         correctAnswer: "B",
-        explanation: "Pictures are inserted using the Insert tab."
+        explanation: "WEP is an outdated and insecure protocol, not recommended for WLAN security."
     },
     {
         id: 30,
-        text: "Picture Tools appear when:",
-        options: ["Saving file", "Selecting picture", "Printing", "Typing text"],
-        correctAnswer: "B",
-        explanation: "Picture Tools appear when you select a picture in the document."
+        text: "Which of the following is an example of a VPN protocol?",
+        options: ["PPTP", "SSH", "TLS", "SSL"],
+        correctAnswer: "A",
+        explanation: "PPTP (Point-to-Point Tunneling Protocol) is a VPN protocol."
     },
     {
         id: 31,
-        text: "Mail Merge is used to:",
-        options: [
-            "Delete data",
-            "Format text",
-            "Send letters to multiple recipients",
-            "Insert tables"
-        ],
-        correctAnswer: "C",
-        explanation: "Mail Merge creates personalized letters for multiple recipients."
+        text: "Which type of cryptography uses the same key for encryption and decryption?",
+        options: ["Asymmetric", "Symmetric", "Hashing", "Digital signature"],
+        correctAnswer: "B",
+        explanation: "Symmetric cryptography uses a single shared key for both encryption and decryption."
     },
     {
         id: 32,
-        text: "What happens if you insert a table using the grid and exceed 10×8?",
-        options: [
-            "Table expands automatically",
-            "Word crashes",
-            "You cannot create it using that method",
-            "It creates multiple tables"
-        ],
-        correctAnswer: "C",
-        explanation: "The quick grid only supports up to 10×8. Use 'Insert Table' dialog for larger tables."
+        text: "What is the main advantage of using hardware firewalls?",
+        options: ["Cost-effective", "Higher performance", "Easier to configure", "Portable"],
+        correctAnswer: "B",
+        explanation: "Hardware firewalls typically offer higher performance and throughput than software firewalls."
     },
     {
         id: 33,
-        text: "Which of the following actions will NOT show Table Tools?",
-        options: [
-            "Clicking inside a table",
-            "Selecting a table",
-            "Clicking outside the table",
-            "Editing table"
-        ],
-        correctAnswer: "C",
-        explanation: "Table Tools only appear when the table is selected or clicked inside."
+        text: "Which of the following is a component of an IDS?",
+        options: ["Sensor", "Actuator", "Transmitter", "Controller"],
+        correctAnswer: "A",
+        explanation: "Sensors are components of IDS that collect and monitor data."
     },
     {
         id: 34,
-        text: "When resizing a picture using a side handle, what happens?",
-        options: [
-            "Image rotates",
-            "Both dimensions change",
-            "Only one dimension changes",
-            "Image deletes"
-        ],
-        correctAnswer: "C",
-        explanation: "Side handles resize only one dimension (width only)."
+        text: "What is the purpose of using a VPN?",
+        options: ["To secure data transmission", "To block malware", "To encrypt stored data", "To monitor network traffic"],
+        correctAnswer: "A",
+        explanation: "VPNs create secure, encrypted connections for data transmission over public networks."
     },
     {
         id: 35,
-        text: "What happens if 'Lock Aspect Ratio' is ON?",
-        options: [
-            "Image cannot resize",
-            "Only height changes",
-            "Width and height change proportionally",
-            "Image rotates automatically"
-        ],
-        correctAnswer: "C",
-        explanation: "Lock Aspect Ratio maintains the image's proportions when resizing."
+        text: "Which type of cryptographic system uses different keys for encryption and decryption?",
+        options: ["Symmetric", "Asymmetric", "Hashing", "Stream cipher"],
+        correctAnswer: "B",
+        explanation: "Asymmetric cryptography uses a public key for encryption and a private key for decryption."
     },
     {
         id: 36,
-        text: "Why can't you drag a picture freely sometimes?",
-        options: [
-            "File is corrupted",
-            "Picture is locked",
-            "Text wrapping is 'In Line with Text'",
-            "Word error"
-        ],
-        correctAnswer: "C",
-        explanation: "Change text wrapping to any option other than 'In Line with Text' to move pictures freely."
+        text: "Which method is used to ensure the availability of information systems?",
+        options: ["Backup and recovery", "Encryption", "Authentication", "Intrusion detection"],
+        correctAnswer: "A",
+        explanation: "Backup and recovery ensure data and system availability in case of failures or disasters."
     },
     {
         id: 37,
-        text: "Which step is required BEFORE running Mail Merge?",
-        options: [
-            "Print document",
-            "Save file",
-            "Link mailing list",
-            "Delete fields"
-        ],
-        correctAnswer: "C",
-        explanation: "You must link a data source (mailing list) before running Mail Merge."
+        text: "What is a key feature of next-generation firewalls?",
+        options: ["Application awareness", "Packet filtering", "Simple configuration", "Low cost"],
+        correctAnswer: "A",
+        explanation: "Next-generation firewalls feature application awareness and deep packet inspection."
     },
     {
         id: 38,
-        text: "What do << >> symbols represent in Mail Merge?",
-        options: ["Errors", "Images", "Merge Fields placeholders", "Hidden text"],
-        correctAnswer: "C",
-        explanation: "<< >> symbols represent merge field placeholders in Mail Merge."
+        text: "Which type of IDS deployment strategy involves placing sensors at key points within the network?",
+        options: ["Host-based", "Network-based", "Distributed", "Hybrid"],
+        correctAnswer: "B",
+        explanation: "Network-based IDS places sensors at strategic points to monitor network traffic."
     },
     {
         id: 39,
-        text: "Which action will REMOVE previous clipboard content?",
-        options: ["Paste", "Save", "Copy new content", "Print"],
-        correctAnswer: "C",
-        explanation: "Copying new content replaces the previous content on the clipboard."
-    },
-             { id: 40, text: "Save and Save As have the same function.", correctAnswer: "False", explanation: "Save updates existing file, Save As creates a new copy." },
-    { id: 41, text: "The Ribbon is divided into tabs and groups.", correctAnswer: "True", explanation: "The Ribbon contains tabs, and each tab has groups of commands." },
-    { id: 42, text: "Contextual tabs always appear.", correctAnswer: "False", explanation: "Contextual tabs appear only when specific objects are selected." },
-    { id: 43, text: "Margins are the text style.", correctAnswer: "False", explanation: "Margins are blank spaces around the page, not text style." },
-    { id: 44, text: "Copy deletes the original text.", correctAnswer: "False", explanation: "Copy duplicates text without deleting the original." },
-    { id: 45, text: "Paste inserts copied or cut text.", correctAnswer: "True", explanation: "Paste inserts the content from the clipboard." },
-    { id: 46, text: "Find tool is used for searching words.", correctAnswer: "True", explanation: "Find searches for specific words in the document." },
-    { id: 47, text: "Go To moves to a specific location in the document.", correctAnswer: "True", explanation: "Go To jumps to a specific page, line, or section." },
-    { id: 48, text: "Quick Access Toolbar cannot be customized.", correctAnswer: "False", explanation: "The Quick Access Toolbar can be customized." },
-    { id: 49, text: "Printing requires selecting a printer.", correctAnswer: "True", explanation: "You must select a printer before printing." },
-    { id: 50, text: "A table can contain only text.", correctAnswer: "False", explanation: "Tables can contain text, images, and other objects." },
-    { id: 51, text: "You can merge and split cells.", correctAnswer: "True", explanation: "Both Merge and Split operations are available for table cells." },
-    { id: 52, text: "Table Tools always appear.", correctAnswer: "False", explanation: "Table Tools appear only when a table is selected." },
-    { id: 53, text: "Pictures can be resized using corner handles.", correctAnswer: "True", explanation: "Corner handles resize pictures proportionally." },
-    { id: 54, text: "Dragging side handles keeps proportions.", correctAnswer: "False", explanation: "Side handles resize only one dimension, changing proportions." },
-    { id: 55, text: "Mail Merge uses only one file.", correctAnswer: "False", explanation: "Mail Merge uses a main document and a data source file." },
-    { id: 56, text: "You can insert pictures from online sources.", correctAnswer: "True", explanation: "Online pictures can be inserted from the Insert tab." },
-    { id: 57, text: "Text wrapping affects picture movement.", correctAnswer: "True", explanation: "Text wrapping determines how pictures move relative to text." },
-    { id: 58, text: "You can delete entire tables.", correctAnswer: "True", explanation: "Tables can be deleted using Delete or Backspace keys." },
-    { id: 59, text: "Merge fields show real data before running merge.", correctAnswer: "False", explanation: "Merge fields show placeholders until Preview Results is clicked." }
-
-,
-     {
-        id: 61,
-        text: "Microsoft Excel was first released in which year?",
-        options: ["1983", "1985", "1990", "1995"],
+        text: "What is a primary benefit of using encryption?",
+        options: ["Faster data transfer", "Improved data security", "Reduced storage space", "Easier data management"],
         correctAnswer: "B",
-        explanation: "Microsoft Excel was first released in 1985 for Macintosh."
+        explanation: "Encryption primarily provides improved data security and confidentiality."
+    },
+    {
+        id: 40,
+        text: "Which type of attack involves exploiting software vulnerabilities to gain unauthorized access?",
+        options: ["Phishing", "SQL injection", "Ransomware", "DDoS"],
+        correctAnswer: "B",
+        explanation: "SQL injection exploits database vulnerabilities to gain unauthorized access."
+    },
+    {
+        id: 41,
+        text: "Which cryptographic algorithm is commonly used for digital signatures?",
+        options: ["AES", "RSA", "DES", "Blowfish"],
+        correctAnswer: "B",
+        explanation: "RSA is widely used for digital signatures and asymmetric encryption."
+    },
+    {
+        id: 42,
+        text: "What is the main function of a proxy firewall?",
+        options: ["To filter traffic based on content", "To encrypt network traffic", "To block all incoming traffic", "To monitor outgoing traffic"],
+        correctAnswer: "A",
+        explanation: "Proxy firewalls filter traffic based on content at the application layer."
+    },
+    {
+        id: 43,
+        text: "Which component is essential in a risk management process?",
+        options: ["Risk assessment", "Risk avoidance", "Risk acceptance", "Risk communication"],
+        correctAnswer: "A",
+        explanation: "Risk assessment is the essential first step in identifying and evaluating risks."
+    },
+    {
+        id: 44,
+        text: "Which type of firewall provides the highest level of security?",
+        options: ["Packet-filtering firewall", "Stateful inspection firewall", "Proxy firewall", "Next-generation firewall"],
+        correctAnswer: "D",
+        explanation: "Next-generation firewalls offer the most comprehensive security features."
+    },
+    {
+        id: 45,
+        text: "Which of the following is NOT a common network attack?",
+        options: ["SQL injection", "Phishing", "Brute force", "Backup"],
+        correctAnswer: "D",
+        explanation: "Backup is a security measure, not a network attack."
+    },
+    {
+        id: 46,
+        text: "Which protocol is often used to create secure VPN connections?",
+        options: ["HTTP", "FTP", "IPsec", "SMTP"],
+        correctAnswer: "C",
+        explanation: "IPsec (Internet Protocol Security) is commonly used for secure VPN connections."
+    },
+    {
+        id: 47,
+        text: "Which type of firewall operates at the network layer?",
+        options: ["Packet-filtering firewall", "Application firewall", "Proxy firewall", "Next-generation firewall"],
+        correctAnswer: "A",
+        explanation: "Packet-filtering firewalls operate at the network layer (Layer 3)."
+    },
+    {
+        id: 48,
+        text: "What is a common use of cryptography in network security?",
+        options: ["Encrypting data in transit", "Monitoring network traffic", "Filtering unwanted traffic", "Performing system backups"],
+        correctAnswer: "A",
+        explanation: "Cryptography is commonly used to encrypt data during transmission over networks."
+    },
+    {
+        id: 49,
+        text: "Which type of intrusion detection system (IDS) monitors the activities of individual hosts?",
+        options: ["Network-based IDS", "Host-based IDS", "Signature-based IDS", "Anomaly-based IDS"],
+        correctAnswer: "B",
+        explanation: "Host-based IDS (HIDS) monitors activities on individual computer systems."
+    },
+    {
+        id: 50,
+        text: "Which encryption algorithm is considered outdated due to its vulnerability?",
+        options: ["AES", "RSA", "DES", "Twofish"],
+        correctAnswer: "C",
+        explanation: "DES (Data Encryption Standard) is considered outdated due to its short key length."
+    },
+    {
+        id: 51,
+        text: "Which security measure is crucial for protecting data at rest?",
+        options: ["Firewall", "Encryption", "IDS", "VPN"],
+        correctAnswer: "B",
+        explanation: "Encryption protects stored data (data at rest) from unauthorized access."
+    },
+    {
+        id: 52,
+        text: "What is the main goal of a distributed IDS?",
+        options: ["To monitor a single system", "To coordinate detection across multiple systems", "To encrypt data", "To block network traffic"],
+        correctAnswer: "B",
+        explanation: "Distributed IDS coordinates detection and response across multiple systems."
+    },
+    {
+        id: 53,
+        text: "Which type of attack attempts to exhaust the resources of a system?",
+        options: ["Phishing", "DDoS", "Man-in-the-middle", "SQL injection"],
+        correctAnswer: "B",
+        explanation: "DDoS attacks exhaust system resources, making services unavailable."
+    },
+    {
+        id: 54,
+        text: "What does a risk assessment typically involve?",
+        options: ["Identifying assets", "Analyzing threats", "Evaluating vulnerabilities", "All of the above"],
+        correctAnswer: "D",
+        explanation: "Risk assessment involves asset identification, threat analysis, and vulnerability evaluation."
+    },
+    {
+        id: 55,
+        text: "Which of the following is NOT an approach to risk assessment?",
+        options: ["Qualitative approach", "Quantitative approach", "Combined approach", "Procedural approach"],
+        correctAnswer: "D",
+        explanation: "Procedural approach is not a standard risk assessment methodology."
+    },
+    {
+        id: 56,
+        text: "Which type of cryptography is primarily used for securing email communications?",
+        options: ["Symmetric", "Asymmetric", "Hashing", "Stream cipher"],
+        correctAnswer: "B",
+        explanation: "Asymmetric cryptography (like PGP) is commonly used for secure email."
+    },
+    {
+        id: 57,
+        text: "Which component of an IDS is responsible for analyzing traffic and detecting intrusions?",
+        options: ["Sensor", "Analyzer", "Responder", "Monitor"],
+        correctAnswer: "B",
+        explanation: "The analyzer component processes data from sensors to detect intrusions."
+    },
+    {
+        id: 58,
+        text: "Which of the following is NOT a characteristic of a good risk management process?",
+        options: ["Comprehensive", "Consistent", "Adaptive", "Expensive"],
+        correctAnswer: "D",
+        explanation: "Good risk management should be cost-effective, not necessarily expensive."
+    },
+    {
+        id: 59,
+        text: "Which type of firewall can make real-time decisions based on the state of network connections?",
+        options: ["Packet-filtering firewall", "Proxy firewall", "Stateful inspection firewall", "Next-generation firewall"],
+        correctAnswer: "C",
+        explanation: "Stateful inspection firewalls track connection states for real-time decisions."
+    },
+    {
+        id: 60,
+        text: "Which tool is used for network traffic analysis?",
+        options: ["Snort", "Nmap", "Wireshark", "Tripwire"],
+        correctAnswer: "C",
+        explanation: "Wireshark is a popular tool for network traffic analysis and packet capture."
+    },
+    {
+        id: 61,
+        text: "What is the primary purpose of using a VPN?",
+        options: ["To create a secure connection over the internet", "To filter network traffic", "To encrypt stored data", "To monitor network performance"],
+        correctAnswer: "A",
+        explanation: "VPNs create secure, encrypted tunnels over public networks like the internet."
     },
     {
         id: 62,
-        text: "Which keyboard shortcut is used to Copy in Excel?",
-        options: ["Ctrl+X", "Ctrl+V", "Ctrl+C", "Ctrl+Z"],
+        text: "Which type of cryptographic system ensures data integrity?",
+        options: ["Symmetric", "Asymmetric", "Hashing", "Stream cipher"],
         correctAnswer: "C",
-        explanation: "Ctrl+C is the standard shortcut for Copy in Excel."
+        explanation: "Hash functions ensure data integrity by producing unique digests."
     },
     {
         id: 63,
-        text: "Which keyboard shortcut is used to Cut in Excel?",
-        options: ["Ctrl+C", "Ctrl+X", "Ctrl+V", "Ctrl+P"],
-        correctAnswer: "B",
-        explanation: "Ctrl+X is the standard shortcut for Cut in Excel."
+        text: "What is the role of an intrusion prevention system (IPS)?",
+        options: ["To detect and block malicious activities", "To encrypt network traffic", "To monitor network performance", "To analyze data"],
+        correctAnswer: "A",
+        explanation: "IPS actively detects and blocks malicious activities in real-time."
     },
     {
         id: 64,
-        text: "Which keyboard shortcut is used to Paste in Excel?",
-        options: ["Ctrl+C", "Ctrl+X", "Ctrl+Z", "Ctrl+V"],
+        text: "Which encryption method is considered the most secure for WLANs?",
+        options: ["WEP", "WPA", "WPA2", "WPA3"],
         correctAnswer: "D",
-        explanation: "Ctrl+V is the standard shortcut for Paste in Excel."
+        explanation: "WPA3 is the latest and most secure Wi-Fi encryption protocol."
     },
     {
         id: 65,
-        text: "The Format Painter tool is found in which group of the Home tab?",
-        options: ["Font", "Alignment", "Clipboard", "Styles"],
-        correctAnswer: "C",
-        explanation: "Format Painter is in the Clipboard group of the Home tab."
+        text: "What is a common characteristic of a quantitative risk assessment?",
+        options: ["Uses numerical data", "Based on expert judgment", "Focuses on scenarios", "Descriptive"],
+        correctAnswer: "A",
+        explanation: "Quantitative risk assessment uses numerical data and monetary values."
     },
     {
         id: 66,
-        text: "Which group in the Home tab allows you to change text to Bold, Italic, or Underline?",
-        options: ["Alignment", "Font", "Clipboard", "Number"],
-        correctAnswer: "B",
-        explanation: "The Font group contains Bold, Italic, and Underline options."
+        text: "Which cryptographic technique is used to verify the authenticity of a message?",
+        options: ["Encryption", "Decryption", "Digital signature", "Key exchange"],
+        correctAnswer: "C",
+        explanation: "Digital signatures verify message authenticity and integrity."
     },
     {
         id: 67,
-        text: "Wrap Text is a feature found in which Home tab group?",
-        options: ["Font", "Number", "Alignment", "Styles"],
+        text: "What is the purpose of a distributed denial-of-service (DDoS) attack?",
+        options: ["To steal data", "To encrypt data", "To disrupt services", "To monitor traffic"],
         correctAnswer: "C",
-        explanation: "Wrap Text is found in the Alignment group of the Home tab."
+        explanation: "DDoS attacks aim to disrupt services by overwhelming them with traffic."
     },
     {
         id: 68,
-        text: "Which Home tab group lets you change number formats like Currency or Percentage?",
-        options: ["Styles", "Number", "Font", "Cells"],
+        text: "Which component of a risk assessment identifies potential adverse events?",
+        options: ["Asset identification", "Threat analysis", "Vulnerability assessment", "Impact analysis"],
         correctAnswer: "B",
-        explanation: "The Number group contains number formatting options."
+        explanation: "Threat analysis identifies potential adverse events that could affect assets."
     },
     {
         id: 69,
-        text: "What does the AutoSum button quickly do?",
-        options: ["Sorts data", "Adds up a column or row of numbers", "Opens a chart", "Filters data"],
-        correctAnswer: "B",
-        explanation: "AutoSum automatically adds up a column or row of numbers."
+        text: "Which of the following is a method of risk treatment?",
+        options: ["Risk avoidance", "Risk transfer", "Risk mitigation", "All of the above"],
+        correctAnswer: "D",
+        explanation: "Risk can be treated through avoidance, transfer, mitigation, or acceptance."
     },
     {
         id: 70,
-        text: "The 'Save As' option in the File tab allows you to:",
-        options: ["Close the workbook", "Print the workbook", "Save with a new name, location, or format", "Share via email"],
-        correctAnswer: "C",
-        explanation: "Save As saves the workbook with a new name, location, or format."
+        text: "What is the main purpose of a firewall?",
+        options: ["To monitor network performance", "To block unauthorized access", "To encrypt data", "To detect intrusions"],
+        correctAnswer: "B",
+        explanation: "Firewalls primarily block unauthorized access to networks."
     },
     {
         id: 71,
-        text: "Which tab is also called the 'Backstage View'?",
-        options: ["Home", "Insert", "View", "File"],
-        correctAnswer: "D",
-        explanation: "The File tab is also known as Backstage View."
+        text: "Which type of cryptographic system uses a pair of keys for encryption and decryption?",
+        options: ["Symmetric", "Asymmetric", "Hashing", "Stream cipher"],
+        correctAnswer: "B",
+        explanation: "Asymmetric cryptography uses key pairs (public and private)."
     },
     {
         id: 72,
-        text: "Conditional Formatting is found in which group of the Home tab?",
-        options: ["Number", "Styles", "Font", "Editing"],
+        text: "Which tool is commonly used for port scanning?",
+        options: ["Wireshark", "Nmap", "Snort", "Tripwire"],
         correctAnswer: "B",
-        explanation: "Conditional Formatting is in the Styles group of the Home tab."
+        explanation: "Nmap is the most popular port scanning and network discovery tool."
     },
     {
         id: 73,
-        text: "Which Excel tab is used to add Pictures, Shapes, and Charts?",
-        options: ["Home", "Page Layout", "Insert", "Formulas"],
-        correctAnswer: "C",
-        explanation: "The Insert tab contains Pictures, Shapes, and Charts."
+        text: "What is the primary goal of an intrusion detection system (IDS)?",
+        options: ["To prevent unauthorized access", "To detect malicious activities", "To encrypt data", "To block traffic"],
+        correctAnswer: "B",
+        explanation: "IDS focuses on detecting, not preventing, malicious activities."
     },
     {
         id: 74,
-        text: "What does 'Merge & Center' do?",
-        options: ["Splits a cell into two", "Combines multiple cells into one and centers the text", "Adds borders around cells", "Changes the font color"],
+        text: "Which type of risk assessment uses expert judgment and descriptive scenarios?",
+        options: ["Quantitative", "Qualitative", "Combined", "Procedural"],
         correctAnswer: "B",
-        explanation: "Merge & Center combines cells and centers the text."
+        explanation: "Qualitative risk assessment uses expert judgment and descriptive categories."
     },
     {
         id: 75,
-        text: "Which view shows how a worksheet will look when printed?",
-        options: ["Normal View", "Page Layout View", "Page Break Preview", "Reading View"],
+        text: "Which security measure is essential for protecting data in transit?",
+        options: ["Firewall", "Encryption", "IDS", "VPN"],
         correctAnswer: "B",
-        explanation: "Page Layout View shows how the worksheet will look when printed."
+        explanation: "Encryption protects data during transmission over networks."
     },
     {
         id: 76,
-        text: "The 'Spelling' checking tool is found in which Excel tab?",
-        options: ["Home", "View", "Data", "Review"],
-        correctAnswer: "D",
-        explanation: "Spelling is found in the Review tab."
+        text: "What is the primary function of a signature-based IDS?",
+        options: ["To detect known threats", "To detect unknown threats", "To block traffic", "To encrypt data"],
+        correctAnswer: "A",
+        explanation: "Signature-based IDS detects known threats by matching known attack patterns."
     },
     {
         id: 77,
-        text: "'Freeze Panes' is found in which Excel tab?",
-        options: ["Home", "Insert", "View", "Data"],
-        correctAnswer: "C",
-        explanation: "Freeze Panes is found in the View tab."
+        text: "Which type of firewall is designed to inspect traffic at multiple layers of the OSI model?",
+        options: ["Packet-filtering firewall", "Proxy firewall", "Stateful inspection firewall", "Next-generation firewall"],
+        correctAnswer: "D",
+        explanation: "Next-generation firewalls inspect traffic across multiple OSI layers."
     },
     {
         id: 78,
-        text: "To quickly open the Insert Function dialog, which shortcut key is used?",
-        options: ["F1", "Shift+F3", "Ctrl+F", "Alt+F4"],
+        text: "Which encryption algorithm is widely used for securing web communications?",
+        options: ["AES", "RSA", "DES", "Twofish"],
         correctAnswer: "B",
-        explanation: "Shift+F3 opens the Insert Function dialog."
+        explanation: "RSA is widely used in SSL/TLS for securing web communications."
     },
     {
         id: 79,
-        text: "Which platform does Excel NOT support?",
-        options: ["Windows", "macOS", "Android", "Linux"],
-        correctAnswer: "D",
-        explanation: "Excel does not have a native Linux version."
+        text: "What is a common feature of host-based intrusion detection systems (HIDS)?",
+        options: ["Network monitoring", "Log file analysis", "Traffic filtering", "Real-time blocking"],
+        correctAnswer: "B",
+        explanation: "HIDS commonly analyzes system log files to detect intrusions."
     },
     {
         id: 80,
-        text: "Flash Fill shortcut key is:",
-        options: ["Ctrl+D", "Ctrl+E", "Ctrl+F", "Ctrl+G"],
-        correctAnswer: "B",
-        explanation: "Ctrl+E is the shortcut for Flash Fill."
+        text: "Which type of cryptographic system uses the same key for both encryption and decryption?",
+        options: ["Symmetric", "Asymmetric", "Hashing", "Stream cipher"],
+        correctAnswer: "A",
+        explanation: "Symmetric cryptography uses identical keys for encryption and decryption."
     },
     {
         id: 81,
-        text: "Which group in the Insert tab contains the PivotTable tool?",
-        options: ["Charts", "Illustrations", "Tables", "Filters"],
-        correctAnswer: "C",
-        explanation: "PivotTable is in the Tables group of the Insert tab."
+        text: "Which security principle ensures that data is accurate and reliable?",
+        options: ["Confidentiality", "Integrity", "Availability", "Authentication"],
+        correctAnswer: "B",
+        explanation: "Integrity ensures data accuracy and prevents unauthorized modification."
     },
     {
         id: 82,
-        text: "A Slicer is used to:",
-        options: ["Cut cells into pieces", "Visually filter data in a Table or PivotTable", "Sort data alphabetically", "Apply conditional formatting"],
+        text: "What is the main goal of a risk management process?",
+        options: ["To eliminate all risks", "To identify and manage risks", "To avoid all risks", "To transfer all risks"],
         correctAnswer: "B",
-        explanation: "Slicers provide visual filtering for Tables and PivotTables."
+        explanation: "Risk management identifies and manages risks to acceptable levels."
     },
     {
         id: 83,
-        text: "Which Insert tab feature allows you to filter PivotTables by dates interactively?",
-        options: ["Slicer", "Hyperlink", "Timeline", "SmartArt"],
-        correctAnswer: "C",
-        explanation: "Timeline allows interactive date filtering in PivotTables."
+        text: "Which type of firewall provides the ability to filter traffic based on application content?",
+        options: ["Packet-filtering firewall", "Proxy firewall", "Stateful inspection firewall", "Next-generation firewall"],
+        correctAnswer: "D",
+        explanation: "Next-generation firewalls can filter based on application content and identity."
     },
     {
         id: 84,
-        text: "The 'Text to Columns' feature is found in which tab?",
-        options: ["Home", "Insert", "Formulas", "Data"],
-        correctAnswer: "D",
-        explanation: "Text to Columns is in the Data tab."
+        text: "Which tool is used for detecting vulnerabilities in a network?",
+        options: ["Nmap", "Snort", "Wireshark", "Tripwire"],
+        correctAnswer: "A",
+        explanation: "Nmap can detect open ports and potential vulnerabilities."
     },
     {
         id: 85,
-        text: "Which Page Layout group controls margins, orientation, and paper size?",
-        options: ["Scale to Fit", "Sheet Options", "Themes", "Page Setup"],
-        correctAnswer: "D",
-        explanation: "Page Setup group controls margins, orientation, and paper size."
+        text: "What is the purpose of using a digital signature?",
+        options: ["To encrypt data", "To verify authenticity", "To hash data", "To decrypt data"],
+        correctAnswer: "B",
+        explanation: "Digital signatures verify the authenticity and integrity of messages."
     },
     {
         id: 86,
-        text: "'Remove Duplicates' is found in which Data tab group?",
-        options: ["Sort & Filter", "Forecast", "Data Tools", "Queries & Connections"],
-        correctAnswer: "C",
-        explanation: "Remove Duplicates is in the Data Tools group."
+        text: "Which type of IDS uses statistical methods to detect anomalies?",
+        options: ["Signature-based IDS", "Anomaly-based IDS", "Host-based IDS", "Network-based IDS"],
+        correctAnswer: "B",
+        explanation: "Anomaly-based IDS uses statistical methods to detect deviations from normal behavior."
     },
     {
         id: 87,
-        text: "SmartArt is found in which Insert tab group?",
-        options: ["Charts", "Text", "Tables", "Illustrations"],
+        text: "Which encryption protocol is commonly used for securing email communications?",
+        options: ["TLS", "IPsec", "SSL", "PGP"],
         correctAnswer: "D",
-        explanation: "SmartArt is in the Illustrations group."
+        explanation: "PGP (Pretty Good Privacy) is widely used for secure email encryption."
     },
     {
         id: 88,
-        text: "Which Formulas tab feature allows you to quickly calculate Sum, Average, Max, or Min?",
-        options: ["Name Manager", "AutoSum", "Insert Function", "Watch Window"],
+        text: "What is a common characteristic of a qualitative risk assessment?",
+        options: ["Uses numerical data", "Based on expert judgment", "Focuses on metrics", "Quantitative"],
         correctAnswer: "B",
-        explanation: "AutoSum provides quick calculations like Sum, Average, Max, Min."
+        explanation: "Qualitative assessment relies on expert judgment and descriptive ratings."
     },
     {
         id: 89,
-        text: "'Protect Sheet' is in which tab?",
-        options: ["Home", "Data", "Review", "View"],
-        correctAnswer: "C",
-        explanation: "Protect Sheet is in the Review tab."
+        text: "Which type of firewall is designed to protect an entire network segment?",
+        options: ["Host-based firewall", "Network firewall", "Personal firewall", "Application firewall"],
+        correctAnswer: "B",
+        explanation: "Network firewalls protect entire network segments or perimeters."
     },
     {
         id: 90,
-        text: "The 'Goal Seek' tool is part of which feature group?",
-        options: ["Data Tools", "Outline", "What-If Analysis", "Queries & Connections"],
-        correctAnswer: "C",
-        explanation: "Goal Seek is part of What-If Analysis."
+        text: "What is the main benefit of using WPA3 over previous Wi-Fi security protocols?",
+        options: ["Easier to configure", "Stronger encryption", "Faster speeds", "More compatibility"],
+        correctAnswer: "B",
+        explanation: "WPA3 provides significantly stronger encryption than previous protocols."
     },
     {
         id: 91,
-        text: "Which group of the Page Layout tab lets you show or hide gridlines?",
-        options: ["Page Setup", "Scale to Fit", "Sheet Options", "Themes"],
+        text: "Which component of an IDS is responsible for responding to detected intrusions?",
+        options: ["Sensor", "Analyzer", "Responder", "Monitor"],
         correctAnswer: "C",
-        explanation: "Sheet Options group shows/hides gridlines."
+        explanation: "The responder component takes action when intrusions are detected."
     },
     {
         id: 92,
-        text: "A Hyperlink in Excel can link to all of the following EXCEPT:",
-        options: ["A website", "Another cell in the workbook", "A file on your computer", "A 3D model"],
-        correctAnswer: "D",
-        explanation: "Excel hyperlinks cannot link to 3D models."
+        text: "Which type of cryptographic system is used to verify data integrity?",
+        options: ["Symmetric", "Asymmetric", "Hashing", "Stream cipher"],
+        correctAnswer: "C",
+        explanation: "Hash functions verify data integrity by generating unique digests."
     },
     {
         id: 93,
-        text: "Which Data tab feature imports data from external sources like databases or web?",
-        options: ["Connections", "Flash Fill", "Get Data", "Subtotal"],
-        correctAnswer: "C",
-        explanation: "Get Data imports from external sources."
+        text: "What is the purpose of a network-based IDS?",
+        options: ["To monitor individual hosts", "To monitor network traffic", "To block network traffic", "To encrypt data"],
+        correctAnswer: "B",
+        explanation: "Network-based IDS monitors network traffic for suspicious activities."
     },
     {
         id: 94,
-        text: "Which tool in the View tab divides the sheet into separate scrollable sections?",
-        options: ["New Window", "Freeze Panes", "Arrange All", "Split"],
+        text: "Which type of firewall uses both signature-based and anomaly-based detection methods?",
+        options: ["Packet-filtering firewall", "Proxy firewall", "Stateful inspection firewall", "Next-generation firewall"],
         correctAnswer: "D",
-        explanation: "Split divides the sheet into scrollable sections."
+        explanation: "Next-generation firewalls combine signature and anomaly detection methods."
     },
     {
         id: 95,
-        text: "'Print Titles' in Page Layout allows you to:",
-        options: ["Add a watermark", "Change font for printing", "Repeat rows/columns like headers on every printed page", "Set the print area"],
-        correctAnswer: "C",
-        explanation: "Print Titles repeats rows/columns as headers on every printed page."
+        text: "Which cryptographic technique is used for secure key exchange?",
+        options: ["RSA", "AES", "DES", "Diffie-Hellman"],
+        correctAnswer: "D",
+        explanation: "Diffie-Hellman is specifically designed for secure key exchange."
     },
     {
         id: 96,
-        text: "'Consolidate' in the Data tab is used to:",
-        options: ["Remove duplicate rows", "Combine data from multiple ranges into one summary", "Validate data entry", "Sort data"],
+        text: "What is the primary purpose of using a VPN in a corporate network?",
+        options: ["To monitor network traffic", "To provide secure remote access", "To block malicious traffic", "To encrypt stored data"],
         correctAnswer: "B",
-        explanation: "Consolidate combines data from multiple ranges."
+        explanation: "VPNs provide secure remote access for corporate employees."
     },
     {
         id: 97,
-        text: "Which tab contains the 'Accessibility Checker'?",
-        options: ["Home", "View", "Review", "Data"],
+        text: "Which security principle ensures that data is accessible when needed?",
+        options: ["Confidentiality", "Integrity", "Availability", "Authentication"],
         correctAnswer: "C",
-        explanation: "Accessibility Checker is in the Review tab."
+        explanation: "Availability ensures systems and data are accessible when required."
     },
     {
         id: 98,
-        text: "In Data Validation, which option restricts a cell to allow only values from a list?",
-        options: ["Custom", "List", "Whole Number", "Text Length"],
+        text: "Which type of firewall can inspect and filter traffic at the application layer?",
+        options: ["Packet-filtering firewall", "Proxy firewall", "Stateful inspection firewall", "Next-generation firewall"],
         correctAnswer: "B",
-        explanation: "List validation creates dropdown lists from specified values."
+        explanation: "Proxy firewalls operate at the application layer for deep inspection."
     },
     {
         id: 99,
-        text: "When using 'Scale to Fit' in Page Layout, setting Width to '1 page' means:",
-        options: ["Content is zoomed to 100%", "The sheet is compressed to fit into one page wide", "One column is printed per page", "The sheet has one-inch margins"],
+        text: "Which tool is used to analyze and decode network protocols?",
+        options: ["Snort", "Wireshark", "Nmap", "Tripwire"],
         correctAnswer: "B",
-        explanation: "Scale to Fit compresses the sheet to fit on one page wide."
+        explanation: "Wireshark analyzes and decodes network protocols for inspection."
     },
     {
         id: 100,
-        text: "What is the primary difference between a Comment and a Note in Excel's Review tab?",
-        options: ["Notes support replies while Comments do not", "Comments support threaded replies while Notes are simpler legacy annotations", "Both are identical features", "Comments are visible on print while Notes are hidden"],
+        text: "What is the main function of an anomaly-based IDS?",
+        options: ["To detect known threats", "To detect unknown threats", "To block traffic", "To encrypt data"],
         correctAnswer: "B",
-        explanation: "Comments support threaded replies; Notes are legacy annotations."
-    },
-    {
-        id: 101,
-        text: "Which function category in the Formulas tab would you use to look up a value in a table and return a result from another column?",
-        options: ["Math & Trig", "Text", "Lookup & Reference", "Statistical"],
-        correctAnswer: "C",
-        explanation: "Lookup & Reference functions like VLOOKUP search and return values."
-    },
-    {
-        id: 102,
-        text: "What does 'Inspect Workbook' in the File → Info section do?",
-        options: ["Checks for spelling errors", "Checks for hidden properties, personal information, or metadata", "Validates all formulas in the workbook", "Compares two workbooks"],
-        correctAnswer: "B",
-        explanation: "Inspect Workbook finds hidden properties and personal information."
-    },
-    {
-        id: 103,
-        text: "In the Data tab, the 'Outline' group's 'Subtotal' feature automatically:",
-        options: ["Creates a PivotTable", "Inserts subtotals for grouped data sections", "Applies conditional formatting to grouped rows", "Sorts data by group"],
-        correctAnswer: "B",
-        explanation: "Subtotal inserts subtotals for grouped data sections."
-    },
-    {
-        id: 104,
-        text: "A 'Combo Chart' in Excel combines:",
-        options: ["A table and a chart", "Two different chart types such as bar and line", "A PivotTable and a PivotChart", "Sparklines and a main chart"],
-        correctAnswer: "B",
-        explanation: "Combo charts combine two different chart types like bar and line."
-    },
-    {
-        id: 105,
-        text: "Which Power Query feature in the Data tab allows you to reconnect to recently used external data sources?",
-        options: ["Existing Connections", "Refresh All", "Recent Sources", "Queries & Connections panel"],
-        correctAnswer: "C",
-        explanation: "Recent Sources shows recently used external data connections."
-    },
-    {
-        id: 106,
-        text: "'Forecast Sheet' in the Data tab creates:",
-        options: ["A budget template", "A chart predicting future trends based on historical data", "A copy of the current sheet", "An auto-generated formula summary"],
-        correctAnswer: "B",
-        explanation: "Forecast Sheet predicts future trends from historical data."
-    },
-    {
-        id: 107,
-        text: "In the View tab, 'Page Break Preview' allows you to:",
-        options: ["Set the default zoom level", "Add headers and footers", "View and drag page break lines to adjust where pages split for printing", "Freeze rows and columns"],
-        correctAnswer: "C",
-        explanation: "Page Break Preview lets you adjust page break lines."
-    },
-    {
-        id: 108,
-        text: "Which of the following is NOT a workbook view available in the View tab?",
-        options: ["Normal View", "Page Layout View", "Reading View", "Page Break Preview"],
-        correctAnswer: "C",
-        explanation: "Reading View is not a standard Excel workbook view."
-    },
-    {
-        id: 109,
-        text: "The 'Name Manager' in the Formulas tab is used to:",
-        options: ["Rename worksheets", "Create and manage named ranges or constants used in formulas", "Rename columns and rows", "Save custom formula templates"],
-        correctAnswer: "B",
-        explanation: "Name Manager creates and manages named ranges and constants."
-    },
-    {
-        id: 110,
-        text: "When you export a workbook as PDF/XPS in the File tab, you use which option?",
-        options: ["Share", "Save As", "Export", "Print"],
-        correctAnswer: "C",
-        explanation: "Export option creates PDF/XPS files."
-    },
-     { id: 111, text: "Microsoft Excel is part of the Microsoft 365 suite.", correctAnswer: "True", explanation: "Excel is included in Microsoft 365 subscription." },
-    { id: 112, text: "Excel is only available on the Windows operating system.", correctAnswer: "False", explanation: "Excel is available on Windows, macOS, iOS, and Android." },
-    { id: 113, text: "The Clipboard group in the Home tab includes the Format Painter tool.", correctAnswer: "True", explanation: "Format Painter is in the Clipboard group." },
-    { id: 114, text: "Ctrl+Z is the shortcut for Copy in Excel.", correctAnswer: "False", explanation: "Ctrl+Z is Undo; Ctrl+C is Copy." },
-    { id: 115, text: "The Alignment group in the Home tab includes the Wrap Text feature.", correctAnswer: "True", explanation: "Wrap Text is in the Alignment group." },
-    { id: 116, text: "The 'Number' group in the Home tab can display values as percentages or currency.", correctAnswer: "True", explanation: "Number group formats values as percentages, currency, etc." },
-    { id: 117, text: "Conditional Formatting is found in the Font group of the Home tab.", correctAnswer: "False", explanation: "Conditional Formatting is in the Styles group." },
-    { id: 118, text: "The File tab is also known as the Backstage View.", correctAnswer: "True", explanation: "File tab opens Backstage View." },
-    { id: 119, text: "'Save As' allows you to save the workbook in CSV or PDF format.", correctAnswer: "True", explanation: "Save As supports CSV, PDF, and other formats." },
-    { id: 120, text: "The Insert tab is used to add PivotTables and Charts to a worksheet.", correctAnswer: "True", explanation: "Insert tab contains PivotTable and Charts." },
-    { id: 121, text: "A Slicer can be used to filter data in both Tables and PivotTables.", correctAnswer: "True", explanation: "Slicers work with both Tables and PivotTables." },
-    { id: 122, text: "Timeline filters work with any cell range, not just PivotTables.", correctAnswer: "False", explanation: "Timeline filters work specifically with PivotTables." },
-    { id: 123, text: "SmartArt is found in the Illustrations group of the Insert tab.", correctAnswer: "True", explanation: "SmartArt is in the Illustrations group." },
-    { id: 124, text: "The Page Layout tab controls margins and paper orientation.", correctAnswer: "True", explanation: "Page Layout tab controls page setup options." },
-    { id: 125, text: "Gridlines can be shown or hidden using the Sheet Options group in the Page Layout tab.", correctAnswer: "True", explanation: "Sheet Options controls gridlines visibility." },
-    { id: 126, text: "AutoSum is only available in the Home tab.", correctAnswer: "False", explanation: "AutoSum is also available in the Formulas tab." },
-    { id: 127, text: "The 'Data Validation' feature allows you to create dropdown lists in cells.", correctAnswer: "True", explanation: "Data Validation can create dropdown lists." },
-    { id: 128, text: "Flash Fill (Ctrl+E) requires the user to manually define the fill pattern before it works.", correctAnswer: "False", explanation: "Flash Fill automatically detects patterns." },
-    { id: 129, text: "'Protect Workbook' prevents structural changes like adding or deleting sheets.", correctAnswer: "True", explanation: "Protect Workbook prevents structural changes." },
-    { id: 130, text: "The Formulas tab has a 'Name Manager' to manage named ranges.", correctAnswer: "True", explanation: "Name Manager is in the Formulas tab." },
-    { id: 131, text: "The 'Forecast Sheet' feature in the Data tab can predict future trends from historical data.", correctAnswer: "True", explanation: "Forecast Sheet creates predictive charts." },
-    { id: 132, text: "The Review tab's 'Comments' feature supports threaded replies for team collaboration.", correctAnswer: "True", explanation: "Comments support threaded conversations." },
-    { id: 133, text: "'Page Break Preview' allows you to drag and move page break lines.", correctAnswer: "True", explanation: "Page breaks are adjustable in Page Break Preview." },
-    { id: 134, text: "The View tab's 'Freeze Panes' feature freezes the entire worksheet so it cannot be edited.", correctAnswer: "False", explanation: "Freeze Panes keeps rows/columns visible while scrolling." },
-    { id: 135, text: "'Print Titles' in the Page Layout tab repeats headers on every printed page.", correctAnswer: "True", explanation: "Print Titles repeats specified rows/columns on each printed page." },
-    { id: 136, text: "The 'Subtotal' feature in the Data tab requires data to be grouped first.", correctAnswer: "True", explanation: "Subtotal works on sorted/grouped data." },
-    { id: 137, text: "A Combo Chart allows you to combine a bar chart and a line chart together.", correctAnswer: "True", explanation: "Combo charts combine different chart types." },
-    { id: 138, text: "The 'Inspect Workbook' option is found in the File tab under Info.", correctAnswer: "True", explanation: "Inspect Workbook is in File → Info." },
-    { id: 139, text: "'Scale to Fit' in the Page Layout tab can compress the worksheet to fit on one printed page.", correctAnswer: "True", explanation: "Scale to Fit adjusts content to fit on printed pages." },
-    { id: 140, text: "The Data tab's 'Get Data' feature can import data from JSON and XML files.", correctAnswer: "True", explanation: "Get Data imports from JSON, XML, and other sources." }
+        explanation: "Anomaly-based IDS detects unknown threats by identifying deviations from normal behavior."
+    }       
         ];
 
         let currentQuestionIndex = 0;
